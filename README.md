@@ -6,6 +6,11 @@ MERN Stack Application Starter Kit w/ [Feathers](https://docs.feathersjs.com)
 
 This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for MERN Stack Applications (w/ [Feathers](https://docs.feathersjs.com)). The client comes customized with [Ant Design](https://ant.design) UI Library and configured with [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
 
+## Documentation
+
+- [Client](https://github.com/ingeniousambivert/MERN-Starter/tree/main/client#client)
+- [Server](https://github.com/ingeniousambivert/MERN-Starter/tree/main/server#server)
+
 ## Installation
 
 1. Clone the repository
