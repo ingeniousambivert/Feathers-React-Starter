@@ -47,16 +47,16 @@ Server :
 ## Todo
 
 - [x] Ant Design UI Library w/ Custom Theme
-- [x] ESLint for Server and Client
-- [x] Prettier for Client
+- [x] ESLint for server and client
+- [x] Prettier for client
 - [x] Redux Toolkit for State Management
 - [x] PropTypes Check
 - [x] Customize CRA with HMR
-- [x] Module Aliases for Client and Server
-- [ ] Setup [concurrently](https://www.npmjs.com/package/concurrently) for running Client and Server simultaneously
+- [x] Module Aliases for client and server
+- [ ] Setup [concurrently](https://www.npmjs.com/package/concurrently) for running client and server simultaneously
 - [ ] User/Authentication Management
-- [ ] Test cases w/ Jest
-- [ ] Storybook for Client
+- [ ] Test cases w/ [Jest](https://jestjs.io/) for client and server
+- [ ] [Storybook](https://storybook.js.org/) for client
 
 ## Contributing
 
