@@ -53,7 +53,7 @@ Server :
 - [x] PropTypes Check
 - [x] Customize CRA with HMR
 - [x] Module Aliases for Client and Server
-- [ ] Setup Concurrently for running Client and Server simultaneously
+- [ ] Setup [concurrently](https://www.npmjs.com/package/concurrently) for running Client and Server simultaneously
 - [ ] User/Authentication Management
 - [ ] Test cases w/ Jest
 - [ ] Storybook for Client
