@@ -1,6 +1,6 @@
 # Client
 
-> React Client for MERN Starter
+> React Client for the Starter Kit
 
 ## About
 

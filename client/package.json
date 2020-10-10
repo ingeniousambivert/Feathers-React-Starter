@@ -1,6 +1,6 @@
 {
 	"name": "client",
-	"description": "React Web App for the MERN Starter Kit",
+	"description": "React Web App for the Starter Kit",
 	"version": "0.1.0",
 	"keywords": [
 		"react"
