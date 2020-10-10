@@ -18,9 +18,14 @@ const PageFooter = (props) => {
 					fontSize: "0.65rem",
 					textAlign: "center"
 				}}>
-				{/* {" Ã‚Â© "} {new Date().getFullYear()}{" "} */}
-				<Link strong href="/">
-					theManagementProject
+				<span
+					style={{
+						color: "#202020"
+					}}>
+					Made by &nbsp;
+				</span>
+				<Link strong href="https://github.com/ingeniousambivert">
+					@ingeniousambivert
 				</Link>
 			</p>
 		</Footer>

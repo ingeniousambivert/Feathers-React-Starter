@@ -11,7 +11,7 @@ feathersClient.configure(feathers.authentication());
 feathersClient.configure(
 	auth({
 		storage: window.localStorage,
-		storageKey: "themanagementproject-jwt"
+		storageKey: "mernstarter-jwt"
 	})
 );
 feathersClient.reAuthenticate().catch((error) => {

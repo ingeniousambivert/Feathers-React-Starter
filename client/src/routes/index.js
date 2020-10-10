@@ -4,7 +4,6 @@ import { Route, Switch } from "react-router-dom";
 import Signin from "@pages/signin";
 import Signup from "@pages/signup";
 import Home from "@pages/home";
-import Dashboard from "@pages/dashboard";
 
 import ProtectedRoute from "./protectedRoute";
 import PublicRoute from "./publicRoute";
@@ -19,7 +18,6 @@ const Routes = () => {
 				<PublicRoute exact path="/signin" component={Signin} />
 
 				<ProtectedRoute exact path="/home" component={Home} />
-				<ProtectedRoute exact path="/project/dashboard" component={Dashboard} />
 
 				<Route component={NotFound} />
 			</Switch>
