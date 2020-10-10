@@ -21,8 +21,9 @@ yarn
 
 ```bash
 yarn start
-Open http://localhost:3000
 ```
+
+Open <http://localhost:3000>
 
 ## Built with
 
