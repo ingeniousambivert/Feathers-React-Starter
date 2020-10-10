@@ -1,6 +1,6 @@
 # Client
 
-> React Client for theManagementProject
+> React Client for MERN Starter
 
 ## About
 
