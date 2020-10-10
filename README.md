@@ -8,7 +8,13 @@ This project was bootstapped with [Create React App](https://facebook.github.io/
 
 ## Installation
 
-Use [yarn](https://yarnpkg.com/) to install all the dependencies.
+1. Clone the repository
+
+```bash
+git clone https://github.com/ingeniousambivert/MERN-Starter.git
+```
+
+2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
 
 - cd client
 - cd server
