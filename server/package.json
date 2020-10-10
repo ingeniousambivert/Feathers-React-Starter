@@ -1,6 +1,6 @@
 {
 	"name": "server",
-	"description": "Feathers Server for the MERN Starter Kit",
+	"description": "Feathers Server for the Starter Kit",
 	"version": "0.1.0",
 	"homepage": "",
 	"private": true,

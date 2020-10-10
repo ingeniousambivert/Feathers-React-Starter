@@ -1,6 +1,6 @@
 # Server
 
-> Feathers Server for MERN Starter
+> Feathers Server for the Starter Kit
 
 ## About
 
