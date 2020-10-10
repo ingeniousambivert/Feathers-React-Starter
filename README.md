@@ -71,5 +71,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Terms and License
 
 - Released under the [MIT](https://choosealicense.com/licenses/mit/)
-- Use it for personal and commercial projects, but please don’t republish, redistribute, or resell the template.
+- Use it for personal and commercial projects, but please don’t republish, redistribute, or resell the boilerplate.
 - Attribution is not required, although it is really appreciated.
