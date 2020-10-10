@@ -1,6 +1,6 @@
 # Server
 
-> Feathers Server for theManagementProject
+> Feathers Server for MERN Starter
 
 ## About
 
