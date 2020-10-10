@@ -55,6 +55,8 @@ Server :
 
 - [NodeJS](https://nodejs.org)
 
+- [MongoDB](https://www.mongodb.com)
+
 ## Todo
 
 - [x] Ant Design UI Library w/ Custom Theme
@@ -75,6 +77,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Terms and License
 
-- Released under the [MIT](https://choosealicense.com/licenses/mit/)
+- Released under the [MIT](https://choosealicense.com/licenses/mit/) License
 - Use it for personal and commercial projects, but please don’t republish, redistribute, or resell the boilerplate.
 - Attribution is not required, although it is really appreciated.
