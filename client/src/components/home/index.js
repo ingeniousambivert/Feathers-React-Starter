@@ -66,7 +66,7 @@ function HomeComponent() {
 								xl={18}
 								style={{ marginTop: "2%" }}>
 								<Divider orientation="center">
-									<h3>{renderUserName(user)}</h3>
+									<h1>{renderUserName(user)}</h1>
 								</Divider>
 							</Col>
 						</Row>
