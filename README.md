@@ -60,7 +60,7 @@ Server :
 - [x] Customize CRA with HMR
 - [x] Module Aliases for client and server
 - [ ] Setup [concurrently](https://www.npmjs.com/package/concurrently) for running client and server simultaneously
-- [ ] Authentication Management(<https://feathers-plus.github.io/v1/authentication-management/>)
+- [ ] [Authentication Management](<https://feathers-plus.github.io/v1/authentication-management/>)
 - [ ] Test cases w/ [Jest](https://jestjs.io/) for client and server
 - [ ] [Storybook](https://storybook.js.org/) for client
 
