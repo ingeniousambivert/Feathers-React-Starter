@@ -16,7 +16,7 @@ This project was bootstapped with [Create React App](https://facebook.github.io/
 1. Clone the repository or use the [Github CLI](https://cli.github.com/) and create a new repository using this template
 
 ```bash
-git clone https://github.com/ingeniousambivert/MERN-Starter.git
+git clone https://github.com/ingeniousambivert/Feathers-React-Starter.git
 ```
 
 2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
