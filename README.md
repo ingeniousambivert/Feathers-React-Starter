@@ -8,8 +8,8 @@ This project was bootstapped with [Create React App](https://facebook.github.io/
 
 ## Documentation
 
-- [Client](https://github.com/ingeniousambivert/MERN-Starter/tree/main/client#client)
-- [Server](https://github.com/ingeniousambivert/MERN-Starter/tree/main/server#server)
+- [Client](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/client#client)
+- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/server#server)
 
 ## Installation
 
