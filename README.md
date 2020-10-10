@@ -1,10 +1,10 @@
 # MERN-Starter
 
-MERN Stack Application Starter Kit w/ Feathers
+MERN Stack Application Starter Kit w/ [Feathers](https://docs.feathersjs.com)
 
 ## About
 
-This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for MERN Stack Applications (w/ Feathers). The client comes with [Ant Design](https://ant.design) UI Library and [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
+This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for MERN Stack Applications (w/ [Feathers](https://docs.feathersjs.com)). The client comes customized with [Ant Design](https://ant.design) UI Library and configured with [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
 
 ## Installation
 
@@ -32,17 +32,17 @@ Open <http://localhost:3000>
 
 Client :
 
-[Ant Design](https://ant.design)
+- [Ant Design](https://ant.design)
 
-[React](https://www.reactjs.org)
+- [React](https://www.reactjs.org)
 
-[Redux Toolkit](https://redux-toolkit.js.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
 
 Server :
 
-[Feathers](https://docs.feathersjs.com)
+- [Feathers](https://docs.feathersjs.com)
 
-[NodeJS](https://nodejs.org)
+- [NodeJS](https://nodejs.org)
 
 ## Todo
 
