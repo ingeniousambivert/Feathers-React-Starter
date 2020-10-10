@@ -70,13 +70,17 @@ function Landing() {
 							</a>
 							&nbsp;for State Management.
 						</Text>
-						<br />
+					</Col>
+				</Row>
+				<Row gutter={16} align="middle">
+					<Col>
 						<Text strong>
+							Read more about this project&nbsp;
 							<a
 								href="https://github.com/ingeniousambivert/MERN-Starter"
 								rel="noopener noreferrer"
 								target="_blank">
-								More Info
+								here.
 							</a>
 						</Text>
 					</Col>
