@@ -10,9 +10,7 @@ process.on("unhandledRejection", (reason, p) =>
 
 server.on("listening", () =>
   logger.info(
-    `the-management-project-server
-    running on http://%s:%d`,
-    app.get("host"),
-    port
+		"server running on http://%s:%d",
+		app.get("host"), port
   )
 );
