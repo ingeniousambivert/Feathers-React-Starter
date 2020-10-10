@@ -1,11 +1,10 @@
 # MERN-Starter
 
-MERN Stack Application Starter Kit w/ FeathersJS
+MERN Stack Application Starter Kit w/ Feathers
 
 ## About
 
-This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for MERN Stack Applications (w/ Feathers). It comes with
-[Ant Design](https://ant.design) UI Library and [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
+This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for MERN Stack Applications (w/ Feathers). The client comes with [Ant Design](https://ant.design) UI Library and [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
 
 ## Installation
 
@@ -15,7 +14,7 @@ Use [yarn](https://yarnpkg.com/) to install all the dependencies.
 - cd server
 
 ```bash
-yarn install
+yarn
 ```
 
 ## Usage
