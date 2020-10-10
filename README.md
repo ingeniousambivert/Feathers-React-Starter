@@ -1,10 +1,10 @@
-# MERN-Starter
+# Feathers-React-Starter
 
-MERN Stack Application Starter Kit w/ [Feathers](https://docs.feathersjs.com)
+Feathers-React-MongoDB Stack Starter Kit.
 
 ## About
 
-This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for MERN Stack Applications (w/ [Feathers](https://docs.feathersjs.com)). The client comes customized with [Ant Design](https://ant.design) UI Library and configured with [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
+This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for Feathers-React Applications. The client comes customized with [Ant Design](https://ant.design) UI Library and configured with [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
 
 ## Documentation
 
