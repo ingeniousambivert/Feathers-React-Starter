@@ -13,7 +13,7 @@ This project was bootstapped with [Create React App](https://facebook.github.io/
 
 ## Installation
 
-1. Clone the repository
+1. Clone the repository or use the [Github CLI](https://cli.github.com/) and create a new repository using this template
 
 ```bash
 git clone https://github.com/ingeniousambivert/MERN-Starter.git
