@@ -8,7 +8,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ### Why this stack
 
-- [**React**](https://www.reactjs.org) is a library for building composable user interfaces. It encourages the creation of reusable UI components which present data that changes over time. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project)
+- [**React**](https://www.reactjs.org) is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project)
 
 - [**Ant Design**](https://ant.design) is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
 
@@ -30,7 +30,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
 
-    *directory* - server | client
+    *directory* - client / server  
 
     ```bash
     cd directory
@@ -39,7 +39,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ## Usage
 
-*directory* - server | client
+*directory* - client / server
 
 ```bash
 cd directory
@@ -51,6 +51,176 @@ Open <http://localhost:3000>
 ## How to utilize this starter
 
 It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **NodeJS**, **Express** and **React**.
+
+To get the best out of this starter you should know the project structure of both *client* and *server*. Given below is the complete directory tree for both the projects.
+
+### Project Trees
+
+#### Client
+
+```bash
+├── README.md
+├── config-overrides.js
+├── package.json
+├── public
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+├── src
+│   ├── App.js
+│   ├── assets
+│   │   ├── images
+│   │   │   ├── logo.png
+│   │   │   └── logo.svg
+│   │   ├── less
+│   │   │   └── App.less
+│   │   └── scss
+│   │       └── style.scss
+│   ├── client
+│   │   └── index.js
+│   ├── components
+│   │   ├── home
+│   │   │   ├── index.js
+│   │   │   └── sections
+│   │   │       └── user
+│   │   │           ├── index.js
+│   │   │           └── partials
+│   │   │               ├── data.js
+│   │   │               └── update.js
+│   │   ├── landing
+│   │   │   ├── index.js
+│   │   │   └── utils
+│   │   │       └── LandingRoute.js
+│   │   ├── signin
+│   │   │   ├── index.js
+│   │   │   └── redirect
+│   │   │       └── index.js
+│   │   ├── signup
+│   │   │   └── index.js
+│   │   └── wrapper
+│   │       └── index.js
+│   ├── index.js
+│   ├── layouts
+│   │   ├── index.js
+│   │   ├── pages
+│   │   │   ├── NotFound.js
+│   │   │   ├── PageFooter.js
+│   │   │   └── PageHeader.js
+│   │   └── partials
+│   │       ├── Logo.js
+│   │       └── NotfoundImage.js
+│   ├── pages
+│   │   ├── container
+│   │   │   └── index.js
+│   │   ├── home
+│   │   │   └── index.js
+│   │   ├── landing
+│   │   │   └── index.js
+│   │   ├── signin
+│   │   │   ├── index.js
+│   │   │   └── redirect
+│   │   │       └── index.js
+│   │   └── signup
+│   │       └── index.js
+│   ├── routes
+│   │   ├── index.js
+│   │   ├── protectedRoute
+│   │   │   └── index.js
+│   │   └── publicRoute
+│   │       └── index.js
+│   ├── serviceWorker.js
+│   ├── store
+│   │   ├── index.js
+│   │   └── slices
+│   │       ├── auth
+│   │       │   └── index.js
+│   │       └── user
+│   │           └── index.js
+│   ├── tests
+│   │   ├── App.test.js
+│   │   └── setupTests.js
+│   ├── theme
+│   │   └── overrides.js
+│   └── utils
+│       ├── colors.js
+│       ├── greet.js
+│       ├── index.js
+│       └── spinner.js
+└── yarn.lock
+```
+
+#### Server
+
+```bash
+├── README.md
+├── config
+│   ├── default.json
+│   ├── production.json
+│   └── test.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── src
+│   ├── app.js
+│   ├── auth
+│   │   ├── authentication.hooks.js
+│   │   └── authentication.js
+│   ├── channels
+│   │   └── channels.js
+│   ├── errors
+│   │   └── index.js
+│   ├── hooks
+│   │   └── app
+│   │       └── app.hooks.js
+│   ├── middleware
+│   │   └── index.js
+│   ├── models
+│   │   └── users.model.js
+│   ├── mongoose.js
+│   ├── server.js
+│   ├── services
+│   │   ├── index.js
+│   │   ├── usermanagement
+│   │   │   ├── usermanagement.class.js
+│   │   │   ├── usermanagement.hooks.js
+│   │   │   └── usermanagement.service.js
+│   │   └── users
+│   │       ├── users.class.js
+│   │       ├── users.hooks.js
+│   │       └── users.service.js
+│   └── utils
+│       └── logger.js
+├── test
+│   ├── app.test.js
+│   ├── authentication.test.js
+│   └── services
+│       ├── mailer.test.js
+│       ├── usermanagement.test.js
+│       └── users.test.js
+└── yarn.lock
+```
+
+##### Important notes
+
+- The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/config-overrides.js) in the **client** consists of the module aliases *@client* - The Feathers Client , *@components* - The isolated UI components, *@layouts* - The page layouts, *@slices* - The Redux State Slices, *@utils* - The extra utility methods, *@pages* - The pages composed of the components, *@images* - The image assets. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme/overrides.js) for the Ant Design theme override.
+
+- The [*.env*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/.env) in the **client** consists of the *NODE_ENV* configurations (API_URL, PORT, etc).
+
+- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src) in the **client** consists the main code for the React App. As seen in the project tree above it consists the folowing :
+  - [*assets*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/assets) - All static assets : SCSS, LESS, Medias.
+  - [*client*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/client) - The Feathers Client configured with [Axios](https://github.com/axios/axios) to communicate to the *API*.
+  - [*components*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/components) - All isolated UI components
+  - [*layouts*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/layouts) - Page layouts (Header, Footer).
+  - [*pages*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/pages) - Individual web pages composed of the UI components and wrapped with page layouts.
+  - [*routes*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/routes) - All the page routes passed through the customized public and private routes.
+  - [*store*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/store) - The Redux Store configured with *slices*, *reducers* and *state persistance*.
+     *State Slices -*
+    - *auth* : Consists of the *Signup*, *Signin* and *Signout* thunks, reducers and actions. It also has three *selectors* - *Error*, *UserID* and *IsAuthenticated*.
+    - *user* : Consists of *Load* and *Update* thunks, reducers and actions. It also has two *selectors* - *Error* and *User*.
+  - [theme](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme) - Custom theme (few options overridden) for Ant Design.
+
+  - [utils](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/utils) - Extra utility methods and components.
 
 ### Read More
 
