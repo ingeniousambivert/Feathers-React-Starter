@@ -33,18 +33,18 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 - cd client
 - cd server
 
-```bash
-yarn
-```
+    ```bash
+    yarn
+    ```
 
 ## Usage
 
 - cd client
 - cd server
 
-```bash
-yarn start
-```
+    ```bash
+    yarn start
+    ```
 
 Open <http://localhost:3000>
 
