@@ -222,6 +222,9 @@ To get the best out of this starter you should know the project structure of bot
 
   - [utils](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/utils) - Extra utility methods and components.
 
+- The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/config) in the **server** consists of *default*, *production*, *test* configurations.
+  - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
+
 ### Read More
 
 - [Client](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/client#client)
