@@ -53,7 +53,7 @@ Open <http://localhost:3000>
 
 ## Built with
 
-Client :
+**Client** :
 
 - [Ant Design](https://ant.design)
 
@@ -61,13 +61,17 @@ Client :
 
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 
-Server :
+**Server** :
 
 - [Feathers](https://docs.feathersjs.com)
 
 - [NodeJS](https://nodejs.org)
 
 - [MongoDB](https://www.mongodb.com)
+
+## How to utilize this starter
+
+WIP
 
 ## Todo
 
