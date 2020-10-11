@@ -67,9 +67,9 @@ It is presumed that if you are using this starter you are already familiar with 
      *State Slices -*
     - *auth* : Consists of the *Signup*, *Signin* and *Signout* - thunks, reducers and actions. It also has three *selectors* - *Error*, *UserID* and *IsAuthenticated*.
     - *user* : Consists of *Load* and *Update* - thunks, reducers and actions. It also has two *selectors* - *Error* and *User*.
-  - [theme](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme) - Custom theme (few options overridden) for Ant Design.
+  - [*theme*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme) - Custom theme (few options overridden) for Ant Design.
 
-  - [utils](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/utils) - Extra utility methods and components.
+  - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/utils) - Extra utility methods and components.
 
 - The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/config) in the **server** consists of *default*, *production*, *test* configurations.
   - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
