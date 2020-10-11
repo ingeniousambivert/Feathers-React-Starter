@@ -4,7 +4,7 @@
 
 ## About
 
-This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org), [**Ant Design**](https://ant.design) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications.
+This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org), [**Ant Design**](https://ant.design) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications. It has a pre-configured REST API with Local Authentication in the server and State Management in the client.
 
 ### Why this stack
 
