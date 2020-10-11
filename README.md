@@ -30,7 +30,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
 
-    directory - server | client
+    *directory* - server | client
 
     ```bash
     cd directory
@@ -39,7 +39,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ## Usage
 
-directory - server | client
+*directory* - server | client
 
 ```bash
 cd directory
