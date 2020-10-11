@@ -41,8 +41,10 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 directory - server | client
 
-    cd directory
-    yarn start
+```bash
+cd directory
+yarn start
+```
 
 Open <http://localhost:3000>
 
