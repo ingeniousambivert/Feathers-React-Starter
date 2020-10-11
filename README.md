@@ -73,6 +73,7 @@ It is presumed that if you are using this starter you are already familiar with 
 
 - The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/config) in the **server** consists of *default*, *production*, *test* configurations.
   - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
+  
 - The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app* - The Feathers app instance, *@services*, *@hooks*, *@errors*.
 
 - The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src) in the **server** consists the main code for the Feathers Server. Check out the project tree below for details.
