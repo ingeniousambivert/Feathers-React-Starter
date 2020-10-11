@@ -50,7 +50,7 @@ Open <http://localhost:3000>
 
 ## Overview
 
-> It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**
+> It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
 
 ### Client
 
