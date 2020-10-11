@@ -11,6 +11,18 @@ This project was bootstapped with [Create React App](https://facebook.github.io/
 - [Client](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/client#client)
 - [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/server#server)
 
+### Why this stack
+
+- **React**  is a library for building composable user interfaces. It encourages the creation of reusable UI components which present data that changes over time. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project)
+
+- **Ant Design** is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
+
+- **Redux Toolkit**  is the official, opinionated, batteries-included toolset for efficient Redux development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
+
+- **Redux** is a predictable state container for JavaScript applications. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
+
+- **Feathers** is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
+
 ## Installation
 
 1. Clone the repository or use the [Github CLI](https://cli.github.com/) and create a new repository using this template
