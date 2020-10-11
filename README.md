@@ -56,7 +56,7 @@ It is presumed that if you are using this starter you are already familiar with 
 
 - The [*.env*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/.env) in the **client** consists of the *NODE_ENV* configurations (API_URL, PORT, etc).
 
-- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src) in the **client** consists the main code for the React App. As seen in the project tree below it consists the folowing :
+- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src) in the **client** consists the main code for the React App. Check out the project tree below for details.
   - [*assets*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/assets) - All static assets : SCSS, LESS, Media.
   - [*client*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/client) - The Feathers Client configured with [Axios](https://github.com/axios/axios) to communicate to the *API*.
   - [*components*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/components) - All isolated UI components
@@ -75,7 +75,7 @@ It is presumed that if you are using this starter you are already familiar with 
   - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
 - The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app* - The Feathers app instance, *@services*, *@hooks*, *@errors*.
 
-- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src) in the **server** consists the main code for the Feathers Server. As seen in the project tree below it consists the folowing :
+- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src) in the **server** consists the main code for the Feathers Server. Check out the project tree below for details.
   - [*auth*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/auth) - Authentication Service implementation, comes configured with JWT Strategy.
   - [*errors*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/errors) - Feathers Errors and Global Error Handler.
   - [*hooks*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/hooks) - Hooks (pluggable middleware functions) for Feathers App
