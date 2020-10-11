@@ -8,7 +8,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ### Why this stack
 
-- [**React**](https://www.reactjs.org) is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project)
+<!-- - [**React**](https://www.reactjs.org) is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project) -->
 
 - [**Ant Design**](https://ant.design) is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
 
@@ -16,9 +16,9 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 - [**Redux**](https://redux.js.org/) is a predictable state container for JavaScript applications. It helps you write applications that behave consistently and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
 
-- [**Feathers**](https://docs.feathersjs.com) is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
+<!-- - [**Feathers**](https://docs.feathersjs.com) is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
   
-- [**MongoDB**](https://www.mongodb.com/) is a document database with the scalability and flexibility that you want with the querying and indexing that you need. [Read More](https://www.mongodb.com/why-use-mongodb#:~:text=Companies%20and%20development%20teams%20of,of%20both%20data%20and%20traffic.)
+- [**MongoDB**](https://www.mongodb.com/) is a document database with the scalability and flexibility that you want with the querying and indexing that you need. [Read More](https://www.mongodb.com/why-use-mongodb#:~:text=Companies%20and%20development%20teams%20of,of%20both%20data%20and%20traffic.) -->
 
 ## Installation
 
@@ -61,7 +61,7 @@ Open <http://localhost:3000>
 - The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src) in the **client** consists the main code for the React App. Check out the project tree below for details.
   - [*assets*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/assets) - All static assets : SCSS, LESS, Media.
   - [*client*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/client) - The Feathers Client configured with [Axios](https://github.com/axios/axios) to communicate to the *API*.
-  - [*components*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/components) - All isolated UI components
+  - [*components*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/components) - All isolated UI components.
   - [*layouts*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/layouts) - Page layouts (Header, Footer).
   - [*pages*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/pages) - Individual pages composed of the UI components and wrapped with page layouts.
   - [*routes*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/routes) - All the page routes passed through the customized public and private routes.
