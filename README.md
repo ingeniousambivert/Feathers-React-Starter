@@ -52,7 +52,7 @@ Open <http://localhost:3000>
 
 It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
 
-- The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/config-overrides.js) in the **client** consists of the module aliases : *@client* - The Feathers Client , *@components* - The isolated UI components, *@layouts* - The page layouts, *@slices* - The Redux State Slices, *@utils* - The extra utility methods, *@pages* - The pages composed of the components, *@images* - The image assets. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme/overrides.js) for the Ant Design theme override.
+- The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/config-overrides.js) in the **client** consists of the module aliases : *@client*, *@components*, *@layouts*, *@slices*, *@utils*, *@pages*, *@images*. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme/overrides.js) for the Ant Design theme override.
 
 - The [*.env*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/.env) in the **client** consists of the *NODE_ENV* configurations (API_URL, PORT, etc).
 
@@ -73,7 +73,7 @@ It is presumed that if you are using this starter you are already familiar with 
 
 - The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/config) in the **server** consists of *default*, *production*, *test* configurations.
   - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
-- The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app* - The Feathers app instance, *@services* - Feathers Services, *@hooks* - Feathers App Hooks, *@errors* - Feathers Errors Instances.
+- The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app* - The Feathers app instance, *@services*, *@hooks*, *@errors*.
 
 - The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src) in the **server** consists the main code for the Feathers Server. As seen in the project tree below it consists the folowing :
   - [*auth*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/auth) - Authentication Service implementation, comes configured with JWT Strategy.
