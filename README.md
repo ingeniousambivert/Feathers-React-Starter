@@ -12,7 +12,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 - [**Ant Design**](https://ant.design) is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
 
-- [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient Redux development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
+- [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient *Redux* development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
 
 - [**Redux**](https://redux.js.org/) is a predictable state container for JavaScript applications. It helps you write applications that behave consistently and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
 
