@@ -50,7 +50,7 @@ Open <http://localhost:3000>
 
 ## Overview
 
-It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **NodeJS**, **Express** and **React**.
+It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
 
 - The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/config-overrides.js) in the **client** consists of the module aliases : *@client* - The Feathers Client , *@components* - The isolated UI components, *@layouts* - The page layouts, *@slices* - The Redux State Slices, *@utils* - The extra utility methods, *@pages* - The pages composed of the components, *@images* - The image assets. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme/overrides.js) for the Ant Design theme override.
 
