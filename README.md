@@ -1,31 +1,28 @@
 # Feathers-React-Starter
 
-Feathers-React-MongoDB Stack Starter Kit.
+*Feathers-React-MongoDB* Stack Starter Kit.
 
 ## About
 
-This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for Feathers-React Applications. The client comes customized with [Ant Design](https://ant.design) UI Library and configured with [Redux Toolkit](https://redux-toolkit.js.org/) for State Management.
-
-## Documentation
-
-- [Client](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/client#client)
-- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/server#server)
+This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org), [**Ant Design**](https://ant.design) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications.
 
 ### Why this stack
 
-- **React**  is a library for building composable user interfaces. It encourages the creation of reusable UI components which present data that changes over time. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project)
+- [**React**](https://www.reactjs.org) is a library for building composable user interfaces. It encourages the creation of reusable UI components which present data that changes over time. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project)
 
-- **Ant Design** is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
+- [**Ant Design**](https://ant.design) is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
 
-- **Redux Toolkit**  is the official, opinionated, batteries-included toolset for efficient Redux development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
+- [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient Redux development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
 
-- **Redux** is a predictable state container for JavaScript applications. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
+- [**Redux**](https://redux.js.org/) is a predictable state container for JavaScript applications. It helps you write applications that behave consistently and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
 
-- **Feathers** is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
+- [**Feathers**](https://docs.feathersjs.com) is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
+  
+- [**MongoDB**](https://www.mongodb.com/) is a document database with the scalability and flexibility that you want with the querying and indexing that you need. [Read More](https://www.mongodb.com/why-use-mongodb#:~:text=Companies%20and%20development%20teams%20of,of%20both%20data%20and%20traffic.)
 
 ## Installation
 
-1. Clone the repository or use the [Github CLI](https://cli.github.com/) and create a new repository using this template
+1. Clone the repository or use the [Github CLI](https://cli.github.com/) and create a new repository using this template.
 
     ```bash
     git clone https://github.com/ingeniousambivert/Feathers-React-Starter.git
@@ -51,27 +48,32 @@ yarn start
 
 Open <http://localhost:3000>
 
+## How to utilize this starter
+
+It is presumed that if you are using this starter you are already familiar with this stack or with the **MERN** Stack.
+
+### Read More
+
+- [Client](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/client#client)
+- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/server#server)
+
 ## Built with
 
 **Client** :
 
-- [Ant Design](https://ant.design)
-
 - [React](https://www.reactjs.org)
-
+- [Ant Design](https://ant.design)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 
 **Server** :
 
 - [Feathers](https://docs.feathersjs.com)
-
 - [NodeJS](https://nodejs.org)
 
+**Database** :
+
 - [MongoDB](https://www.mongodb.com)
-
-## How to utilize this starter
-
-WIP
+- [Mongoose](https://mongoosejs.com/)
 
 ## Todo
 
