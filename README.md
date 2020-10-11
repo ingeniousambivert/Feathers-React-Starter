@@ -50,7 +50,7 @@ Open <http://localhost:3000>
 
 ## How to utilize this starter
 
-It is presumed that if you are using this starter you are already familiar with this stack or with the **MERN** Stack.
+It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **NodeJS**, **Express** and **React**.
 
 ### Read More
 
