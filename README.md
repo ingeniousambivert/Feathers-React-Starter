@@ -216,8 +216,8 @@ To get the best out of this starter you should know the project structure of bot
   - [*routes*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/routes) - All the page routes passed through the customized public and private routes.
   - [*store*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/store) - The Redux Store configured with *slices*, *reducers* and *state persistance*.
      *State Slices -*
-    - *auth* : Consists of the *Signup*, *Signin* and *Signout* thunks, reducers and actions. It also has three *selectors* - *Error*, *UserID* and *IsAuthenticated*.
-    - *user* : Consists of *Load* and *Update* thunks, reducers and actions. It also has two *selectors* - *Error* and *User*.
+    - *auth* : Consists of the *Signup*, *Signin* and *Signout* - thunks, reducers and actions. It also has three *selectors* - *Error*, *UserID* and *IsAuthenticated*.
+    - *user* : Consists of *Load* and *Update* - thunks, reducers and actions. It also has two *selectors* - *Error* and *User*.
   - [theme](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme) - Custom theme (few options overridden) for Ant Design.
 
   - [utils](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/utils) - Extra utility methods and components.
