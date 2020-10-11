@@ -30,21 +30,21 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
 
-- cd client
-- cd server
+directory - server | client
 
-    ```bash
-    yarn
-    ```
+```bash
+cd directory
+yarn
+```
 
 ## Usage
 
-- cd client
-- cd server
+directory - server | client
 
-    ```bash
-    yarn start
-    ```
+```bash
+cd directory
+yarn start
+```
 
 Open <http://localhost:3000>
 
