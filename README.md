@@ -25,8 +25,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 ## Requirements
 
 - [NodeJS](https://nodejs.org)
-- [npm](https://npmjs.com)
-- [yarn](https://yarnpkg.com)
+- [npm](https://npmjs.com) or [yarn](https://yarnpkg.com)
 - [MongoDB](https://www.mongodb.com)
 
 ## Installation
