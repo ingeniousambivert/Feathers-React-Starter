@@ -281,7 +281,7 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] Module Aliases for client and server
 - [ ] Setup [concurrently](https://www.npmjs.com/package/concurrently) for running client and server simultaneously
 - [ ] [Authentication Management](<https://feathers-plus.github.io/v1/authentication-management/>)
-- [ ] Test cases w/ [Jest](https://jestjs.io/) for client and server
+- [ ] More test cases for server and snapshot testing for client w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for client
 
 ## Contributing
