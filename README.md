@@ -93,7 +93,7 @@ Open <http://localhost:3000>
   - [*hooks*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/hooks) - Hooks (pluggable middleware functions) for Feathers App
   - [*middleware*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/middleware) - Express middleware. To configure extra Express Modules. Also allows customizing services.
   - [*models*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/models) - Mongoose Models for individual services.
-  - [*services*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/services) - The core of feathers - services. Basically instance of an object or a class.
+  - [*services*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/services) - The core of feathers - services. Basically instance of a class that contains your business logic.
   - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/utils) - Extra utility methods
   
 - The [*mongoose.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/mongoose.js) in the **server** is the instantiation of the Mongoose Module. It configures some connection options and exports the mongoose client.
