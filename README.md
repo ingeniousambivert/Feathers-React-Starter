@@ -273,8 +273,7 @@ To get the best out of this starter know the project structure of both *client* 
 ## Todo
 
 - [x] Ant Design UI Library w/ Custom Theme
-- [x] ESLint for server and client
-- [x] Prettier for client
+- [x] ESLint for server and client. And Prettier for client
 - [x] Redux Toolkit for State Management
 - [x] PropTypes Check
 - [x] Customize CRA with HMR
