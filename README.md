@@ -279,7 +279,6 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] PropTypes Check
 - [x] Customize CRA with HMR
 - [x] Module Aliases for client and server
-- [ ] Setup [concurrently](https://www.npmjs.com/package/concurrently) for running client and server simultaneously
 - [ ] [Authentication Management](<https://feathers-plus.github.io/v1/authentication-management/>)
 - [ ] Test cases w/ [Jest](https://jestjs.io/) for client and server
 - [ ] [Storybook](https://storybook.js.org/) for client
