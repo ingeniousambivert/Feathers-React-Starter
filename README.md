@@ -58,7 +58,7 @@ Open <http://localhost:3000>
 
 ## Overview
 
-> It is presumed that if you are using this starter you are already familiar with **Javascript** and the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
+> It is presumed that if you are using this starter you are familiar with **Javascript** and atleast the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
 
 ### Client
 
@@ -85,7 +85,7 @@ Open <http://localhost:3000>
 - The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/config) in the **server** consists of *default*, *production*, *test* configurations.
   - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
   
-- The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app* - The Feathers app instance, *@services*, *@hooks*, *@errors*.
+- The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app*, *@services*, *@hooks*, *@errors*.
 
 - The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src) in the **server** consists the main code for the Feathers Server. Check out the project tree below for details.
   - [*auth*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/auth) - Authentication Service implementation, comes configured with JWT Strategy.
@@ -93,7 +93,7 @@ Open <http://localhost:3000>
   - [*hooks*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/hooks) - Hooks (pluggable middleware functions) for Feathers App
   - [*middleware*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/middleware) - Express middleware. To configure extra Express Modules. Also allows customizing services.
   - [*models*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/models) - Mongoose Models for individual services.
-  - [*services*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/services) - The core of feathers - services. Basically instance of an object or a class.
+  - [*services*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/services) - The core of feathers - services. Basically instance of a class that contains your business logic.
   - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/utils) - Extra utility methods
   
 - The [*mongoose.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/mongoose.js) in the **server** is the instantiation of the Mongoose Module. It configures some connection options and exports the mongoose client.
@@ -273,14 +273,14 @@ To get the best out of this starter know the project structure of both *client* 
 ## Todo
 
 - [x] Ant Design UI Library w/ Custom Theme
-- [x] ESLint for server and client
-- [x] Prettier for client
+- [x] ESLint for server and client. And Prettier for client
 - [x] Redux Toolkit for State Management
 - [x] PropTypes Check
 - [x] Customize CRA with HMR
 - [x] Module Aliases for client and server
-- [ ] [Authentication Management](<https://feathers-plus.github.io/v1/authentication-management/>)
-- [ ] Test cases w/ [Jest](https://jestjs.io/) for client and server
+- [ ] [Authentication/User Management](<https://feathers-plus.github.io/v1/authentication-management/>) in the server
+- [ ] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the client
+- [ ] More test cases for server and snapshot testing for client w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for client
 
 ## Contributing
