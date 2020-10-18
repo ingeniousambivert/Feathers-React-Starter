@@ -1,6 +1,6 @@
 {
-	"short_name": "MERN Starter",
-	"name": "MERN Stack Starter Application",
+	"short_name": "Feathers-React Starter",
+	"name": "Feathers-React-MongoDB Stack Starter Application",
 	"icons": [
 		{
 			"src": "favicon.ico",
