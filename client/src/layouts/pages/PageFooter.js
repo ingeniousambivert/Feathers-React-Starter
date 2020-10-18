@@ -25,7 +25,7 @@ const PageFooter = (props) => {
 					Made by &nbsp;
 				</span>
 				<Link strong href="https://github.com/ingeniousambivert">
-					@ingeniousambivert
+					ingeniousambivert
 				</Link>
 			</p>
 		</Footer>

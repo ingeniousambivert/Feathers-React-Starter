@@ -11,22 +11,14 @@ function Landing() {
 			<Row gutter={16} align="middle">
 				<Col span={24}>
 					<Text strong>
-						<h1>MERN Starter</h1>
+						<h1>Feathers-React Starter</h1>
 					</Text>
 				</Col>
 			</Row>
 			<Space direction="vertical" size="large">
 				<Row gutter={16} align="middle">
 					<Col span={24}>
-						<Text strong>
-							MERN Stack Application Starter Kit w/&nbsp;
-							<a
-								href="https://docs.feathersjs.com"
-								rel="noopener noreferrer"
-								target="_blank">
-								Feathers
-							</a>
-						</Text>
+						<Text secondary>Feathers-React-MongoDB Stack Application Starter Kit</Text>
 					</Col>
 				</Row>
 				<Row gutter={16} align="middle">
@@ -55,8 +47,8 @@ function Landing() {
 								target="_blank">
 								Feathers Generator
 							</a>
-							. The purpose of this project is to provide a starter template for MERN
-							Stack Applications (w/ Feathers). <br />
+							. The purpose of this project is to provide a starter template for
+							Feathers-React-MongoDB Stack Applications. <br />
 							The client comes customized with&nbsp;
 							<a href="https://ant.design" rel="noopener noreferrer" target="_blank">
 								Ant Design
@@ -77,7 +69,7 @@ function Landing() {
 						<Text strong>
 							Read more about this project&nbsp;
 							<a
-								href="https://github.com/ingeniousambivert/MERN-Starter"
+								href="https://github.com/ingeniousambivert/Feathers-React-Starter"
 								rel="noopener noreferrer"
 								target="_blank">
 								here.

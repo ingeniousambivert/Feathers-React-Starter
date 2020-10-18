@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "@pages/container";
+import Container from "@containers";
 import RedirectSignInComponent from "@components/signin/redirect";
 
 function RedirectSignInContainer() {
