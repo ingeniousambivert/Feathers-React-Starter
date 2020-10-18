@@ -7,6 +7,7 @@ module.exports = override(
 	addWebpackAlias({
 		"@client": path.resolve(__dirname, "src/client"),
 		"@components": path.resolve(__dirname, "src/components"),
+		"@containers": path.resolve(__dirname, "src/containers"),
 		"@layouts": path.resolve(__dirname, "src/layouts"),
 		"@slices": path.resolve(__dirname, "src/store/slices"),
 		"@utils": path.resolve(__dirname, "src/utils"),
