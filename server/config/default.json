@@ -18,7 +18,7 @@
 			"header": {
 				"typ": "access"
 			},
-			"audience": "https://mern.starter",
+			"audience": "https://feathers-react.starter",
 			"issuer": "feathers",
 			"algorithm": "HS256",
 			"expiresIn": "1d"
@@ -28,5 +28,5 @@
 			"passwordField": "password"
 		}
 	},
-	"mongodb": "mongodb://localhost:27017/mernStarter"
+	"mongodb": "mongodb://localhost:27017/feathers-react"
 }
