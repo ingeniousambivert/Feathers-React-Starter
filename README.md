@@ -34,6 +34,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
     ```bash
     git clone https://github.com/ingeniousambivert/Feathers-React-Starter.git
+    git checkout dev
     ```
 
 2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
