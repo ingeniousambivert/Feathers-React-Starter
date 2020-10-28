@@ -110,7 +110,7 @@ $RECYCLE.BIN/
 lib/
 data/
 
-.env
+.env.local
 
 ### VSCODE FILES
 .vscode/*

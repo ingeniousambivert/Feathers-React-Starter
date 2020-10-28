@@ -1,7 +1,10 @@
 const users = require("./users/users.service.js");
-const usermanagement = require("./usermanagement/usermanagement.service.js");
+const mailer = require("./mailer/mailer.service.js");
+const authmanagement = require("./authmanagement/authmanagement.service.js");
 
 module.exports = function (app) {
   app.configure(users);
-  app.configure(usermanagement);
+
+  app.configure(mailer);
+  app.configure(authmanagement);
 };

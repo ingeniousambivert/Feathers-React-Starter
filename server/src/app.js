@@ -1,4 +1,8 @@
 require("module-alias/register");
+require("localenv");
+
+const dotenv = require("dotenv");
+dotenv.config();
 
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -7,8 +11,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const logger = require("./utils/logger");
 
-const dotenv = require("dotenv");
-dotenv.config();
+
 
 const feathers = require("@feathersjs/feathers");
 const configuration = require("@feathersjs/configuration");

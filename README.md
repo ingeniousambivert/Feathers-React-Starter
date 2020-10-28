@@ -187,12 +187,12 @@ To get the best out of this starter know the project structure of both *client* 
 │   │   └── setupTests.js
 │   ├── theme
 │   │   └── overrides.js
-│   └── utils
-│       ├── colors.js
-│       ├── greet.js
-│       ├── index.js
-│       └── spinner.js
-└── yarn.lock
+├── └── utils
+       ├── colors.js
+       ├── greet.js
+       ├── index.js
+       └── spinner.js
+
 ```
 
 #### Server
@@ -227,10 +227,6 @@ To get the best out of this starter know the project structure of both *client* 
 │   ├── server.js
 │   ├── services
 │   │   ├── index.js
-│   │   ├── usermanagement
-│   │   │   ├── usermanagement.class.js
-│   │   │   ├── usermanagement.hooks.js
-│   │   │   └── usermanagement.service.js
 │   │   └── users
 │   │       ├── users.class.js
 │   │       ├── users.hooks.js
@@ -238,13 +234,10 @@ To get the best out of this starter know the project structure of both *client* 
 │   └── utils
 │       └── logger.js
 ├── test
-│   ├── app.test.js
-│   ├── authentication.test.js
-│   └── services
-│       ├── mailer.test.js
-│       ├── usermanagement.test.js
-│       └── users.test.js
-└── yarn.lock
+    ├── app.test.js
+    ├── authentication.test.js
+    └── services
+     └── users.test.js
 ```
 
 ### Read More
@@ -278,7 +271,7 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] PropTypes Check
 - [x] Customize CRA with HMR
 - [x] Module Aliases for client and server
-- [ ] [Authentication/User Management](<https://feathers-plus.github.io/v1/authentication-management/>) in the server
+- [ ] [Authentication/User Management](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) in the server
 - [ ] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the client
 - [ ] More test cases for server and snapshot testing for client w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for client

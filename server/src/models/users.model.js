@@ -4,7 +4,6 @@
 // for more of what you can do here.
 module.exports = function (app) {
   const mongooseClient = app.get("mongooseClient");
-  const { ObjectId } = mongooseClient.Schema.Types;
 
   const schema = new mongooseClient.Schema(
     {
@@ -31,18 +30,13 @@ module.exports = function (app) {
         type: Boolean,
         default: true
       },
-      isVerified: {
-        type: Boolean,
-        default: true
-      },
-      projects: {
-        type: ObjectId,
-        ref: "projects"
-      },
-      picture: { type: String },
-      googleId: { type: String },
-      githubId: { type: String }
-    },
+			isVerified: { type: Boolean },
+			verifyToken: { type: String },
+			verifyExpires: { type: Date },
+			verifyChanges: { type: Object },
+			resetToken: { type: String },
+			resetExpires: { type: Date },
+		},
     {
       timestamps: true
     }

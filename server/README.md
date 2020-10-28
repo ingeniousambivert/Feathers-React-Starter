@@ -10,29 +10,29 @@ This project uses [Feathers](http://feathersjs.com). An open source web framewor
 
 Getting up and running is simple.
 
-1. Make sure you have [NodeJS](https://nodejs.org/), [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) and [MongoDB](https://www.mongodb.com/) installed.
+1. Make sure you have [NodeJS](https://nodejs.org/), [npm](https://www.npmjs.com/) and [MongoDB](https://www.mongodb.com/) installed.
 2. Install your dependencies.
 
 ```bash
 cd path/to/server
-yarn
+npm install
 ```
 
 3.1 Start your server.
 
 ```bash
-yarn start
+npm start
 ```
 
 3.2 Start your server in development mode.
 
 ```bash
-yarn run dev
+npm run dev
 ```
 
 ## Testing
 
-Simply run `yarn test` and all your tests in the `test/` directory will be run.
+Simply run `npm test` and all your tests in the `test/` directory will be run.
 
 ## Scaffolding
 
