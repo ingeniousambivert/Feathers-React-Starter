@@ -110,6 +110,7 @@ $RECYCLE.BIN/
 lib/
 data/
 
+development.json
 .env.local
 
 ### VSCODE FILES
