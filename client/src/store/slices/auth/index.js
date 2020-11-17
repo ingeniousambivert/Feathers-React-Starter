@@ -3,12 +3,8 @@ import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit"
 import feathersClient from "@client";
 
 export const signUpUserThunk = createAsyncThunk("auth/signUpUser", async (data) => {
-	try {
-		const result = await feathersClient.service("users").create(data);
-		return result;
-	} catch (error) {
-		throw Error(error);
-	}
+	const result = await feathersClient.service("users").create(data);
+	return result;
 });
 
 const signUpReducers = {
@@ -31,20 +27,16 @@ const signUpReducers = {
 
 export const signInUserThunk = createAsyncThunk("auth/signInUser", async (data) => {
 	if (!data) {
-		await feathersClient.reAuthenticate().catch((error) => {
-			throw Error(error);
-		});
+		await feathersClient.reAuthenticate();
+
 		const { user, accessToken } = await feathersClient.get("authentication");
 		return { user, accessToken };
 	} else {
-		try {
-			await feathersClient.authenticate({
-				strategy: "local",
-				...data
-			});
-		} catch (error) {
-			throw Error(error);
-		}
+		await feathersClient.authenticate({
+			strategy: "local",
+			...data
+		});
+
 		const { user, accessToken } = await feathersClient.get("authentication");
 		return { user, accessToken };
 	}
@@ -72,9 +64,7 @@ const signInReducers = {
 };
 
 export const signOutUserThunk = createAsyncThunk("auth/signOutUser", async () => {
-	await feathersClient.logout().catch((error) => {
-		throw Error(error);
-	});
+	await feathersClient.logout();
 });
 
 const signOutReducers = {
@@ -98,6 +88,29 @@ const signOutReducers = {
 	}
 };
 
+export const verifyAccountThunk = createAsyncThunk("auth/verifyAccount", async (token) => {
+	const result = await feathersClient.service("authmanagement").create({
+		action: "verifySignupLong",
+		value: token
+	});
+	return result;
+});
+
+const verifyAccountReducers = {
+	[verifyAccountThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[verifyAccountThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[verifyAccountThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
 const authSlice = createSlice({
 	name: "auth",
 	initialState: {
@@ -107,13 +120,25 @@ const authSlice = createSlice({
 		error: null
 	},
 	reducers: {},
-	extraReducers: { ...signUpReducers, ...signInReducers, ...signOutReducers }
+	extraReducers: {
+		...signUpReducers,
+		...signInReducers,
+		...signOutReducers,
+		...verifyAccountReducers
+	}
 });
 
 export const selectError = createSelector(
 	(state) => state.auth.error,
 	(error) => {
 		if (error !== null) return error;
+	}
+);
+
+export const selectLoading = createSelector(
+	(state) => state.auth.loading,
+	(loading) => {
+		if (loading !== null) return loading;
 	}
 );
 

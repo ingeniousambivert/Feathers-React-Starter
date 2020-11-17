@@ -1,15 +1,10 @@
 import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 import feathersClient from "@client";
 
-export const loadUserThunk = createAsyncThunk("user/loadUser",
-	async (id) => {
-		try {
-			const user = await feathersClient.service("users").get(id);
-			return { user };
-		} catch (error) {
-			throw Error(error);
-		}
-	});
+export const loadUserThunk = createAsyncThunk("user/loadUser", async (id) => {
+	const user = await feathersClient.service("users").get(id);
+	return { user };
+});
 
 const loadUserReducer = {
 	[loadUserThunk.pending]: (state) => {
@@ -29,16 +24,11 @@ const loadUserReducer = {
 	}
 };
 
-export const updateUserThunk = createAsyncThunk("user/updateUser",
-	async (data) => {
-		const { _id, userData } = data;
-		try {
-			const user = await feathersClient.service("users").patch(_id, userData);
-			return { user };
-		} catch (error) {
-			throw Error(error);
-		}
-	});
+export const updateUserThunk = createAsyncThunk("user/updateUser", async (data) => {
+	const { _id, userData } = data;
+	const user = await feathersClient.service("users").patch(_id, userData);
+	return { user };
+});
 
 const updateUserReducer = {
 	[updateUserThunk.pending]: (state) => {
