@@ -11,24 +11,24 @@ function SignUpComponent() {
 	const dispatch = useDispatch();
 	const error = useSelector(selectError);
 
-	const onFinish = (credentials) => {
-		(async (credentials, error) => {
-			const { email, password } = credentials;
-			await dispatch(signUpUserThunk(credentials)).then(() => {
-				if (error) {
-					if (error.indexOf("Conflict") > -1) {
-						message.error("Failed to create an account. Email is already in use.", 10);
-					} else {
-						console.error(error);
-						message.error("Failed to create an account.Please try again later.", 10);
-					}
+	const onFinish = async (credentials) => {
+		const { email, password } = credentials;
+		await dispatch(signUpUserThunk(credentials)).then(() => {
+			if (error) {
+				if (error.indexOf("value already exists") > -1) {
+					message.error("Failed to create an account. Email is already in use.", 10);
 				} else {
-					dispatch(signInUserThunk({ email, password })).then(
-						message.success("Successfully created a new account.", 5)
+					message.error(
+						`${error}.Failed to create an account. Please try again later.`,
+						10
 					);
 				}
-			});
-		})(credentials, error);
+			} else {
+				dispatch(signInUserThunk({ email, password })).then(
+					message.success("Successfully created a new account.", 5)
+				);
+			}
+		});
 	};
 
 	const onFinishFailed = (error) => {

@@ -18,7 +18,9 @@ function Landing() {
 			<Space direction="vertical" size="large">
 				<Row gutter={16} align="middle">
 					<Col span={24}>
-						<Text secondary>Feathers-React-MongoDB Stack Application Starter Kit</Text>
+						<Text secondary="true">
+							Feathers-React-MongoDB Stack Application Starter Kit
+						</Text>
 					</Col>
 				</Row>
 				<Row gutter={16} align="middle">
@@ -96,12 +98,12 @@ function Landing() {
 				<Row gutter={16} align="middle">
 					<Col span={24}>
 						<Text strong>
-							Released under the&nbsp;
+							Read more&nbsp;
 							<a
-								href="https://choosealicense.com/licenses/mit/"
+								href="https://github.com/ingeniousambivert/Feathers-React-Starter"
 								rel="noopener noreferrer"
 								target="_blank">
-								MIT
+								here
 							</a>
 						</Text>
 					</Col>

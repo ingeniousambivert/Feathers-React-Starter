@@ -10,19 +10,16 @@ function SignInComponent() {
 	const dispatch = useDispatch();
 	const error = useSelector(selectError);
 
-	const onFinish = (credentials) => {
-		(async (credentials, error) => {
-			await dispatch(signInUserThunk(credentials)).then(() => {
-				if (error) {
-					if (error.indexOf("NotAuthenticated") > -1) {
-						message.error("Failed to sign in. Invalid credentials", 10);
-					} else {
-						console.error(error);
-						message.error(`${error}. Please try again later.`, 10);
-					}
+	const onFinish = async (credentials) => {
+		await dispatch(signInUserThunk(credentials)).then(() => {
+			if (error) {
+				if (error.indexOf("Invalid login") > -1) {
+					message.error("Failed to sign in. Invalid credentials", 10);
+				} else {
+					message.error(`${error}. Please try again later.`, 10);
 				}
-			});
-		})(credentials, error);
+			}
+		});
 	};
 
 	const onFinishFailed = (error) => {
