@@ -17,8 +17,8 @@ const NotFound = () => {
 	let isUserAuthenticated = useSelector(selectIsAuthenticated);
 
 	const gotoPage = () => {
-		if (isUserAuthenticated) return history.push("/home");
-		else return history.push("/");
+		if (isUserAuthenticated) history.push("/home");
+		else history.push("/");
 	};
 
 	return (
