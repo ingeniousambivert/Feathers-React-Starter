@@ -15,7 +15,7 @@ module.exports = function (app) {
 		console.log("Error sending email", err);
 		});
 	}
-	const FROM_EMAIL = app.get("mailer.fromEmail");
+	const FROM_EMAIL = app.get("fromEmail");
 
 	return {
 	service: "users",
