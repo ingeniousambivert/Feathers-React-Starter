@@ -7,35 +7,24 @@ module.exports = function (app) {
 
   const schema = new mongooseClient.Schema(
     {
-      firstname: {
-        type: String,
-        required: true
-      },
-      lastname: {
-        type: String,
-        required: true
-      },
-      email: {
-        index: true,
-        type: String,
-        unique: true,
-        lowercase: true,
-        required: true
-      },
-      password: {
-        type: String,
-        required: true
-      },
-      active: {
-        type: Boolean,
-        default: true
-      },
-			isVerified: { type: Boolean },
-			verifyToken: { type: String },
-			verifyExpires: { type: Date },
-			verifyChanges: { type: Object },
-			resetToken: { type: String },
-			resetExpires: { type: Date },
+
+			email: { type: String, unique: true, lowercase: true, index: true, required: true},
+      password: { type: String, required: true },
+      firstname: { type: String, required: true },
+			lastname: { type: String, required: true  },
+			active: { type: Boolean, default: true },
+      permissions: { type: Array, default: ["guest"] },
+      passwordReset: { type: String },
+      passwordResetToken: { type: String },
+      lastLoggedIn: { type: Date },
+      isVerified: { type: Boolean },
+      verifyToken: { type: String },
+      verifyShortToken: { type: String },
+      verifyLongToken: { type: String },
+      verifyExpires: { type: Date },
+      verifyChanges: { type: Object },
+      resetToken: { type: String },
+      resetExpires: { type: Date },
 		},
     {
       timestamps: true
