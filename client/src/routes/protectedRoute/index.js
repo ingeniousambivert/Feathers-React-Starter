@@ -27,7 +27,9 @@ const ProtectedRoute = (props) => {
 ProtectedRoute.propTypes = {
 	component: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.node), //as you can render an array of elements
-		PropTypes.element //for a single component/element
+		PropTypes.element,
+		PropTypes.string,
+		PropTypes.func
 	]).isRequired
 };
 
