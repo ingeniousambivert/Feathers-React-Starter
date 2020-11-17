@@ -5,15 +5,19 @@ const smtpTransport = require("nodemailer-smtp-transport");
 
 module.exports = function (app) {
 	// Initialize our service with any options it requires
+ const gmailUser = app.get("mailerUsername");
+ const gmailPassword = app.get("mailerPassword");
 
 	//Gmail Service
-	app.use("/mailer",Mailer(smtpTransport({
+	app.use("/mailer",Mailer(
+		smtpTransport({
     service: "gmail",
     auth: {
-      user: process.env.GMAIL_USERNAME,
-      pass: process.env.GMAIL_PASSWORD
+      user: gmailUser,
+      pass: gmailPassword,
     }
-  })));
+	})
+	));
 
   // Get our initialized service so that we can register hooks
   const service = app.service("mailer");

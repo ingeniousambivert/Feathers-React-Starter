@@ -1,5 +1,4 @@
 const { disallow, } = require("@hooks");
-
 module.exports = {
   before: {
     all: [disallow("external")],

@@ -1,12 +1,11 @@
-const {
-	authenticate, hashPassword,protect, disallow,
+const { authenticate, hashPassword,protect, disallow,
 	iff, isProvider, preventChanges,
-	addVerification, removeVerification
-	} = require("@hooks");
-const accountService = require("@services/authmanagement/notifier");
+	addVerification, removeVerification } = require("@hooks");
 
-const accountServiceHook = (context) => {
-	accountService(context.app).notifier("resendVerifySignup", context.result);
+const notifyService = require("@services/authmanagement/notifier");
+
+const notifyServiceHook = (context) => {
+	notifyService(context.app).notifier("resendVerifySignup", context.data);
 };
 
 module.exports = {
@@ -18,7 +17,8 @@ module.exports = {
     update: [disallow("external")],
     patch: [hashPassword("password"), authenticate("jwt"), iff(
 			isProvider("external"),
-			preventChanges(true,
+			preventChanges(
+				true,
 				"email",
 				"isVerified",
 				"verifyToken",
@@ -28,28 +28,30 @@ module.exports = {
 				"resetToken",
 				"resetShortToken",
 				"resetExpires"
-			))],
-    remove: [authenticate("jwt")]
+			),)],
+    remove: [authenticate("jwt"),disallow("external")]
   },
 
   after: {
-    all: [protect("password")],
+	all: [ // prevent leak of these user information fields
+		protect(
+			"password",
+			"verifyToken",
+			"updatedAt",
+			"createdAt",
+			"verifyShortToken",
+			"verifyExpires",
+			"resetToken",
+			"resetExpires",
+			"verifyChanges",
+			"__v"
+		),],
     find: [],
     get: [],
-		create: [
-		protect("firstname",
-		"lastname",
-		"email",
-		"isVerified",
-		"verifyToken",
-		"verifyShortToken",
-		"verifyExpires",
-		"verifyChanges",
-		"resetToken",
-		"resetShortToken",
-		"resetExpires",
-		"active"),
-		accountServiceHook,
+	create: [
+		// after a user is created, send the user an email to verify email
+		notifyServiceHook,
+		// remove the user verification fields before returning user as part of request
 		removeVerification()],
     update: [],
     patch: [],
