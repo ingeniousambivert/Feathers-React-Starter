@@ -76,8 +76,7 @@ module.exports = function (app) {
 			from: FROM_EMAIL,
 			to: user.email,
 			subject: "Password Changed",
-			html:
-				"<html><b>Successfully updated password. If this was not you, let us know.</b></html>",
+			html: "<html><b>Successfully updated password. If this was not you, let us know.</b></html>",
 			};
 			return sendEmail(email);
 
