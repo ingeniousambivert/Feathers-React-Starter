@@ -8,7 +8,7 @@ const theme = {
 	"@layout-header-background": "@primary-color",
 	"@menu-dark-item-active-bg": "#8E91DB",
 	"@layout-trigger-background": "#4E51A0",
-	"@menu-dark-submenu-bg": "#4E51A0",
+	"@menu-dark-submenu-bg": "#4E51A0"
 };
 
 module.exports = theme;
