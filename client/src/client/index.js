@@ -14,6 +14,8 @@ feathersClient.configure(
 		storageKey: "feathers-react-jwt"
 	})
 );
-feathersClient.reAuthenticate();
+feathersClient.reAuthenticate().catch((error) => {
+	return error;
+});
 
 export default feathersClient;
