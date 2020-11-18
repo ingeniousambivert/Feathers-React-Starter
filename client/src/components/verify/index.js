@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Result, Button, message } from "antd";
+import { Result, Button } from "antd";
 import Wrapper from "@components/wrapper";
 import { verifyAccountThunk, selectError } from "@slices/auth";
 import { useLocation, useHistory, Link } from "react-router-dom";
@@ -18,12 +18,8 @@ function VerifyComponent() {
 	const token = location.search.substring(7);
 
 	const verifyAccount = async (token) => {
-		await dispatch(verifyAccountThunk(token));
+		await dispatch(verifyAccountThunk(token)).then(error && console.error(error));
 		setLoading(false);
-
-		if (error) {
-			message.error(error, 10);
-		}
 	};
 
 	const renderResult = (error) =>
@@ -31,7 +27,7 @@ function VerifyComponent() {
 			<Result
 				status="error"
 				title="Verification Failed"
-				subTitle="Your email has already been verified. Or the token is invalid."
+				subTitle="The token is invalid or your email has already been verified."
 				extra={[
 					<Button type="primary" key="signin">
 						<Link to="/signin">
@@ -65,7 +61,11 @@ function VerifyComponent() {
 
 	return (
 		<Wrapper>
-			{loading ? <Spinner loadingtext="Verifying. Please wait..." /> : renderResult(error)}
+			{loading ? (
+				<Spinner loadingtext="Verifying your email. Please wait" />
+			) : (
+				renderResult(error)
+			)}
 		</Wrapper>
 	);
 }

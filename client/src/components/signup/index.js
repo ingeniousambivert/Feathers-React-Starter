@@ -110,7 +110,7 @@ function SignUpComponent() {
 							</Form.Item>
 
 							<Form.Item>
-								<Row gutter={[16, 24]} justify="space-around" align="middle">
+								<Row gutter={[16, 24]} justify="center" align="middle">
 									<Col
 										style={{ textAlign: "center" }}
 										xs={24}
@@ -129,8 +129,8 @@ function SignUpComponent() {
 										xs={24}
 										sm={24}
 										md={16}
-										lg={16}
-										xl={16}>
+										lg={14}
+										xl={14}>
 										<Text strong>Already have an account? </Text>
 										<Link
 											style={{

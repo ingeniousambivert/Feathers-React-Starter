@@ -104,22 +104,33 @@ function SignInComponent() {
 											</Text>
 										</Button>
 									</Col>
-									<Col
-										style={{ textAlign: "center" }}
-										xs={24}
-										sm={24}
-										md={16}
-										lg={16}
-										xl={16}>
-										<Text strong> Don&apos;t have an account? </Text>
-										<Link
-											style={{
-												color: "#6E70E5"
-											}}
-											to="/signup"
-											variant="body2">
-											<b> Sign Up</b>
-										</Link>
+									<Col xs={24} sm={24} md={16} lg={14} xl={14}>
+										<Row justify="space-around" align="middle">
+											<Col xs={24} sm={24} md={22} lg={22} xl={20}>
+												<Text strong> Don&apos;t have an account? </Text>
+												<Link
+													style={{
+														color: "#6E70E5"
+													}}
+													to="/signup"
+													variant="body2">
+													<b> Sign Up</b>
+												</Link>
+											</Col>
+										</Row>
+										<Row justify="space-around" align="middle">
+											<Col xs={24} sm={24} md={22} lg={22} xl={20}>
+												<Text strong> Forgot password? </Text>
+												<Link
+													style={{
+														color: "#6E70E5"
+													}}
+													to="/forgot-password"
+													variant="body2">
+													<b> Reset</b>
+												</Link>
+											</Col>
+										</Row>
 									</Col>
 								</Row>
 							</Form.Item>
