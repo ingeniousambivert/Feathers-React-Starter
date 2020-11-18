@@ -1,8 +1,8 @@
-const { protect, disallow, } = require("@hooks");
+const { protect, } = require("@hooks");
 
 module.exports = {
   before: {
-    all: [disallow("external")],
+    all: [],
     find: [],
     get: [],
     create: [],
