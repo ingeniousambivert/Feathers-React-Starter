@@ -19,7 +19,7 @@ function SignUpComponent() {
 					message.error("Failed to create an account. Email is already in use.", 10);
 				} else {
 					message.error(
-						`${error}.Failed to create an account. Please try again later.`,
+						`${error}. Failed to create an account. Please try again later.`,
 						10
 					);
 				}
