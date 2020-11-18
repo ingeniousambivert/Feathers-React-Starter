@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { selectIsAuthenticated } from "@slices/auth";
 
-import RedirectSignin from "@pages/signin/redirect";
+import SignIn from "@pages/signin";
 
 const ProtectedRoute = (props) => {
 	const { component: Component, ...rest } = props;
@@ -17,7 +17,7 @@ const ProtectedRoute = (props) => {
 				if (isUserAuthenticated) {
 					return <Component {...props} />;
 				} else {
-					return <RedirectSignin />;
+					return <SignIn />;
 				}
 			}}
 		/>
