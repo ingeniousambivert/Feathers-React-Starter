@@ -25,7 +25,7 @@ function SignInComponent() {
 	const onFinish = async (credentials) => {
 		await dispatch(signInUserThunk(credentials)).then(() => {
 			if (error) {
-				if (error.includes("Invalid login")) {
+				if (error.includes("invalid login")) {
 					message.error("Failed to sign in. Invalid credentials", 10);
 				} else {
 					message.error(`${error}. Please try again later.`, 10);
