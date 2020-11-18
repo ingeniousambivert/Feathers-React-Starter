@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from "react";
-import { Result, Button } from "antd";
+import { Result, Button, message } from "antd";
 import Wrapper from "@components/wrapper";
 import { verifyAccountThunk, selectError } from "@slices/auth";
 import { useLocation, useHistory, Link } from "react-router-dom";
@@ -19,10 +19,11 @@ function VerifyComponent() {
 
 	const verifyAccount = async (token) => {
 		await dispatch(verifyAccountThunk(token));
-		if (error) {
-			console.log("error here", error);
-		}
 		setLoading(false);
+
+		if (error) {
+			message.error(error, 10);
+		}
 	};
 
 	const renderResult = (error) =>
