@@ -64,11 +64,7 @@ function VerifyComponent() {
 
 	return (
 		<Wrapper>
-			{loading ? (
-				<Spinner loadingtext="Verifying your email. Please wait..." />
-			) : (
-				renderResult(error)
-			)}
+			{loading ? <Spinner loadingtext="Verifying. Please wait..." /> : renderResult(error)}
 		</Wrapper>
 	);
 }
