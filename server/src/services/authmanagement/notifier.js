@@ -28,7 +28,6 @@ module.exports = function (app) {
 
 		switch (type) {
 		case "resendVerifySignup":
-			//sending the user the verification email
 			console.log("user", user);
 			tokenLink = getLink("verify", user.verifyToken);
 			email = {
@@ -40,7 +39,6 @@ module.exports = function (app) {
 			return sendEmail(email);
 
 		case "verifySignup":
-			// confirming verification
 			tokenLink = getLink("verify", user.verifyToken);
 			email = {
 			from: FROM_EMAIL,
