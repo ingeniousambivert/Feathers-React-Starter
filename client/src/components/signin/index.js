@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Form, Input, Button, Typography, message } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signInUserThunk, selectError } from "@slices/auth";
 
@@ -10,10 +10,22 @@ function SignInComponent() {
 	const dispatch = useDispatch();
 	const error = useSelector(selectError);
 
+	let location = useLocation();
+	const url = location.pathname;
+	const [title, setTitle] = useState(" ");
+
+	const renderTitle = (url) => {
+		if (url.includes("signin")) {
+			setTitle("Welcome Back");
+		} else {
+			setTitle("Sign In To Continue");
+		}
+	};
+
 	const onFinish = async (credentials) => {
 		await dispatch(signInUserThunk(credentials)).then(() => {
 			if (error) {
-				if (error.indexOf("Invalid login") > -1) {
+				if (error.includes("Invalid login")) {
 					message.error("Failed to sign in. Invalid credentials", 10);
 				} else {
 					message.error(`${error}. Please try again later.`, 10);
@@ -26,6 +38,10 @@ function SignInComponent() {
 		console.error("Failed : ", error);
 	};
 
+	useEffect(() => {
+		renderTitle(url);
+	}, [url]);
+
 	return (
 		<React.Fragment>
 			<div>
@@ -34,7 +50,7 @@ function SignInComponent() {
 						<Row gutter={[16, 24]} justify="center" align="middle">
 							<Col xs={24} sm={24} md={24} lg={24} xl={24}>
 								<h1 style={{ textAlign: "center" }}>
-									<b>Welcome Back</b>
+									<b>{title}</b>
 								</h1>
 							</Col>
 						</Row>

@@ -15,7 +15,7 @@ function SignUpComponent() {
 		const { email, password } = credentials;
 		await dispatch(signUpUserThunk(credentials)).then(() => {
 			if (error) {
-				if (error.indexOf("value already exists") > -1) {
+				if (error.includes("value already exists")) {
 					message.error("Failed to create an account. Email is already in use.", 10);
 				} else {
 					message.error(
