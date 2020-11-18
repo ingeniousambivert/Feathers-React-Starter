@@ -10,13 +10,14 @@ module.exports = function (app) {
 	return app
 		.service("mailer")
 		.create(email)
-		.then(function (result) {
+		.then((result) => {
 		console.log("Sent email", result);
 		})
 		.catch((error) => {
 		console.log("Error sending email", error);
 		});
 	}
+
 	const FROM_EMAIL = app.get("fromEmail");
 	const clientURL = app.get("clientURL");
 
