@@ -35,9 +35,9 @@ function RedirectSignInComponent() {
 					<Col xs={20} sm={18} md={14} lg={12} xl={10}>
 						<Row gutter={[16, 24]} justify="center" align="middle">
 							<Col xs={24} sm={24} md={24} lg={24} xl={24}>
-								<h2 style={{ textAlign: "center" }}>
-									<b>Sign In to Continue</b>
-								</h2>
+								<h1 style={{ textAlign: "center" }}>
+									<b>Sign in to continue</b>
+								</h1>
 							</Col>
 						</Row>
 						<Form
