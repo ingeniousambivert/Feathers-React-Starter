@@ -1,6 +1,7 @@
 const { verifyEmail, emailVerified, sendResetPassword, resetPassword } = require("@utils/emailTemplates");
 
 module.exports = function (app) {
+
 	function getLink(type, hash) {
 	const url = app.get("clientURL") + "/" + type + "?token=" + hash;
 	return url;
