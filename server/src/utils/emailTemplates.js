@@ -117,7 +117,7 @@ const verifyEmail = (tokenLink) => {
                             </tr>
                           </tbody>
                         </table>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">If the button does not work, you can manually visit this link to verify your email.<br/> Link : <a href="${tokenLink}">${tokenLink}</a></p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">If the button does not work, you can manually visit this link to verify your email.<br/> Link: <a href="${tokenLink}" target="_blank">${tokenLink}</a></p>
                       </td>
                     </tr>
                   </table>
@@ -395,7 +395,7 @@ const sendResetPassword = (tokenLink) => {
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Sometimes you just want to send a simple HTML email with a simple design and clear call to action. This is it.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">To reset your password click the button below. If it does not work you can manually visit the link to reset your password.</p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                           <tbody>
                             <tr>
@@ -403,7 +403,7 @@ const sendResetPassword = (tokenLink) => {
                                 <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                                   <tbody>
                                     <tr>
-                                      <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #6669cc; text-align: center;"> <a href="${tokenLink}" target="_blank" style="display: inline-block; color: #ffffff; background-color: #6669cc; border: solid 1px #6669cc; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #6669cc;">Call To Action</a> </td>
+                                      <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #6669cc; text-align: center;"> <a href="${tokenLink}" target="_blank" style="display: inline-block; color: #ffffff; background-color: #6669cc; border: solid 1px #6669cc; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #6669cc;">Reset</a> </td>
                                     </tr>
                                   </tbody>
                                 </table>
@@ -411,8 +411,8 @@ const sendResetPassword = (tokenLink) => {
                             </tr>
                           </tbody>
                         </table>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">This is a really simple email template. Its sole purpose is to get the recipient to click the button with no distractions.</p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Good luck! Hope it works.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Link: <a href="${tokenLink}" target="_blank">${tokenLink}</a> </p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">If you did not request the password reset please ignore this email.</p>
                       </td>
                     </tr>
                   </table>
@@ -440,7 +440,7 @@ const sendResetPassword = (tokenLink) => {
 `);
 };
 
-const resetPassword = () => {
+const resetPassword = (clientURL) => {
 	return(`<html>
   <head>
     <meta name="viewport" content="width=device-width">
@@ -543,7 +543,7 @@ const resetPassword = () => {
                     <tr>
                       <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
-                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">You have successfully reset your password. Sign in to access your account with the new password.</p>
+                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">You have successfully reset your password. You can sign in with your new password.</p>
                         <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                           <tbody>
                             <tr>
