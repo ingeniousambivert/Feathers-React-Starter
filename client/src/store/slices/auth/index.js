@@ -111,6 +111,51 @@ const verifyAccountReducers = {
 	}
 };
 
+export const forgotPasswordThunk = createAsyncThunk("auth/forgotPassword", async (email) => {
+	await feathersClient.service("authmanagement").create({
+		action: "sendResetPwd",
+		value: { email }
+	});
+});
+
+const forgotPasswordReducers = {
+	[forgotPasswordThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[forgotPasswordThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[forgotPasswordThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
+export const resetPasswordThunk = createAsyncThunk("auth/resetPassword", async (data) => {
+	const { token, password } = data;
+	await feathersClient.service("authmanagement").create({
+		action: "resetPwdLong",
+		value: { token, password }
+	});
+});
+
+const resetPasswordReducers = {
+	[resetPasswordThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[resetPasswordThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[resetPasswordThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
 const authSlice = createSlice({
 	name: "auth",
 	initialState: {
@@ -124,7 +169,9 @@ const authSlice = createSlice({
 		...signUpReducers,
 		...signInReducers,
 		...signOutReducers,
-		...verifyAccountReducers
+		...verifyAccountReducers,
+		...forgotPasswordReducers,
+		...resetPasswordReducers
 	}
 });
 
