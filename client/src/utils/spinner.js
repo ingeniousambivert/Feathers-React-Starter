@@ -13,7 +13,7 @@ const Spinner = (props) => {
 						<Col>
 							<Spin
 								size="large"
-								tip={props.loadingtext ? props.loadingtext : "Loading..."}
+								tip={props.loadingtext ? props.loadingtext : "Loading"}
 							/>
 						</Col>
 					</Row>
