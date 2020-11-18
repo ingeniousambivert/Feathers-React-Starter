@@ -33,22 +33,29 @@ module.exports = {
   },
 
   after: {
-	all: [ // prevent leak of these user information fields
+	all: [
 		protect(
-			"password",
-			"verifyToken",
-			"updatedAt",
-			"createdAt",
-			"verifyShortToken",
-			"verifyExpires",
-			"resetToken",
-			"resetExpires",
-			"verifyChanges",
-			"__v"
+		"password",
+		"verifyToken",
+		"updatedAt",
+		"createdAt",
+		"verifyShortToken",
+		"verifyExpires",
+		"resetToken",
+		"resetExpires",
+		"verifyChanges",
+		"__v"
 		),],
     find: [],
     get: [],
 	create: [
+		protect(
+			"active",
+			"firstname",
+			"lastname",
+			"email",
+			"permissions",
+		),
 		// after a user is created, send the user an email to verify email
 		notifyServiceHook,
 		// remove the user verification fields before returning user as part of request

@@ -1,8 +1,8 @@
-
+const { protect, disallow, } = require("@hooks");
 
 module.exports = {
   before: {
-    all: [],
+    all: [disallow("external")],
     find: [],
     get: [],
     create: [],
@@ -12,7 +12,24 @@ module.exports = {
   },
 
   after: {
-    all: [],
+    all: [// prevent leak of these user information fields
+			protect(
+				"password",
+				"active",
+				"firstname",
+				"lastname",
+				"email",
+				"permissions",
+				"verifyToken",
+				"updatedAt",
+				"createdAt",
+				"verifyShortToken",
+				"verifyExpires",
+				"resetToken",
+				"resetExpires",
+				"verifyChanges",
+				"__v"
+			),],
     find: [],
     get: [],
     create: [],

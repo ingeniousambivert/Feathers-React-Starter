@@ -25,7 +25,5 @@ const {required, disallow, iff, isProvider, preventChanges} = require("feathers-
 
 	// feathers-authentication-management
 	addVerification: verifyHooks.addVerification,
-	removeVerification: verifyHooks.addVerification,
-
-	// custom
+	removeVerification: verifyHooks.removeVerification,
   };
