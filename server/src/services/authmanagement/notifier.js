@@ -1,3 +1,5 @@
+const { verifyEmail, emailVerified, sendResetPassword, resetPassword } = require("@utils/emailTemplates");
+
 module.exports = function (app) {
 	function getLink(type, hash) {
 	const url = app.get("clientURL") + "/" + type + "?token=" + hash;
@@ -11,11 +13,12 @@ module.exports = function (app) {
 		.then(function (result) {
 		console.log("Sent email", result);
 		})
-		.catch((err) => {
-		console.log("Error sending email", err);
+		.catch((error) => {
+		console.log("Error sending email", error);
 		});
 	}
 	const FROM_EMAIL = app.get("fromEmail");
+	const clientURL = app.get("clientURL");
 
 	return {
 	service: "users",
@@ -32,7 +35,7 @@ module.exports = function (app) {
 			from: FROM_EMAIL,
 			to: user.email,
 			subject: "Verify Email",
-			html: `<html><b>Verify your Email here</b>: ${tokenLink}</html>`,
+			html: verifyEmail(tokenLink),
 			};
 			return sendEmail(email);
 
@@ -43,7 +46,7 @@ module.exports = function (app) {
 			from: FROM_EMAIL,
 			to: user.email,
 			subject: "Email Verified",
-			html: "<html><b>Thanks for verifying your email. Now you can access all the features</b></html>",
+			html: emailVerified(clientURL),
 			};
 			return sendEmail(email);
 
@@ -54,7 +57,7 @@ module.exports = function (app) {
 			from: FROM_EMAIL,
 			to: user.email,
 			subject: "Reset Password",
-			html: `<html><b>Reset Password here</b>: ${tokenLink}</html>`,
+			html: sendResetPassword(tokenLink),
 			};
 			return sendEmail(email);
 
@@ -64,7 +67,7 @@ module.exports = function (app) {
 			from: FROM_EMAIL,
 			to: user.email,
 			subject: "Successfully Reset Password",
-			html: "<html><b>Successfully reset password.</b></html>",
+			html: resetPassword(clientURL),
 			};
 			return sendEmail(email);
 
