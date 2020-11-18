@@ -26,7 +26,6 @@
 		"classnames": "^2.2.6",
 		"lodash": "^4.17.19",
 		"node-sass": "^4.14.1",
-		"rc-tween-one": "^2.7.2",
 		"react": "^16.13.1",
 		"react-app-rewired": "^2.1.6",
 		"react-dom": "^16.13.1",
