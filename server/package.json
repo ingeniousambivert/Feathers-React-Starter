@@ -44,7 +44,8 @@
     "@models": "src/models",
     "@services": "src/services",
     "@hooks": "src/hooks",
-    "@errors": "src/errors"
+    "@errors": "src/errors",
+    "@utils": "src/utils"
   },
   "dependencies": {
     "@feathersjs/authentication": "^4.5.3",
