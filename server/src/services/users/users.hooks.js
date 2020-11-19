@@ -13,7 +13,7 @@ module.exports = {
     all: [],
     find: [authenticate("jwt")],
     get: [authenticate("jwt")],
-    create: [hashPassword("password"),addVerification()],
+    create: [hashPassword("password"),addVerification(),],
     update: [disallow("external")],
     patch: [hashPassword("password"), authenticate("jwt"), iff(
 			isProvider("external"),
