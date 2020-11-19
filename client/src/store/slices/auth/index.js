@@ -155,6 +155,32 @@ const resetPasswordReducers = {
 		state.error = false;
 	}
 };
+export const updateEmailThunk = createAsyncThunk("auth/resetPassword", async (data) => {
+	const { password, currentEmail, updatedEmail } = data;
+	await feathersClient.service("authmanagement").create({
+		action: "identityChange",
+		value: {
+			password,
+			changes: { email: updatedEmail },
+			user: { email: currentEmail }
+		}
+	});
+});
+
+const updateEmailReducers = {
+	[updateEmailThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[updateEmailThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[updateEmailThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
 
 const authSlice = createSlice({
 	name: "auth",
@@ -171,11 +197,12 @@ const authSlice = createSlice({
 		...signOutReducers,
 		...verifyAccountReducers,
 		...forgotPasswordReducers,
-		...resetPasswordReducers
+		...resetPasswordReducers,
+		...updateEmailReducers
 	}
 });
 
-export const selectError = createSelector(
+export const selectAuthError = createSelector(
 	(state) => state.auth.error,
 	(error) => {
 		if (error !== null) return error;

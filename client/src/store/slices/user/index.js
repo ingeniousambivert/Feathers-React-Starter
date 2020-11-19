@@ -25,8 +25,8 @@ const loadUserReducer = {
 };
 
 export const updateUserThunk = createAsyncThunk("user/updateUser", async (data) => {
-	const { _id, userData } = data;
-	const user = await feathersClient.service("users").patch(_id, userData);
+	const { _id, updatedData } = data;
+	const user = await feathersClient.service("users").patch(_id, updatedData);
 	return { user };
 });
 
@@ -61,7 +61,7 @@ const userSlice = createSlice({
 	extraReducers: { ...loadUserReducer, ...updateUserReducer }
 });
 
-export const selectError = createSelector(
+export const selectUserError = createSelector(
 	(state) => state.user.error,
 	(error) => {
 		if (error !== null) return error;
