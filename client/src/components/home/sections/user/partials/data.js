@@ -66,7 +66,7 @@ const Data = (props) => {
 					</Col>
 				</Row>
 				<Row justify="center" align="middle" gutter={[16, 16]}>
-					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
+					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
 						<Button
 							onClick={() => {
 								editDetailsForm();
@@ -75,7 +75,7 @@ const Data = (props) => {
 							Update Details
 						</Button>
 					</Col>
-					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
+					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
 						<Button
 							onClick={() => {
 								editEmailForm();
@@ -84,7 +84,7 @@ const Data = (props) => {
 							Update Email
 						</Button>
 					</Col>
-					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
+					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
 						<Button
 							onClick={() => {
 								editPasswordForm();
@@ -93,7 +93,7 @@ const Data = (props) => {
 							Update Password
 						</Button>
 					</Col>
-					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
+					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
 						<Button onClick={signOutAndRemove} danger>
 							Sign Out
 						</Button>
