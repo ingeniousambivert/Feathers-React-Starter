@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Typography, Row, Col, message, Button, Form, Input } from "antd";
 import { MailOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserThunk, selectUserError } from "@slices/user";
-import { updateEmailThunk, selectAuthError } from "@slices/auth";
+import { updateUserThunk, removeUserAction, selectUserError } from "@slices/user";
+import {
+	updateEmailThunk,
+	updatePasswordThunk,
+	signOutUserThunk,
+	selectAuthError
+} from "@slices/auth";
+
 import Wrapper from "@components/wrapper";
 import PropTypes from "prop-types";
 import { Spinner } from "@utils";
@@ -22,13 +28,15 @@ const UpdateDetails = (props) => {
 
 	const onFinish = async (updatedData) => {
 		setLoading(true);
+
 		const { _id } = user;
 		if (isMountedRef.current) {
 			await dispatch(updateUserThunk({ _id, updatedData }));
 		}
+
 		if (error) {
 			console.error(error);
-			message.error("Failed to update your data. PLease try again later.");
+			message.error("Failed to update your data. Please try again later.");
 		} else {
 			updateDetailsForm();
 			updateView();
@@ -128,11 +136,12 @@ const UpdateEmail = (props) => {
 	const [loading, setLoading] = useState(false);
 
 	const onFinish = async (updatedData) => {
+		const { password, currentEmail, updatedEmail } = updatedData;
 		setLoading(true);
-		await dispatch(updateEmailThunk(updatedData));
+		await dispatch(updateEmailThunk({ password, currentEmail, updatedEmail }));
 		if (error) {
-			if (error.includes("incorrect")) {
-				message.error("Failed to update your email. Password is incorrect", 10);
+			if (error.includes("incorrect") || error.includes("not valid")) {
+				message.error("Failed. Either your password or the current email is incorrect", 10);
 			} else {
 				console.error(error);
 				message.error("Failed to update your email. Please try again later.", 10);
@@ -250,20 +259,32 @@ const UpdateEmail = (props) => {
 
 const UpdatePassword = (props) => {
 	const [form] = Form.useForm();
-	const { updatePasswordForm, updateView } = props;
+	const { updatePasswordForm, updateView, user } = props;
 	const [loading, setLoading] = useState(false);
+	const dispatch = useDispatch();
+	const error = useSelector(selectAuthError);
 
-	const onFinish = (updatedData) => {
+	const onFinish = async (updatedData) => {
 		setLoading(true);
-		const { newPassword, confirmPassword } = updatedData;
+		const { password, confirmPassword, oldPassword } = updatedData;
+		const { email } = user;
 
-		if (newPassword !== confirmPassword) {
+		if (password !== confirmPassword) {
 			message.error("Passwords do not match. Please re-enter", 5);
 		} else {
-			console.log(updatedData);
-			updatePasswordForm();
-			updateView();
-			message.success("Successfully updated your password. WIP");
+			await dispatch(updatePasswordThunk({ email, password, oldPassword }));
+			if (error) {
+				console.error(error);
+				message.error("Failed to update your password. Please try again later", 10);
+			} else {
+				updatePasswordForm();
+				updateView();
+				message.success(
+					"Successfully updated your password. Please sign in again with the new password"
+				);
+				// dispatch(removeUserAction());
+				// dispatch(signOutUserThunk());
+			}
 		}
 		setLoading(false);
 	};
@@ -279,48 +300,50 @@ const UpdatePassword = (props) => {
 				<Text strong>Update your Password </Text>
 			</div>
 
-			<Form form={form} layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed}>
+			<Form
+				hideRequiredMark
+				form={form}
+				layout="vertical"
+				onFinish={onFinish}
+				onFinishFailed={onFinishFailed}>
 				<Row gutter={16} justify="center" align="middle">
 					<Col xs={20} sm={18} md={14} lg={12} xl={10}>
-						<Form.Item label="Current Password" name="currentPassword">
-							<Input.Password
-								prefix={<LockOutlined />}
-								name="currentPassword"
-								rules={[
-									{
-										required: true,
-										message: "Please input your current password"
-									}
-								]}
-							/>
+						<Form.Item
+							label="Current Password"
+							name="oldPassword"
+							rules={[
+								{
+									required: true,
+									message: "Please input your current password"
+								}
+							]}>
+							<Input.Password prefix={<LockOutlined />} name="oldPassword" />
 						</Form.Item>
 
-						<Form.Item label="New Password" name="newPassword">
-							<Input.Password
-								prefix={<LockOutlined />}
-								name="newPassword"
-								rules={[
-									{
-										required: true,
-										message: "Please input your new password"
-									},
-									{ min: 6, message: "Password must be minimum 6 characters" }
-								]}
-							/>
+						<Form.Item
+							label="New Password"
+							name="password"
+							rules={[
+								{
+									required: true,
+									message: "Please input your new password"
+								},
+								{ min: 6, message: "Password must be minimum 6 characters" }
+							]}>
+							<Input.Password prefix={<LockOutlined />} name="password" />
 						</Form.Item>
 
-						<Form.Item label="Confirm Password" name="confirmPassword">
-							<Input.Password
-								prefix={<LockOutlined />}
-								name="confirmPassword"
-								rules={[
-									{
-										required: true,
-										message: "Please confirm your new password"
-									},
-									{ min: 6, message: "Password must be minimum 6 characters" }
-								]}
-							/>
+						<Form.Item
+							label="Confirm Password"
+							name="confirmPassword"
+							rules={[
+								{
+									required: true,
+									message: "Please confirm your new password"
+								},
+								{ min: 6, message: "Password must be minimum 6 characters" }
+							]}>
+							<Input.Password prefix={<LockOutlined />} name="confirmPassword" />
 						</Form.Item>
 					</Col>
 				</Row>

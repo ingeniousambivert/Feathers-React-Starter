@@ -15,10 +15,14 @@ function SignUpComponent() {
 		const { email, password } = credentials;
 		await dispatch(signUpUserThunk(credentials));
 		if (error) {
-			if (error.includes("value already exists")) {
-				message.error("Failed to create an account. Email is already in use.", 10);
+			if (
+				error.includes("value already exists") ||
+				error.includes("conflict") ||
+				error.includes(409)
+			) {
+				message.error("Failed to create an account. Email is already in use", 10);
 			} else {
-				message.error(`${error}. Failed to create an account. Please try again later.`, 10);
+				message.error(`${error}. Failed to create an account. Please try again`, 10);
 			}
 		} else {
 			dispatch(signInUserThunk({ email, password })).then(
