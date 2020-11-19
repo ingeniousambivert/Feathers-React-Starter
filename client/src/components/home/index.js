@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Divider, Row, Col, message, notification } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { loadUserThunk, removeUserAction, selectUser, selectError } from "@slices/user";
+import { loadUserThunk, removeUserAction, selectUser, selectUserError } from "@slices/user";
 import { selectUserID, signOutUserThunk } from "@slices/auth";
 
 import { Spinner, RandomGreet, primaryColor } from "@utils";
@@ -10,7 +10,7 @@ import User from "./sections/user";
 
 function HomeComponent() {
 	const dispatch = useDispatch();
-	const error = useSelector(selectError);
+	const error = useSelector(selectUserError);
 	const userID = useSelector(selectUserID);
 	const user = useSelector(selectUser);
 	const [greet, setGreet] = useState();

@@ -1,14 +1,14 @@
 import React, { useState, useLayoutEffect } from "react";
 import { Result, Button } from "antd";
 import Wrapper from "@components/wrapper";
-import { verifyAccountThunk, selectError } from "@slices/auth";
+import { verifyAccountThunk, selectAuthError } from "@slices/auth";
 import { useLocation, useHistory, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "@utils";
 
 function VerifyComponent() {
 	const dispatch = useDispatch();
-	const error = useSelector(selectError);
+	const error = useSelector(selectAuthError);
 
 	let location = useLocation();
 	let history = useHistory();
@@ -18,7 +18,8 @@ function VerifyComponent() {
 	const token = location.search.substring(7);
 
 	const verifyAccount = async (token) => {
-		await dispatch(verifyAccountThunk(token)).then(error && console.error(error));
+		await dispatch(verifyAccountThunk(token));
+		if (error) console.error(error);
 		setLoading(false);
 	};
 

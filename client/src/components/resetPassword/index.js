@@ -3,17 +3,24 @@ import { Row, Col, Form, Input, Button, Typography, Result, message } from "antd
 import { LockOutlined } from "@ant-design/icons";
 import { useLocation, useHistory, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { resetPasswordThunk, selectError } from "@slices/auth";
+import {
+	resetPasswordThunk,
+	selectAuthError,
+	signOutUserThunk,
+	selectIsAuthenticated
+} from "@slices/auth";
+import { removeUserAction } from "@slices/user";
 import { Spinner } from "@utils";
 
 const { Text } = Typography;
 
 function ResetPasswordComponent() {
 	const dispatch = useDispatch();
-	const error = useSelector(selectError);
+	const error = useSelector(selectAuthError);
 
 	let location = useLocation();
 	let history = useHistory();
+	let isUserAuthenticated = useSelector(selectIsAuthenticated);
 
 	const token = location.search.substring(7);
 
@@ -24,13 +31,16 @@ function ResetPasswordComponent() {
 		const { password, confirmPassword } = credentials;
 
 		if (password !== confirmPassword) {
-			message.error("Passwords do not match. Please try again", 5);
+			message.error("Passwords do not match. Please re-enter", 5);
 		} else {
+			if (isUserAuthenticated) {
+				dispatch(removeUserAction());
+				dispatch(signOutUserThunk());
+			}
 			setLoading(true);
-			await dispatch(resetPasswordThunk({ token, password })).then(
-				error && console.error(error),
-				setEmailSent(true)
-			);
+			await dispatch(resetPasswordThunk({ token, password }));
+			if (error) console.error(error);
+			setEmailSent(true);
 			setLoading(false);
 		}
 	};

@@ -3,14 +3,14 @@ import { Row, Col, Form, Input, Button, Typography, Result } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { forgotPasswordThunk, selectError } from "@slices/auth";
+import { forgotPasswordThunk, selectAuthError } from "@slices/auth";
 import { Spinner } from "@utils";
 
 const { Text } = Typography;
 
 function ForgotPasswordComponent() {
 	const dispatch = useDispatch();
-	const error = useSelector(selectError);
+	const error = useSelector(selectAuthError);
 
 	const [loading, setLoading] = useState(false);
 	const [emailSent, setEmailSent] = useState(false);
@@ -18,10 +18,9 @@ function ForgotPasswordComponent() {
 	const onFinish = async (credentials) => {
 		const { email } = credentials;
 		setLoading(true);
-		await dispatch(forgotPasswordThunk(email)).then(
-			error && console.error(error),
-			setEmailSent(true)
-		);
+		await dispatch(forgotPasswordThunk(email));
+		if (error) console.error(error);
+		setEmailSent(true);
 		setLoading(false);
 	};
 

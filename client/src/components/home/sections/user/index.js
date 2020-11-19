@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import Data from "./partials/data";
-import { UpdateDetails, UpdatePassword } from "./partials/update";
+import { UpdateDetails, UpdateEmail, UpdatePassword } from "./partials/update";
 
 import { signOutUserThunk } from "@slices/auth";
 import { removeUserAction } from "@slices/user";
@@ -11,6 +11,7 @@ function User(props) {
 	const dispatch = useDispatch();
 	const [editable, setEditable] = useState(false);
 	const [editDetails, setEditDetails] = useState(false);
+	const [editEmail, setEditEmail] = useState(false);
 	const [editPassword, setEditPassword] = useState(false);
 
 	const signOutAndRemove = () => {
@@ -32,6 +33,13 @@ function User(props) {
 		setEditDetails(false);
 	};
 
+	const editEmailForm = () => {
+		setEditEmail(true);
+	};
+	const updateEmailForm = () => {
+		setEditEmail(false);
+	};
+
 	const editPasswordForm = () => {
 		setEditPassword(true);
 	};
@@ -46,6 +54,16 @@ function User(props) {
 					<UpdateDetails
 						user={props.userinfo}
 						updateDetailsForm={updateDetailsForm}
+						updateView={updateView}
+					/>
+				</React.Fragment>
+			);
+		else if (editEmail)
+			return (
+				<React.Fragment>
+					<UpdateEmail
+						user={props.userinfo}
+						updateEmailForm={updateEmailForm}
 						updateView={updateView}
 					/>
 				</React.Fragment>
@@ -73,6 +91,7 @@ function User(props) {
 					signOutAndRemove={signOutAndRemove}
 					editView={editView}
 					editDetailsForm={editDetailsForm}
+					editEmailForm={editEmailForm}
 					editPasswordForm={editPasswordForm}
 				/>
 			)}

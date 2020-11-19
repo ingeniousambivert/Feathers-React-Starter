@@ -3,12 +3,12 @@ import { Row, Col, Form, Input, Button, Typography, message } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signInUserThunk, selectError } from "@slices/auth";
+import { signInUserThunk, selectAuthError } from "@slices/auth";
 
 const { Text } = Typography;
 function SignInComponent() {
 	const dispatch = useDispatch();
-	const error = useSelector(selectError);
+	const error = useSelector(selectAuthError);
 
 	let location = useLocation();
 	const url = location.pathname;
@@ -23,15 +23,14 @@ function SignInComponent() {
 	};
 
 	const onFinish = async (credentials) => {
-		await dispatch(signInUserThunk(credentials)).then(() => {
-			if (error) {
-				if (error.includes("invalid login")) {
-					message.error("Failed to sign in. Invalid credentials", 10);
-				} else {
-					message.error(`${error}. Please try again later.`, 10);
-				}
+		await dispatch(signInUserThunk(credentials));
+		if (error) {
+			if (error.includes("invalid login")) {
+				message.error("Failed to sign in. Invalid credentials", 10);
+			} else {
+				message.error(`${error}. Please try again later.`, 10);
 			}
-		});
+		}
 	};
 
 	const onFinishFailed = (error) => {

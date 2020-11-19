@@ -14,7 +14,14 @@ const { Text } = Typography;
 const marginRight = { marginRight: "1%" };
 
 const Data = (props) => {
-	const { user, editView, editDetailsForm, editPasswordForm, signOutAndRemove } = props;
+	const {
+		user,
+		editView,
+		editDetailsForm,
+		editEmailForm,
+		editPasswordForm,
+		signOutAndRemove
+	} = props;
 	return (
 		<Wrapper>
 			<div className="userInfo">
@@ -71,20 +78,21 @@ const Data = (props) => {
 					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
 						<Button
 							onClick={() => {
+								editEmailForm();
+								editView();
+							}}>
+							Update Email
+						</Button>
+					</Col>
+					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
+						<Button
+							onClick={() => {
 								editPasswordForm();
 								editView();
 							}}>
 							Update Password
 						</Button>
 					</Col>
-					{/* <Col xs={22} sm={22} md={10} lg={5} xl={5}>
-						<Button danger
-							onClick={() => {
-								console.log("Add Delete Feature")
-							}}>
-							Delete Account
-						</Button>
-					</Col> */}
 					<Col xs={22} sm={22} md={10} lg={5} xl={5}>
 						<Button onClick={signOutAndRemove} danger>
 							Sign Out
@@ -100,6 +108,7 @@ Data.propTypes = {
 	user: PropTypes.object.isRequired,
 	editView: PropTypes.func.isRequired,
 	editDetailsForm: PropTypes.func.isRequired,
+	editEmailForm: PropTypes.func.isRequired,
 	editPasswordForm: PropTypes.func.isRequired,
 	signOutAndRemove: PropTypes.func.isRequired
 };

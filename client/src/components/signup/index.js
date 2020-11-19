@@ -3,32 +3,28 @@ import { Row, Col, Form, Input, Button, Typography, message } from "antd";
 import { MailOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signUpUserThunk, signInUserThunk, selectError } from "@slices/auth";
+import { signUpUserThunk, signInUserThunk, selectAuthError } from "@slices/auth";
 
 const { Text } = Typography;
 
 function SignUpComponent() {
 	const dispatch = useDispatch();
-	const error = useSelector(selectError);
+	const error = useSelector(selectAuthError);
 
 	const onFinish = async (credentials) => {
 		const { email, password } = credentials;
-		await dispatch(signUpUserThunk(credentials)).then(() => {
-			if (error) {
-				if (error.includes("value already exists")) {
-					message.error("Failed to create an account. Email is already in use.", 10);
-				} else {
-					message.error(
-						`${error}. Failed to create an account. Please try again later.`,
-						10
-					);
-				}
+		await dispatch(signUpUserThunk(credentials));
+		if (error) {
+			if (error.includes("value already exists")) {
+				message.error("Failed to create an account. Email is already in use.", 10);
 			} else {
-				dispatch(signInUserThunk({ email, password })).then(
-					message.success("Successfully created a new account.", 5)
-				);
+				message.error(`${error}. Failed to create an account. Please try again later.`, 10);
 			}
-		});
+		} else {
+			dispatch(signInUserThunk({ email, password })).then(
+				message.success("Successfully created a new account.", 5)
+			);
+		}
 	};
 
 	const onFinishFailed = (error) => {
