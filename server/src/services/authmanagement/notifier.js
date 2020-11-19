@@ -45,7 +45,7 @@ module.exports = function (app) {
 			email = {
 			from: FROM_EMAIL,
 			to: user.email,
-			subject: "Email Verified",
+			subject: "Successfully Verified Email",
 			html: emailVerified(clientURL),
 			};
 			return sendEmail(email);
