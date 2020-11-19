@@ -1,11 +1,17 @@
-const { protect, } = require("@hooks");
+const { authenticate, protect, iff } = require("@hooks");
+
+const isAction = (...args) => (hook) => args.includes(hook.data.action);
 
 module.exports = {
   before: {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [
+			iff (isAction("passwordChange", "identityChange"),
+     authenticate("jwt")
+		),
+		],
     update: [],
     patch: [],
     remove: []
