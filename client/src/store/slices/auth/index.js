@@ -188,7 +188,6 @@ const updateEmailReducers = {
 export const updatePasswordThunk = createAsyncThunk(
 	"auth/updatePassword",
 	async ({ email, password, oldPassword }) => {
-		console.log(email, password, oldPassword);
 		await feathersClient.service("authmanagement").create({
 			action: "passwordChange",
 			value: {
