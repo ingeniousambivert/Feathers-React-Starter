@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography, Row, Col, message, Button, Form, Input } from "antd";
 import { MailOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,8 @@ import { updateUserThunk, selectUserError } from "@slices/user";
 import { updateEmailThunk, selectAuthError } from "@slices/auth";
 import Wrapper from "@components/wrapper";
 import PropTypes from "prop-types";
+import { Spinner } from "@utils";
+import { useIsMountedRef } from "@utils/hooks";
 
 const { Text } = Typography;
 const headingStyle = { textAlign: "center", margin: "2%" };
@@ -15,10 +17,15 @@ const UpdateDetails = (props) => {
 	const dispatch = useDispatch();
 	const error = useSelector(selectUserError);
 	const { updateDetailsForm, updateView, user } = props;
+	const [loading, setLoading] = useState(false);
+	const isMountedRef = useIsMountedRef();
 
 	const onFinish = async (updatedData) => {
+		setLoading(true);
 		const { _id } = user;
-		await dispatch(updateUserThunk({ _id, updatedData }));
+		if (isMountedRef.current) {
+			await dispatch(updateUserThunk({ _id, updatedData }));
+		}
 		if (error) {
 			console.error(error);
 			message.error("Failed to update your data. PLease try again later.");
@@ -27,20 +34,29 @@ const UpdateDetails = (props) => {
 			updateView();
 			message.success("Successfully updated your data");
 		}
+		setLoading(false);
 	};
 
 	const onFinishFailed = (error) => {
 		console.error("Failed : ", error);
 	};
 
-	useEffect(() => {
-		form.setFieldsValue({
+	const setFieldsValue = async (user) => {
+		await form.setFieldsValue({
 			firstname: user.firstname,
 			lastname: user.lastname
 		});
-	}, []);
+	};
 
-	return (
+	useEffect(() => {
+		if (user) {
+			setFieldsValue(user);
+		}
+	}, [user]);
+
+	return loading ? (
+		<Spinner loadingtext="Updating user details. Please wait" />
+	) : (
 		<Wrapper padding="0" margin="0" className="editUserInfo">
 			<div style={headingStyle}>
 				<Text strong>Update your personal details</Text>
@@ -109,8 +125,10 @@ const UpdateEmail = (props) => {
 	const dispatch = useDispatch();
 	const error = useSelector(selectAuthError);
 	const { updateEmailForm, updateView, user } = props;
+	const [loading, setLoading] = useState(false);
 
 	const onFinish = async (updatedData) => {
+		setLoading(true);
 		await dispatch(updateEmailThunk(updatedData));
 		if (error) {
 			if (error.includes("incorrect")) {
@@ -124,19 +142,28 @@ const UpdateEmail = (props) => {
 			updateView();
 			message.success("Successfully updated your email.");
 		}
+		setLoading(false);
 	};
 
 	const onFinishFailed = (error) => {
 		console.error("Failed : ", error);
 	};
 
-	useEffect(() => {
-		form.setFieldsValue({
+	const setFieldsValue = async (user) => {
+		await form.setFieldsValue({
 			currentEmail: user.email
 		});
-	}, []);
+	};
 
-	return (
+	useEffect(() => {
+		if (user) {
+			setFieldsValue(user);
+		}
+	}, [user]);
+
+	return loading ? (
+		<Spinner loadingtext="Updating email. Please wait" />
+	) : (
 		<Wrapper padding="0" margin="0" className="editUserEmail">
 			<div style={headingStyle}>
 				<Text strong>Update your Email Address</Text>
@@ -224,8 +251,10 @@ const UpdateEmail = (props) => {
 const UpdatePassword = (props) => {
 	const [form] = Form.useForm();
 	const { updatePasswordForm, updateView } = props;
+	const [loading, setLoading] = useState(false);
 
 	const onFinish = (updatedData) => {
+		setLoading(true);
 		const { newPassword, confirmPassword } = updatedData;
 
 		if (newPassword !== confirmPassword) {
@@ -236,12 +265,15 @@ const UpdatePassword = (props) => {
 			updateView();
 			message.success("Successfully updated your password. WIP");
 		}
+		setLoading(false);
 	};
 	const onFinishFailed = (error) => {
 		console.error("Failed : ", error);
 	};
 
-	return (
+	return loading ? (
+		<Spinner loadingtext="Updating password. Please wait" />
+	) : (
 		<Wrapper padding="0" margin="0" className="editUserPassword">
 			<div style={headingStyle}>
 				<Text strong>Update your Password </Text>
