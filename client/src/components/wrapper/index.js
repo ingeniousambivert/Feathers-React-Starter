@@ -19,8 +19,8 @@ function Wrapper(props) {
 }
 
 Wrapper.propTypes = {
-	padding: PropTypes.number,
-	margin: PropTypes.number,
+	padding: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	margin: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	aligncontent: PropTypes.string,
 	justify: PropTypes.string,
 	children: PropTypes.oneOfType([
