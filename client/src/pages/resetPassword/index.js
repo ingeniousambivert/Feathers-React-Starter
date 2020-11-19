@@ -10,9 +10,7 @@ function ResetPassword() {
 				contentstyle={{ marginTop: "4%" }}
 				iconcolor="#202020"
 				background="#FEFEFE"
-				footer={true}
-				footercolor="#202020"
-				footerbackground="#FEFEFE">
+				footer={false}>
 				<ResetPasswordComponent />
 			</Container>
 		</React.Fragment>
