@@ -36,11 +36,11 @@ const UpdateDetails = (props) => {
 
 		if (error) {
 			console.error(error);
-			message.error("Failed to update your data. Please try again later.");
+			message.error("Failed to update your details. Please try again later.");
 		} else {
 			updateDetailsForm();
 			updateView();
-			message.success("Successfully updated your data");
+			message.success("Successfully updated your details");
 		}
 		setLoading(false);
 	};
@@ -49,8 +49,8 @@ const UpdateDetails = (props) => {
 		console.error("Failed : ", error);
 	};
 
-	const setFieldsValue = async (user) => {
-		await form.setFieldsValue({
+	const setFieldsValue = (user) => {
+		form.setFieldsValue({
 			firstname: user.firstname,
 			lastname: user.lastname
 		});
@@ -134,14 +134,14 @@ const UpdateEmail = (props) => {
 	const error = useSelector(selectAuthError);
 	const { updateEmailForm, updateView, user } = props;
 	const [loading, setLoading] = useState(false);
+	const currentEmail = user.email;
 
 	const onFinish = async (updatedData) => {
-		const { password, currentEmail, updatedEmail } = updatedData;
 		setLoading(true);
-		await dispatch(updateEmailThunk({ password, currentEmail, updatedEmail }));
+		await dispatch(updateEmailThunk({ ...updatedData, currentEmail }));
 		if (error) {
 			if (error.includes("incorrect") || error.includes("not valid")) {
-				message.error("Failed. Either your password or the current email is incorrect", 10);
+				message.error("Failed to update your email. Invalid password", 10);
 			} else {
 				console.error(error);
 				message.error("Failed to update your email. Please try again later.", 10);
@@ -149,7 +149,7 @@ const UpdateEmail = (props) => {
 		} else {
 			updateEmailForm();
 			updateView();
-			message.success("Successfully updated your email.");
+			message.success("Successfully updated your email");
 		}
 		setLoading(false);
 	};
@@ -158,18 +158,6 @@ const UpdateEmail = (props) => {
 		console.error("Failed : ", error);
 	};
 
-	const setFieldsValue = async (user) => {
-		await form.setFieldsValue({
-			currentEmail: user.email
-		});
-	};
-
-	useEffect(() => {
-		if (user) {
-			setFieldsValue(user);
-		}
-	}, [user]);
-
 	return loading ? (
 		<Spinner loadingtext="Updating email. Please wait" />
 	) : (
@@ -177,6 +165,7 @@ const UpdateEmail = (props) => {
 			<div style={headingStyle}>
 				<Text strong>Update your Email Address</Text>
 			</div>
+
 			<Form
 				hideRequiredMark
 				form={form}
@@ -186,35 +175,7 @@ const UpdateEmail = (props) => {
 				<Row gutter={16} justify="center" align="middle">
 					<Col xs={20} sm={18} md={14} lg={12} xl={10}>
 						<Form.Item
-							label="Password"
-							name="password"
-							rules={[
-								{
-									required: true,
-									message: "Please input your Password"
-								}
-							]}>
-							<Input.Password prefix={<LockOutlined />} name="password" />
-						</Form.Item>
-
-						<Form.Item
-							label="Current E-mail"
-							name="currentEmail"
-							rules={[
-								{
-									required: true,
-									message: "Please input your current E-mail"
-								},
-								{
-									type: "email",
-									message: "Please input a valid E-mail"
-								}
-							]}>
-							<Input prefix={<MailOutlined />} type="email" name="currentEmail" />
-						</Form.Item>
-
-						<Form.Item
-							label="New E-mail"
+							label="New Email"
 							name="updatedEmail"
 							rules={[
 								{
@@ -228,21 +189,32 @@ const UpdateEmail = (props) => {
 							]}>
 							<Input prefix={<MailOutlined />} type="email" name="updatedEmail" />
 						</Form.Item>
+
+						<Form.Item
+							label="Password"
+							name="password"
+							rules={[
+								{
+									required: true,
+									message: "Please input your password to continue"
+								}
+							]}>
+							<Input.Password prefix={<LockOutlined />} name="password" />
+						</Form.Item>
 					</Col>
 				</Row>
 
 				<Row justify="center" align="middle" gutter={[16, 16]}>
 					<Col xs={6} sm={6} md={5} lg={4} xl={3}>
-						<Form.Item name="updateEmail">
-							<Button name="updateEmail" htmlType="submit" type="primary">
+						<Form.Item>
+							<Button htmlType="submit" type="primary">
 								Update
 							</Button>
 						</Form.Item>
 					</Col>
 					<Col xs={6} sm={6} md={5} lg={3} xl={2}>
-						<Form.Item name="cancel">
+						<Form.Item>
 							<Button
-								name="cancel"
 								onClick={() => {
 									updateEmailForm();
 									updateView();
@@ -266,26 +238,23 @@ const UpdatePassword = (props) => {
 
 	const onFinish = async (updatedData) => {
 		setLoading(true);
-		const { password, confirmPassword, oldPassword } = updatedData;
+		const { password, oldPassword } = updatedData;
 		const { email } = user;
 
-		if (password !== confirmPassword) {
-			message.error("Passwords do not match. Please re-enter", 5);
+		await dispatch(updatePasswordThunk({ email, password, oldPassword }));
+		if (error) {
+			console.error(error);
+			message.error("Failed to update your password. Please try again later", 10);
 		} else {
-			await dispatch(updatePasswordThunk({ email, password, oldPassword }));
-			if (error) {
-				console.error(error);
-				message.error("Failed to update your password. Please try again later", 10);
-			} else {
-				updatePasswordForm();
-				updateView();
-				message.success(
-					"Successfully updated your password. Please sign in again with the new password"
-				);
-				// dispatch(removeUserAction());
-				// dispatch(signOutUserThunk());
-			}
+			updatePasswordForm();
+			updateView();
+			message.success(
+				"Successfully updated your password. Please sign in again with the updated password"
+			);
+			dispatch(removeUserAction());
+			dispatch(signOutUserThunk());
 		}
+
 		setLoading(false);
 	};
 	const onFinishFailed = (error) => {
@@ -332,34 +301,20 @@ const UpdatePassword = (props) => {
 							]}>
 							<Input.Password prefix={<LockOutlined />} name="password" />
 						</Form.Item>
-
-						<Form.Item
-							label="Confirm Password"
-							name="confirmPassword"
-							rules={[
-								{
-									required: true,
-									message: "Please confirm your new password"
-								},
-								{ min: 6, message: "Password must be minimum 6 characters" }
-							]}>
-							<Input.Password prefix={<LockOutlined />} name="confirmPassword" />
-						</Form.Item>
 					</Col>
 				</Row>
 
 				<Row justify="center" align="middle" gutter={[16, 16]}>
 					<Col xs={6} sm={6} md={5} lg={4} xl={3}>
-						<Form.Item name="updatePassword">
-							<Button name="updatePassword" htmlType="submit" type="primary">
+						<Form.Item>
+							<Button htmlType="submit" type="primary">
 								Update
 							</Button>
 						</Form.Item>
 					</Col>
 					<Col xs={6} sm={6} md={5} lg={3} xl={2}>
-						<Form.Item name="cancel">
+						<Form.Item>
 							<Button
-								name="cancel"
 								onClick={() => {
 									updatePasswordForm();
 									updateView();

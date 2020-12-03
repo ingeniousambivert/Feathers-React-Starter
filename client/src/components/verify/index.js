@@ -27,7 +27,7 @@ function VerifyComponent() {
 		error ? (
 			<Result
 				status="error"
-				title="Verification Failed"
+				title="Email Verification Failed"
 				subTitle="The token is invalid or your email has already been verified."
 				extra={[
 					<Button type="primary" key="signin">
@@ -40,7 +40,7 @@ function VerifyComponent() {
 		) : (
 			<Result
 				status="success"
-				title="Successfully Verified"
+				title="Email Verification Successful"
 				subTitle="Your email has been successfully verified. Sign in to try all the features."
 				extra={[
 					<Button type="primary" key="signin">

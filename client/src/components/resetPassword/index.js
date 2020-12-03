@@ -62,7 +62,7 @@ function ResetPasswordComponent() {
 		) : error ? (
 			<Result
 				status="error"
-				title="Failed to reset your password"
+				title="Password Reset Failed"
 				subTitle={errorMessage}
 				extra={[
 					<Button type="primary" key="signin">
@@ -75,8 +75,8 @@ function ResetPasswordComponent() {
 		) : (
 			<Result
 				status="success"
-				title="Successfully reset your password"
-				subTitle="You can sign in with your new password"
+				title="Password Reset Successful"
+				subTitle="Please sign in with your new password"
 				extra={[
 					<Button type="primary" key="signin">
 						<Link to="/signin">
