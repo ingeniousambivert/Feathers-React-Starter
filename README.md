@@ -24,7 +24,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ## Branches
 
-- ant-dev : React Client customized with [Ant Design](https://ant.design)
+- [ant-dev](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev) : React Client customized with [Ant Design](https://ant.design)
 - tailwind-dev : React Client customized with [Tailwind CSS](https://tailwindcss.com)
 
 ## Installation
