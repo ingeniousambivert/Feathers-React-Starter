@@ -38,10 +38,8 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 2. Use [yarn](https://yarnpkg.com/) or [npm](https://npmjs.com) to install all the dependencies.
 
-    *directory* - client / server  
-
     ```bash
-    cd directory
+    cd directory (client / server)
     yarn / npm install
     ```
 
