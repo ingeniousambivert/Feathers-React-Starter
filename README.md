@@ -36,13 +36,13 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
     git checkout 'branch-name'
     ```
 
-2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
+2. Use [yarn](https://yarnpkg.com/) or [npm](https://npmjs.com) to install all the dependencies.
 
     *directory* - client / server  
 
     ```bash
     cd directory
-    yarn
+    yarn / npm install
     ```
 
 ## Note
