@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
-
 import feathersClient from "@client";
 
 export const signUpUserThunk = createAsyncThunk("auth/signUpUser", async (data) => {
@@ -156,19 +155,52 @@ const resetPasswordReducers = {
 	}
 };
 
-export const updateEmailThunk = createAsyncThunk(
-	"auth/updateEmail",
-	async ({ currentEmail, password, updatedEmail }) => {
+export const resendConfirmationThunk = createAsyncThunk(
+	"auth/resendEmailConfirmation",
+	async (data) => {
+		const { email } = data;
 		await feathersClient.service("authmanagement").create({
-			action: "identityChange",
+			action: "resendVerifySignup",
 			value: {
-				user: { email: currentEmail },
-				password,
-				changes: { email: updatedEmail }
+				email
 			}
 		});
 	}
 );
+
+const resendConfirmationReducers = {
+	[resendConfirmationThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[resendConfirmationThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[resendConfirmationThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
+export const updateEmailThunk = createAsyncThunk("auth/updateEmail", async (data) => {
+	const { currentEmail, password, updatedEmail, _id } = data;
+
+	await feathersClient.service("authmanagement").create({
+		action: "identityChange",
+		value: {
+			user: { email: currentEmail },
+			password,
+			changes: { email: updatedEmail }
+		}
+	});
+
+	const user = await feathersClient.service("users").patch(_id, {
+		isVerified: false,
+		email: updatedEmail
+	});
+	return user;
+});
 
 const updateEmailReducers = {
 	[updateEmailThunk.pending]: (state) => {
@@ -231,7 +263,8 @@ const authSlice = createSlice({
 		...forgotPasswordReducers,
 		...resetPasswordReducers,
 		...updateEmailReducers,
-		...updatePasswordReducers
+		...updatePasswordReducers,
+		...resendConfirmationReducers
 	}
 });
 
