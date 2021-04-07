@@ -60,10 +60,6 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 - [MongoDB](https://www.mongodb.com)
 - [Mongoose](https://mongoosejs.com/)
 
-## Note
-
-It is presumed that if you are using this starter you are familiar with **Javascript** and atleast the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
