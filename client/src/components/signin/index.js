@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { signInUserThunk, selectAuthError } from "@slices/auth";
 
 const { Text } = Typography;
+
 function SignInComponent() {
 	const dispatch = useDispatch();
 	const error = useSelector(selectAuthError);
