@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Typography, Row, Col, message, Button, Form, Input } from "antd";
 import { MailOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserThunk, removeUserAction, selectUserError } from "@slices/user";
+import { updateUserThunk, removeUserAction, selectUserError, setUserAction } from "@slices/user";
 import {
 	updateEmailThunk,
 	updatePasswordThunk,
@@ -135,10 +135,14 @@ const UpdateEmail = (props) => {
 	const { updateEmailForm, updateView, user } = props;
 	const [loading, setLoading] = useState(false);
 	const currentEmail = user.email;
+	const { _id } = user;
 
 	const onFinish = async (updatedData) => {
 		setLoading(true);
-		await dispatch(updateEmailThunk({ ...updatedData, currentEmail }));
+		updatedData.currentEmail = currentEmail;
+		updatedData._id = _id;
+
+		const actionResult = await dispatch(updateEmailThunk(updatedData));
 		if (error) {
 			if (error.includes("incorrect") || error.includes("not valid")) {
 				message.error("Failed to update your email. Invalid password", 10);
@@ -147,6 +151,7 @@ const UpdateEmail = (props) => {
 				message.error("Failed to update your email. Please try again later.", 10);
 			}
 		} else {
+			dispatch(setUserAction(actionResult.payload));
 			updateEmailForm();
 			updateView();
 			message.success("Successfully updated your email");
