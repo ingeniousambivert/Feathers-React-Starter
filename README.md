@@ -43,10 +43,6 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
     yarn / npm install
     ```
 
-## Note
-
-It is presumed that if you are using this starter you are familiar with **Javascript** and atleast the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
-
 ## Built with
 
 **Client** :
@@ -63,6 +59,10 @@ It is presumed that if you are using this starter you are familiar with **Javasc
 
 - [MongoDB](https://www.mongodb.com)
 - [Mongoose](https://mongoosejs.com/)
+
+## Note
+
+It is presumed that if you are using this starter you are familiar with **Javascript** and atleast the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
 
 ## Contributing
 
