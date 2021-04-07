@@ -14,9 +14,9 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 #### Why Redux (Toolkit)
 
-- [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient *Redux* development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
-
 - [**Redux**](https://redux.js.org/) is a predictable state container for JavaScript applications. It helps you write applications that behave consistently and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
+  
+- [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient *Redux* development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
 
 <!-- - [**Feathers**](https://docs.feathersjs.com) is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
   
