@@ -1,4 +1,4 @@
-const { authenticate, protect, iff } = require("@hooks");
+const { authenticate, protect, iff} = require("@hooks");
 
 const isAction = (...args) => (hook) => args.includes(hook.data.action);
 
@@ -38,7 +38,7 @@ module.exports = {
 			),],
     find: [],
     get: [],
-    create: [],
+		create: [],
     update: [],
     patch: [],
     remove: []

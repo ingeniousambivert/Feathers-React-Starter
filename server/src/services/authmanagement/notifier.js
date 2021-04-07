@@ -30,7 +30,7 @@ module.exports = function (app) {
 
 		switch (type) {
 		case "resendVerifySignup":
-			console.log("user", user);
+
 			tokenLink = getLink("verify", user.verifyToken);
 			content = `Welcome to <b>Feathers-React Starter</b>.Please verify your email to access all the features. <br/>
 			<a target="_blank" href="${tokenLink}">Click here to verify</a>.<br/>
@@ -58,7 +58,6 @@ module.exports = function (app) {
 			return sendEmail(email);
 
 		case "sendResetPwd":
-			console.log("user", user);
 			tokenLink = getLink("reset-password", user.resetToken);
 			content = `You have requested to reset your password.<br/> Please
 			<a target="_blank" href="${tokenLink}">click here</a> to visit the password reset page.<br/>
@@ -100,7 +99,6 @@ module.exports = function (app) {
 			return sendEmail(email);
 
 		case "identityChange":
-			console.log("user", user);
 			tokenLink = getLink("verify", user.verifyToken);
 			content = `You have updated your email.<br/> Please
 			<a target="_blank" href="${tokenLink}">click here</a> to verify the new email.<br/>
