@@ -15,12 +15,10 @@ module.exports = {
     get: [authenticate("jwt")],
     create: [hashPassword("password"),addVerification(),],
     update: [disallow("external")],
-    patch: [hashPassword("password"), authenticate("jwt"), iff(
+    patch: [ authenticate("jwt"), iff(
 			isProvider("external"),
 			preventChanges(
 				true,
-				"email",
-				"isVerified",
 				"verifyToken",
 				"verifyShortToken",
 				"verifyExpires",
@@ -28,7 +26,7 @@ module.exports = {
 				"resetToken",
 				"resetShortToken",
 				"resetExpires"
-			),)],
+			),hashPassword("password"))],
     remove: [authenticate("jwt"),disallow("external")]
   },
 
