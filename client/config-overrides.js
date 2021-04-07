@@ -12,6 +12,7 @@ module.exports = override(
 		"@slices": path.resolve(__dirname, "src/store/slices"),
 		"@utils": path.resolve(__dirname, "src/utils"),
 		"@pages": path.resolve(__dirname, "src/pages"),
+		"@assets": path.resolve(__dirname, "src/assets"),
 		"@images": path.resolve(__dirname, "src/assets/images")
 	}),
 	fixBabelImports("import", {
