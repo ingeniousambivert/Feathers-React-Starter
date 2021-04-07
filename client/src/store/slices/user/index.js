@@ -56,6 +56,9 @@ const userSlice = createSlice({
 	reducers: {
 		removeUser: (state) => {
 			state.user = null;
+		},
+		setUser: (state, action) => {
+			state.user = action.payload;
 		}
 	},
 	extraReducers: { ...loadUserReducer, ...updateUserReducer }
@@ -75,6 +78,6 @@ export const selectUser = createSelector(
 	}
 );
 
-export const { removeUser: removeUserAction } = userSlice.actions;
+export const { removeUser: removeUserAction, setUser: setUserAction } = userSlice.actions;
 
 export default userSlice.reducer;
