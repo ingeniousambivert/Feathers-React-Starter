@@ -18,7 +18,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 - [npm](https://npmjs.com) or [yarn](https://yarnpkg.com)
 - [MongoDB](https://www.mongodb.com)
 
-## Branches
+## Variants
 
 - [ant-dev](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev) : React Client customized with [Ant Design](https://ant.design)
 - tailwind-dev : React Client customized with [Tailwind CSS](https://tailwindcss.com)
