@@ -1,0 +1,85 @@
+{
+  "name": "server",
+  "description": "Feathers Server for the Starter Kit",
+  "version": "0.1.0",
+  "homepage": "",
+  "private": true,
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "Monarch Maisuriya",
+    "email": "monarchmaisuriya7600@gmail.com"
+  },
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/",
+    "config": "config/"
+  },
+  "engines": {
+    "node": "^13.0.0",
+    "npm": ">= 3.0.0",
+    "yarn": "YARN NO LONGER USED - use npm instead."
+  },
+  "scripts": {
+    "test": "npm run lint && npm run mocha",
+    "lint": "eslint src/. test/. --config .eslintrc.json",
+    "lint:fix": "eslint --fix",
+    "lint:all": "eslint src/.",
+    "lint:all:fix": "eslint src/. --fix",
+    "dev": "NODE_ENV=development nodemon --trace-warnings src/server.js",
+    "start": "NODE_ENV=production node --trace-warnings src/server.js",
+    "mocha": "mocha test/ --recursive --exit"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ],
+    "ignore": []
+  },
+  "_moduleAliases": {
+    "@app": "src/app",
+    "@models": "src/models",
+    "@services": "src/services",
+    "@hooks": "src/hooks",
+    "@errors": "src/errors",
+    "@utils": "src/utils"
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^4.5.3",
+    "@feathersjs/authentication-local": "^4.5.4",
+    "@feathersjs/authentication-oauth": "^4.5.4",
+    "@feathersjs/configuration": "^4.5.3",
+    "@feathersjs/errors": "^4.5.8",
+    "@feathersjs/express": "^4.5.4",
+    "@feathersjs/feathers": "^4.5.3",
+    "@feathersjs/socketio": "^4.5.4",
+    "@feathersjs/transport-commons": "^4.5.3",
+    "axios": "^0.20.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "feathers-authentication-management": "^3.0.1",
+    "feathers-errors": "^2.9.2",
+    "feathers-hooks-common": "^5.0.4",
+    "feathers-mailer": "^3.0.1",
+    "feathers-mongodb": "^6.1.0",
+    "feathers-mongoose": "^8.3.0",
+    "helmet": "^3.22.0",
+    "localenv": "^0.2.2",
+    "module-alias": "^2.2.2",
+    "mongodb": "^3.5.9",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^5.9.16",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "serve-favicon": "^2.5.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.8.1",
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
