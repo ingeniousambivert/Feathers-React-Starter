@@ -1,6 +1,6 @@
 # Feathers-React-Starter
 
-*Feathers-React-MongoDB* Stack Starter Kit.
+ **MERN Stack** starter template with *Feathers*.
 
 ## About
 
