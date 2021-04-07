@@ -1,5 +1,5 @@
 import React from "react";
-import { Descriptions, Row, Col, Typography, Button } from "antd";
+import { Descriptions, Row, Col, Typography, Button, message } from "antd";
 import {
 	CheckCircleTwoTone,
 	ExclamationCircleTwoTone,
@@ -8,10 +8,14 @@ import {
 } from "@ant-design/icons";
 import { verified, unverified } from "@utils";
 import Wrapper from "@components/wrapper";
+import { useDispatch, useSelector } from "react-redux";
+import { resendConfirmationThunk, selectAuthError } from "@slices/auth";
+
 import PropTypes from "prop-types";
 
 const { Text } = Typography;
 const marginRight = { marginRight: "1%" };
+const floatRight = { float: "right" };
 
 const Data = (props) => {
 	const {
@@ -22,6 +26,15 @@ const Data = (props) => {
 		editPasswordForm,
 		signOutAndRemove
 	} = props;
+	const dispatch = useDispatch();
+	const error = useSelector(selectAuthError);
+
+	const resendConfirmation = async (data) => {
+		await dispatch(resendConfirmationThunk(data));
+		if (error) message.error(error);
+		else message.info("Resent account verification e-mail");
+	};
+
 	return (
 		<Wrapper>
 			<div className="userInfo">
@@ -30,7 +43,7 @@ const Data = (props) => {
 						<Descriptions
 							size="small"
 							bordered
-							column={{ xxl: 3, xl: 2, lg: 2, md: 2, sm: 2, xs: 1 }}
+							column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
 							layout="vertical">
 							<Descriptions.Item label="Name">
 								<Text>
@@ -44,7 +57,7 @@ const Data = (props) => {
 										<CheckCircleTwoTone
 											style={marginRight}
 											twoToneColor={verified}
-										/>{" "}
+										/>
 										&nbsp; Verified
 									</Text>
 								) : (
@@ -52,7 +65,7 @@ const Data = (props) => {
 										<ExclamationCircleTwoTone
 											style={marginRight}
 											twoToneColor={unverified}
-										/>{" "}
+										/>
 										&nbsp; Unverified
 									</Text>
 								)}
@@ -61,6 +74,16 @@ const Data = (props) => {
 								<Text>
 									<MailOutlined /> &nbsp; {user.email}
 								</Text>
+								{!user.isVerified && (
+									<Button
+										style={floatRight}
+										onClick={() => {
+											resendConfirmation(user);
+										}}
+										type="link">
+										Resend Confirmation
+									</Button>
+								)}
 							</Descriptions.Item>
 						</Descriptions>
 					</Col>
