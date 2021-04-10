@@ -4,7 +4,7 @@
 
 ## About
 
-This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications. It contains a pre-configured **REST API** with **local authentication** and **authentication management** in the *server* and **state management** in the *client*.
+This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications. It contains a pre-configured **REST API** with **local authentication** and **authentication management** in the *server* and **state management** in the *web app*.
 
 #### Why Redux (Toolkit)
 
@@ -20,8 +20,8 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ## Variants
 
-- [ant-dev](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev) : React Client customized with [Ant Design](https://ant.design)
-- [tailwind-dev](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/tailwind-dev) : React Client customized with [Tailwind CSS](https://tailwindcss.com) (WIP)
+- [ant-dev](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev) : React Web App customized with [Ant Design](https://ant.design)
+- [tailwind-dev](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/tailwind-dev) : React Web App customized with [Tailwind CSS](https://tailwindcss.com) (WIP)
 
 ## Installation
 
@@ -35,13 +35,13 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 2. Use [yarn](https://yarnpkg.com/) or [npm](https://npmjs.com) to install all the dependencies.
 
     ```bash
-    cd directory (client / server)
+    cd directory (web / server)
     yarn / npm install
     ```
 
 ## Built with
 
-**Client** :
+**Web** :
 
 - [React](https://www.reactjs.org)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
