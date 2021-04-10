@@ -1,0 +1,76 @@
+{
+	"name": "client",
+	"description": "React Web App for the Starter Kit",
+	"version": "0.1.0",
+	"keywords": [
+		"react"
+	],
+	"author": {
+		"name": "Monarch Maisuriya",
+		"email": "monarchmaisuriya7600@gmail.com"
+	},
+	"private": true,
+	"dependencies": {
+		"@babel/plugin-proposal-decorators": "^7.10.5",
+		"@feathersjs/authentication-client": "^4.5.6",
+		"@feathersjs/client": "^4.5.6",
+		"@feathersjs/feathers": "^4.5.5",
+		"@feathersjs/rest-client": "^4.5.6",
+		"@reduxjs/toolkit": "^1.4.0",
+		"@testing-library/jest-dom": "^5.9.0",
+		"@testing-library/react": "^10.2.1",
+		"@testing-library/user-event": "^11.1.0",
+		"antd": "^4.4.2",
+		"axios": "^0.19.2",
+		"babel-plugin-import": "^1.13.0",
+		"classnames": "^2.2.6",
+		"lodash": "^4.17.19",
+		"node-sass": "^4.14.1",
+		"react": "^16.13.1",
+		"react-app-rewired": "^2.1.6",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.1",
+		"redux": "^4.0.5",
+		"redux-logger": "^3.0.6",
+		"redux-persist": "^6.0.0"
+	},
+	"scripts": {
+		"start": "NODE_ENV=development react-app-rewired start",
+		"build": "NODE_ENV=production react-app-rewired build",
+		"test": "NODE_ENV=test react-app-rewired test",
+		"eject": "react-scripts eject",
+		"lint": "eslint --fix .",
+		"format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"customize-cra": "^1.0.0",
+		"customize-cra-react-refresh": "^1.1.0",
+		"eslint": "^7.9.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.20.6",
+		"eslint-plugin-react-hooks": "^4.1.2",
+		"less": "^3.12.2",
+		"less-loader": "^7.0.0",
+		"prettier": "^2.1.2",
+		"prop-types": "^15.7.2"
+	}
+}
