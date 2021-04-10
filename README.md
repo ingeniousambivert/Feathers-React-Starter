@@ -273,7 +273,7 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] Customize CRA with HMR
 - [x] Module Aliases for client and server
 - [x] [Authentication/User Management](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) in the server
-- [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the client (Partially)
+- [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the client (Customized)
 - [ ] More test cases for server and snapshot testing for client w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for client
 
