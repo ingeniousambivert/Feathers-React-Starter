@@ -4,7 +4,7 @@
 
 ## About
 
-This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org), [**Ant Design**](https://ant.design) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications. It contains a pre-configured **REST API** with **Local Authentication** in the *server* and **State Management** in the *client*.
+This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org), [**Ant Design**](https://ant.design) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications. It contains a pre-configured **REST API** with **Local Authentication** in the *server* and **State Management** in the *web*.
 
 <!-- - [**React**](https://www.reactjs.org) is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”. [Read More](https://codetoart.com/blog/why-reactjs-reason-to-choose-for-your-next-project) -->
 
