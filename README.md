@@ -39,7 +39,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 2. Use [yarn](https://yarnpkg.com/) to install all the dependencies.
 
-    *directory* - client / server  
+    *directory* - web / server  
 
     ```bash
     cd directory
@@ -48,7 +48,7 @@ This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**Mong
 
 ## Usage
 
-*directory* - client / server
+*directory* - web / server
 
 ```bash
 cd directory
@@ -61,7 +61,7 @@ Open <http://localhost:3000>
 
 > It is presumed that if you are using this starter you are familiar with **Javascript** and atleast the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
 
-### Client
+### Web
 
 - The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/config-overrides.js) in the **client** consists of the module aliases : *@client*, *@components*, *@layouts*, *@slices*, *@utils*, *@pages*, *@images*. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme/overrides.js) for the Ant Design theme override.
 
