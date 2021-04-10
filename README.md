@@ -243,8 +243,8 @@ To get the best out of this starter know the project structure of both *client* 
 
 ### Read More
 
-- [Web](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/web#web)
-- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/main/server#server)
+- [Web](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web#client)
+- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server#server)
 
 ## Built with
 
