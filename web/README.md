@@ -1,6 +1,6 @@
-# Client
+# Web
 
-> React Client for the Starter Kit
+> React Web App for the Starter Kit
 
 ## About
 
