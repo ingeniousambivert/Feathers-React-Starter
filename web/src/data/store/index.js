@@ -1,7 +1,7 @@
 import { configureStore, getDefaultMiddleware, combineReducers } from "@reduxjs/toolkit";
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import logger from "redux-logger";
+// import logger from "redux-logger";
 
 import authReducer from "./slices/auth/";
 import userReducer from "./slices/user";
