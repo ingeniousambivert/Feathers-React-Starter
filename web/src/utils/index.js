@@ -6,4 +6,19 @@ function removeWhiteSpaces(string) {
 	return string.replace(/\s/g, " ");
 }
 
-export { removeWhiteSpaces };
+function transformAdminTable(data) {
+	if (!data || !data.length) return null;
+	else {
+		return data.map((item) => {
+			return {
+				key: item._id,
+				name: `${item.firstname} ${item.lastname}`,
+				email: item.email,
+				permissions: item.permissions.toString(),
+				lastLoggedIn: item.lastLoggedIn
+			};
+		});
+	}
+}
+
+export { removeWhiteSpaces, transformAdminTable };
