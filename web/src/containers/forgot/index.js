@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import { Row, Col, Form } from "antd";
 import { MailOutlined } from "@ant-design/icons";
 import {
-	LinkButton,
+	LinkText,
 	SuccessResult,
 	ErrorResult,
 	Wrapper,
 	SubmitButton,
+	PrimaryButton,
 	SimpleFormInput,
 	SimpleFormItem,
 	SimpleHeadingText,
@@ -15,7 +16,7 @@ import {
 	ResponsiveGrid,
 	FixedGrid
 } from "@components";
-import { Spinner } from "@utils";
+import { Spinner, white } from "@utils";
 
 function ForgotContainer(props) {
 	const { error, loading, emailSent, onFinish, onFinishFailed } = props;
@@ -28,13 +29,21 @@ function ForgotContainer(props) {
 			<ErrorResult
 				title="Failed to send the email"
 				subTitle={errorMessage}
-				extra={[<LinkButton linkTo="/signin" key="signin" buttonText="Sign In" />]}
+				extra={[
+					<PrimaryButton key="signin">
+						<LinkText style={{ color: white }} linkTo="/signin" linkText="Sign In" />
+					</PrimaryButton>
+				]}
 			/>
 		) : (
 			<SuccessResult
 				title="Successfully sent the email"
 				subTitle="You will recieve an email with a link. Visit the link to reset your password."
-				extra={[<LinkButton linkTo="/signin" key="signin" buttonText="Sign In" />]}
+				extra={[
+					<PrimaryButton key="signin">
+						<LinkText style={{ color: white }} linkTo="/signin" linkText="Sign In" />
+					</PrimaryButton>
+				]}
 			/>
 		);
 	};
@@ -82,7 +91,7 @@ function ForgotContainer(props) {
 									md={8}
 									lg={6}
 									xl={6}>
-									<SubmitButton buttonText="Send" />
+									<SubmitButton block buttonText="Send" />
 								</Col>
 							</Row>
 						</SimpleFormItem>
@@ -102,7 +111,7 @@ ForgotContainer.propTypes = {
 		PropTypes.number,
 		PropTypes.string,
 		PropTypes.element
-	]).isRequired,
+	]),
 	loading: PropTypes.bool.isRequired,
 	emailSent: PropTypes.bool.isRequired,
 	onFinish: PropTypes.func.isRequired,

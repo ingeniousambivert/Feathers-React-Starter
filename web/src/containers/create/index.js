@@ -6,7 +6,7 @@ import {
 	PasswordFormInput,
 	SimpleFormItem,
 	SimpleHeadingText,
-	StrongText,
+	Text,
 	LinkText,
 	ResponsiveGrid,
 	FixedGrid,
@@ -98,7 +98,7 @@ function CreateContainer(props) {
 								md={8}
 								lg={8}
 								xl={8}>
-								<SubmitButton buttonText="Sign Up" />
+								<SubmitButton block buttonText="Sign Up" />
 							</Col>
 							<Col
 								style={{ textAlign: "center" }}
@@ -107,7 +107,7 @@ function CreateContainer(props) {
 								md={16}
 								lg={14}
 								xl={14}>
-								<StrongText>Already have an account? </StrongText>
+								<Text strong>Already have an account? </Text>
 								<LinkText linkTo="/signin" linkText="Sign In" />
 							</Col>
 						</Row>

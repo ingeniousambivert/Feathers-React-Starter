@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { LinkButton, SuccessResult, ErrorResult, Wrapper } from "@components";
-import { Spinner } from "@utils";
+import { LinkText, PrimaryButton, SuccessResult, ErrorResult, Wrapper } from "@components";
+import { Spinner, white } from "@utils";
 
 function VerifyContainer(props) {
 	const { error, loading } = props;
@@ -14,13 +14,29 @@ function VerifyContainer(props) {
 				<ErrorResult
 					title="Email Verification Failed"
 					subTitle="The token is invalid or your email has already been verified."
-					extra={[<LinkButton linkTo="/signin" key="signin" buttonText="Sign In" />]}
+					extra={[
+						<PrimaryButton key="signin">
+							<LinkText
+								style={{ color: white }}
+								linkTo="/signin"
+								linkText="Sign In"
+							/>
+						</PrimaryButton>
+					]}
 				/>
 			) : (
 				<SuccessResult
 					title="Email Verification Successful"
 					subTitle="Your email has been successfully verified. Sign in to try all the features."
-					extra={[<LinkButton linkTo="/signin" key="signin" buttonText="Sign In" />]}
+					extra={[
+						<PrimaryButton key="signin">
+							<LinkText
+								style={{ color: white }}
+								linkTo="/signin"
+								linkText="Sign In"
+							/>
+						</PrimaryButton>
+					]}
 				/>
 			)}
 		</Wrapper>

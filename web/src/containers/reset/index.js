@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-	LinkButton,
+	PrimaryButton,
+	LinkText,
 	SuccessResult,
 	ErrorResult,
 	Wrapper,
@@ -13,7 +14,7 @@ import {
 	FixedGrid
 } from "@components";
 import { Row, Col, Form } from "antd";
-import { Spinner } from "@utils";
+import { Spinner, white } from "@utils";
 
 function ResetContainer(props) {
 	const { error, loading, emailSent, onFinish, onFinishFailed } = props;
@@ -26,13 +27,21 @@ function ResetContainer(props) {
 			<ErrorResult
 				title="Password Reset Failed"
 				subTitle={errorMessage}
-				extra={[<LinkButton linkTo="/signin" key="signin" buttonText="Sign In" />]}
+				extra={[
+					<PrimaryButton key="signin">
+						<LinkText style={{ color: white }} linkTo="/signin" linkText="Sign In" />
+					</PrimaryButton>
+				]}
 			/>
 		) : (
 			<SuccessResult
 				title="Password Reset Successful"
 				subTitle="Please sign in with your new password"
-				extra={[<LinkButton linkTo="/signin" key="signin" buttonText="Sign In" />]}
+				extra={[
+					<PrimaryButton key="signin">
+						<LinkText style={{ color: white }} linkTo="/signin" linkText="Sign In" />
+					</PrimaryButton>
+				]}
 			/>
 		);
 	};
@@ -84,7 +93,7 @@ function ResetContainer(props) {
 								md={8}
 								lg={6}
 								xl={6}>
-								<SubmitButton buttonText="Reset" />
+								<SubmitButton block buttonText="Reset" />
 							</Col>
 						</Row>
 					</SimpleFormItem>
