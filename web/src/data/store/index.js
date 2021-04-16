@@ -3,8 +3,8 @@ import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } fro
 import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 
-import authReducer from "@slices/auth/";
-import userReducer from "@slices/user";
+import authReducer from "./slices/auth/";
+import userReducer from "./slices/user";
 
 const rootReducers = combineReducers({
 	auth: authReducer,
