@@ -6,6 +6,10 @@ const {protect, hashPassword} = require("@feathersjs/authentication-local").hook
 
 const verifyHooks = require("feathers-authentication-management").hooks;
 
+const { setField } = require("feathers-authentication-hooks");
+
+const checkPermissions = require("feathers-permissions");
+
 
 
   module.exports = {
@@ -16,12 +20,18 @@ const verifyHooks = require("feathers-authentication-management").hooks;
 	isProvider,
 	preventChanges,
 
-	//feathersjs/authentication
+	// feathersjs/authentication
 	authenticate,
+
+	// feathers-authentication-hooks
+	setField,
 
 	// feathers-authentication-local
 	protect,
 	hashPassword,
+
+	// feathers-permissions
+	checkPermissions,
 
 	// feathers-authentication-management
 	addVerification: verifyHooks.addVerification,
