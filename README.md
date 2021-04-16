@@ -259,7 +259,7 @@ To get the best out of this starter know the project structure of both *client* 
 ## Todo
 
 - [x] Ant Design UI Library w/ Custom Theme
-- [x] Module Aliases, ESLint and Prettier for server and client. Customize CRA with HMR and PropTypes Check for client.
+- [x] Module Aliases, ESLint and Prettier for server and web. Customize CRA with HMR and PropTypes Check for web.
 - [x] Redux Toolkit for State Management
 - [x] [Authentication/User Management](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) in the server
 - [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the client (Customized)
