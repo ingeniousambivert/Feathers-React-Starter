@@ -10,7 +10,7 @@ import Container from "@containers";
 
 import UserData from "./user";
 
-function HomeContainer() {
+function HomePage() {
 	const dispatch = useDispatch();
 	const error = useSelector(selectUserError);
 	const userID = useSelector(selectUserID);
@@ -96,4 +96,4 @@ function HomeContainer() {
 	);
 }
 
-export default HomeContainer;
+export default HomePage;
