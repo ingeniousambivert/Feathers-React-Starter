@@ -34,6 +34,8 @@ module.exports = function (app) {
 			// app.channel(`emails/${user.email}`).join(channel);
 			// app.channel(`userIds/$(user.id}`).join(channel);
 		}
+		authResult.user["lastLoggedIn"] = new Date();
+		app.service("users").patch(authResult.user._id, authResult.user);
 	});
 
 	// eslint-disable-next-line no-unused-vars
