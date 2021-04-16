@@ -21,8 +21,38 @@ const notifyServiceHook = (context) => {
 module.exports = {
 	before: {
 		all: [],
-		find: [authenticate("jwt")],
-		get: [authenticate("jwt")],
+		find: [
+			authenticate("jwt"),
+			iff(
+				checkPermissions({
+					roles: ["super_admin", "admin"],
+					field: "permissions",
+					error: false,
+				})
+			),
+			iff((context) => !context.params.permitted, [
+				setField({
+					from: "params.user._id",
+					as: "params.query._id",
+				}),
+			]),
+		],
+		get: [
+			authenticate("jwt"),
+			iff(
+				checkPermissions({
+					roles: ["super_admin", "admin"],
+					field: "permissions",
+					error: false,
+				})
+			),
+			iff((context) => !context.params.permitted, [
+				setField({
+					from: "params.user._id",
+					as: "params.query._id",
+				}),
+			]),
+		],
 		create: [hashPassword("password"), addVerification()],
 		update: [
 			authenticate("jwt"),
@@ -38,21 +68,21 @@ module.exports = {
 					"resetShortToken",
 					"resetExpires"
 				),
-				iff(
-					checkPermissions({
-						roles: ["super_admin", "admin"],
-						field: "permissions",
-						error: false,
-					})
-				),
-				iff((context) => !context.params.permitted, [
-					setField({
-						from: "params.user._id",
-						as: "params.query._id",
-					}),
-				]),
 				hashPassword("password")
 			),
+			iff(
+				checkPermissions({
+					roles: ["super_admin", "admin"],
+					field: "permissions",
+					error: false,
+				})
+			),
+			iff((context) => !context.params.permitted, [
+				setField({
+					from: "params.user._id",
+					as: "params.query._id",
+				}),
+			]),
 		],
 		patch: [
 			authenticate("jwt"),
