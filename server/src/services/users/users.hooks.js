@@ -24,7 +24,36 @@ module.exports = {
 		find: [authenticate("jwt")],
 		get: [authenticate("jwt")],
 		create: [hashPassword("password"), addVerification()],
-		update: [disallow("external")],
+		update: [
+			authenticate("jwt"),
+			iff(
+				isProvider("external"),
+				preventChanges(
+					true,
+					"verifyToken",
+					"verifyShortToken",
+					"verifyExpires",
+					"verifyChanges",
+					"resetToken",
+					"resetShortToken",
+					"resetExpires"
+				),
+				iff(
+					checkPermissions({
+						roles: ["super_admin", "admin"],
+						field: "permissions",
+						error: false,
+					})
+				),
+				iff((context) => !context.params.permitted, [
+					setField({
+						from: "params.user._id",
+						as: "params.query._id",
+					}),
+				]),
+				hashPassword("password")
+			),
+		],
 		patch: [
 			authenticate("jwt"),
 			iff(
@@ -39,6 +68,19 @@ module.exports = {
 					"resetShortToken",
 					"resetExpires"
 				),
+				iff(
+					checkPermissions({
+						roles: ["super_admin", "admin"],
+						field: "permissions",
+						error: false,
+					})
+				),
+				iff((context) => !context.params.permitted, [
+					setField({
+						from: "params.user._id",
+						as: "params.query._id",
+					}),
+				]),
 				hashPassword("password")
 			),
 		],
@@ -64,9 +106,7 @@ module.exports = {
 		get: [],
 		create: [
 			protect("active", "firstname", "lastname", "email", "permissions"),
-			// after a user is created, send the user an email to verify email
 			notifyServiceHook,
-			// remove the user verification fields before returning user as part of request
 			removeVerification(),
 		],
 		update: [],

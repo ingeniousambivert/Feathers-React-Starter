@@ -1,24 +1,22 @@
-const { authenticate, protect, iff} = require("@hooks");
+const { authenticate, protect, iff } = require("@hooks");
 
 const isAction = (...args) => (hook) => args.includes(hook.data.action);
 
 module.exports = {
-  before: {
-    all: [],
-    find: [],
-    get: [],
-    create: [
-			iff (isAction("passwordChange", "identityChange"),
-     authenticate("jwt")
-		),
+	before: {
+		all: [],
+		find: [],
+		get: [],
+		create: [
+			iff(isAction("passwordChange", "identityChange"), authenticate("jwt")),
 		],
-    update: [],
-    patch: [],
-    remove: []
-  },
+		update: [],
+		patch: [],
+		remove: [],
+	},
 
-  after: {
-    all: [// prevent leak of these user information fields
+	after: {
+		all: [
 			protect(
 				"password",
 				"active",
@@ -35,22 +33,23 @@ module.exports = {
 				"resetExpires",
 				"verifyChanges",
 				"__v"
-			),],
-    find: [],
-    get: [],
+			),
+		],
+		find: [],
+		get: [],
 		create: [],
-    update: [],
-    patch: [],
-    remove: []
-  },
+		update: [],
+		patch: [],
+		remove: [],
+	},
 
-  error: {
-    all: [],
-    find: [],
-    get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: []
-  }
+	error: {
+		all: [],
+		find: [],
+		get: [],
+		create: [],
+		update: [],
+		patch: [],
+		remove: [],
+	},
 };

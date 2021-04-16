@@ -1,8 +1,17 @@
-const {required, disallow, iff, isProvider, preventChanges} = require("feathers-hooks-common");
+const {
+	required,
+	disallow,
+	iff,
+	isProvider,
+	preventChanges,
+} = require("feathers-hooks-common");
 
-const {authenticate} = require("@feathersjs/authentication").hooks;
+const { authenticate } = require("@feathersjs/authentication").hooks;
 
-const {protect, hashPassword} = require("@feathersjs/authentication-local").hooks;
+const {
+	protect,
+	hashPassword,
+} = require("@feathersjs/authentication-local").hooks;
 
 const verifyHooks = require("feathers-authentication-management").hooks;
 
@@ -10,9 +19,7 @@ const { setField } = require("feathers-authentication-hooks");
 
 const checkPermissions = require("feathers-permissions");
 
-
-
-  module.exports = {
+module.exports = {
 	// feathers-hooks-common
 	required,
 	disallow,
@@ -36,5 +43,4 @@ const checkPermissions = require("feathers-permissions");
 	// feathers-authentication-management
 	addVerification: verifyHooks.addVerification,
 	removeVerification: verifyHooks.removeVerification,
-
-  };
+};
