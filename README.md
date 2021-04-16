@@ -235,8 +235,8 @@ To get the best out of this starter know the project structure of both *client* 
 
 ### Read More
 
-- [Web](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web#client)
-- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server#server)
+- [Web](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web)
+- [Server](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server)
 
 ## Built with
 
@@ -262,11 +262,11 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] Module Aliases, ESLint and Prettier for server and web. Customize CRA with HMR and PropTypes Check for web.
 - [x] Redux Toolkit for State Management
 - [x] [Authentication/User Management](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) in the server
-- [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the client (Customized)
+- [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the web (Customized)
 - [ ] [Role Management/Permissions](https://github.com/feathersjs-ecosystem/feathers-permissions) in the server
 - [ ] Data validation in the server
-- [ ] More test cases for server and snapshot testing for client w/ [Jest](https://jestjs.io/)
-- [ ] [Storybook](https://storybook.js.org/) for client
+- [ ] More test cases for server and snapshot testing for web w/ [Jest](https://jestjs.io/)
+- [ ] [Storybook](https://storybook.js.org/) for web
 
 ## Contributing
 
