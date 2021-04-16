@@ -51,6 +51,7 @@ function ResetPassword() {
 		if (!token) {
 			history.push("/signin");
 		}
+		// eslint-disable-next-line
 	}, [token]);
 	return (
 		<React.Fragment>

@@ -49,6 +49,7 @@ function HomeContainer() {
 	useEffect(() => {
 		loadUser(userID, error);
 		greetUser();
+		// eslint-disable-next-line
 	}, [error]);
 	return (
 		<React.Fragment>

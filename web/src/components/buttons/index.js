@@ -8,7 +8,7 @@ const { Text } = Typography;
 const SubmitButton = (props) => (
 	<Button type="primary" {...props} htmlType="submit" style={props.style && props.style}>
 		<Text style={{ color: white }} strong>
-			{props.buttonText}
+			{props.buttontext}
 		</Text>
 	</Button>
 );
@@ -19,7 +19,7 @@ const PrimaryButton = (props) => (
 			props.children
 		) : (
 			<Text style={props.textStyle ? props.textStyle : { color: white }} strong>
-				{props.buttonText}
+				{props.buttontext}
 			</Text>
 		)}
 	</Button>
@@ -29,10 +29,12 @@ const SecondaryButton = (props) => (
 	<Button {...props} onClick={props.onClick} style={props.style && props.style}>
 		{props.children ? (
 			props.children
-		) : (
-			<Text style={props.textStyle && props.textStyle} strong>
-				{props.buttonText}
+		) : props.strongText ? (
+			<Text strong style={props.textStyle && props.textStyle}>
+				{props.buttontext}
 			</Text>
+		) : (
+			<Text style={props.textStyle && props.textStyle}>{props.buttontext}</Text>
 		)}
 	</Button>
 );
@@ -40,18 +42,18 @@ const SecondaryButton = (props) => (
 const LinkButton = (props) => (
 	<Button onClick={props.onClick} type="link" style={props.style && props.style}>
 		<Text style={props.textStyle && props.textStyle} strong>
-			{props.buttonText}
+			{props.buttontext}
 		</Text>
 	</Button>
 );
 
 SubmitButton.propTypes = {
-	buttonText: PropTypes.string.isRequired,
+	buttontext: PropTypes.string.isRequired,
 	style: PropTypes.object
 };
 
 PrimaryButton.propTypes = {
-	buttonText: PropTypes.string.isRequired,
+	buttontext: PropTypes.string.isRequired,
 	style: PropTypes.object,
 	textStyle: PropTypes.object,
 	onClick: PropTypes.func,
@@ -59,15 +61,20 @@ PrimaryButton.propTypes = {
 };
 
 SecondaryButton.propTypes = {
-	buttonText: PropTypes.string.isRequired,
+	buttontext: PropTypes.string,
 	style: PropTypes.object,
 	textStyle: PropTypes.object,
+	strongText: PropTypes.bool,
 	onClick: PropTypes.func,
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.element),
+		PropTypes.element,
+		PropTypes.string
+	])
 };
 
 LinkButton.propTypes = {
-	buttonText: PropTypes.string.isRequired,
+	buttontext: PropTypes.string.isRequired,
 	style: PropTypes.object,
 	textStyle: PropTypes.object,
 	onClick: PropTypes.func

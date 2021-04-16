@@ -98,7 +98,7 @@ function CreateContainer(props) {
 								md={8}
 								lg={8}
 								xl={8}>
-								<SubmitButton block buttonText="Sign Up" />
+								<SubmitButton block buttontext="Sign Up" />
 							</Col>
 							<Col
 								style={{ textAlign: "center" }}

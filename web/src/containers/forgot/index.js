@@ -91,7 +91,7 @@ function ForgotContainer(props) {
 									md={8}
 									lg={6}
 									xl={6}>
-									<SubmitButton block buttonText="Send" />
+									<SubmitButton block buttontext="Send" />
 								</Col>
 							</Row>
 						</SimpleFormItem>

@@ -57,6 +57,7 @@ const UpdateDetails = (props) => {
 		if (user) {
 			setFieldsValue(user);
 		}
+		// eslint-disable-next-line
 	}, [user]);
 
 	return (

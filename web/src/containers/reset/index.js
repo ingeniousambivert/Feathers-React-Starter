@@ -93,7 +93,7 @@ function ResetContainer(props) {
 								md={8}
 								lg={6}
 								xl={6}>
-								<SubmitButton block buttonText="Reset" />
+								<SubmitButton block buttontext="Reset" />
 							</Col>
 						</Row>
 					</SimpleFormItem>

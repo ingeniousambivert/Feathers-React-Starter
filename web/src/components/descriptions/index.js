@@ -20,10 +20,14 @@ SimpleDescription.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
 		.isRequired
 };
+
 SimpleDescriptionItem.propTypes = {
 	label: PropTypes.string.isRequired,
-	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
-		.isRequired
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.element),
+		PropTypes.element,
+		PropTypes.node
+	]).isRequired
 };
 
 export { SimpleDescription, SimpleDescriptionItem };

@@ -47,7 +47,7 @@ const SimpleFormItem = (props) => (
 
 SimpleInput.propTypes = {
 	prefix: PropTypes.element.isRequired,
-	placeholder: PropTypes.string.isRequired
+	placeholder: PropTypes.string
 };
 
 PasswordInput.propTypes = {
@@ -60,7 +60,7 @@ TextAreaInput.propTypes = {
 };
 
 SearchInput.propTypes = {
-	placeholder: PropTypes.string.isRequired,
+	placeholder: PropTypes.string,
 	onSearch: PropTypes.func.isRequired,
 	style: PropTypes.object
 };
@@ -69,7 +69,7 @@ SimpleFormInput.propTypes = {
 	name: PropTypes.string.isRequired,
 	rules: PropTypes.arrayOf(PropTypes.object).isRequired,
 	prefix: PropTypes.element.isRequired,
-	placeholder: PropTypes.string.isRequired,
+	placeholder: PropTypes.string,
 	label: PropTypes.string
 };
 

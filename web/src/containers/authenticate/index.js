@@ -66,7 +66,7 @@ function AuthenticateContainer(props) {
 								md={8}
 								lg={8}
 								xl={8}>
-								<SubmitButton block buttonText="Sign In" />
+								<SubmitButton block buttontext="Sign In" />
 							</Col>
 							<Col
 								style={{ textAlign: "center" }}

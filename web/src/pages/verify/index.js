@@ -29,6 +29,7 @@ function VerifyPage() {
 		} else {
 			verifyAccount(token);
 		}
+		// eslint-disable-next-line
 	}, [token]);
 	return (
 		<React.Fragment>

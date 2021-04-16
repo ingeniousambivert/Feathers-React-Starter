@@ -69,7 +69,7 @@ function UpdateEmailContainer(props) {
 								<Row gutter={[16, 24]} justify="center" align="middle">
 									<SemiColumn>
 										<SimpleFormItem>
-											<SubmitButton buttonText="Update" />
+											<SubmitButton buttontext="Update" />
 										</SimpleFormItem>
 									</SemiColumn>
 
@@ -77,7 +77,7 @@ function UpdateEmailContainer(props) {
 										<SimpleFormItem>
 											<SecondaryButton
 												onClick={closeUpdateView}
-												buttonText="Cancel"
+												buttontext="Cancel"
 											/>
 										</SimpleFormItem>
 									</SemiColumn>
