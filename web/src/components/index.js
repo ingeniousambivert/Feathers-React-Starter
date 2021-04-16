@@ -9,10 +9,11 @@ import {
 	PasswordFormInput,
 	SimpleFormItem
 } from "./inputs";
-import { SimpleHeadingText, StrongText, SimpleText, LinkText } from "./texts";
+import { SimpleHeadingText, StrongText, SimpleText, LinkText, Text } from "./texts";
 import { ResponsiveGrid, FixedGrid, SemiColumn } from "./grids";
 import { SuccessAlert, ErrorAlert, InfoAlert } from "./alerts";
 import { SuccessResult, ErrorResult } from "./results";
+import { SimpleDescription, SimpleDescriptionItem } from "./descriptions";
 
 export {
 	Wrapper,
@@ -30,6 +31,7 @@ export {
 	SimpleHeadingText,
 	StrongText,
 	SimpleText,
+	Text,
 	LinkText,
 	ResponsiveGrid,
 	FixedGrid,
@@ -38,5 +40,7 @@ export {
 	ErrorAlert,
 	InfoAlert,
 	SuccessResult,
-	ErrorResult
+	ErrorResult,
+	SimpleDescription,
+	SimpleDescriptionItem
 };

@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 const { TextArea, Search } = Input;
 
 const SimpleInput = (props) => <Input prefix={props.prefix} placeholder={props.placeholder} />;
+
 const PasswordInput = (props) => (
 	<Input.Password
 		prefix={props.prefix ? props.prefix : <LockOutlined />}
@@ -13,6 +14,7 @@ const PasswordInput = (props) => (
 	/>
 );
 const TextAreaInput = (props) => <TextArea rows={4} placeholder={props.placeholder} />;
+
 const SearchInput = (props) => (
 	<Search
 		placeholder={props.placeholder}
@@ -23,13 +25,13 @@ const SearchInput = (props) => (
 );
 
 const SimpleFormInput = (props) => (
-	<Form.Item name={props.name} rules={props.rules}>
+	<Form.Item label={props.label} name={props.name} rules={props.rules}>
 		<Input prefix={props.prefix} placeholder={props.placeholder} />
 	</Form.Item>
 );
 
 const PasswordFormInput = (props) => (
-	<Form.Item name={props.name} rules={props.rules}>
+	<Form.Item label={props.label} name={props.name} rules={props.rules}>
 		<Input.Password
 			prefix={props.prefix ? props.prefix : <LockOutlined />}
 			placeholder={props.placeholder ? props.placeholder : "Password"}
@@ -38,7 +40,7 @@ const PasswordFormInput = (props) => (
 );
 
 const SimpleFormItem = (props) => (
-	<Form.Item name={props.name} rules={props.rules}>
+	<Form.Item label={props.label} name={props.name} rules={props.rules}>
 		{props.children}
 	</Form.Item>
 );
@@ -67,21 +69,24 @@ SimpleFormInput.propTypes = {
 	name: PropTypes.string.isRequired,
 	rules: PropTypes.arrayOf(PropTypes.object).isRequired,
 	prefix: PropTypes.element.isRequired,
-	placeholder: PropTypes.string.isRequired
+	placeholder: PropTypes.string.isRequired,
+	label: PropTypes.string
 };
 
 PasswordFormInput.propTypes = {
 	name: PropTypes.string.isRequired,
 	rules: PropTypes.arrayOf(PropTypes.object).isRequired,
 	prefix: PropTypes.element,
-	placeholder: PropTypes.string
+	placeholder: PropTypes.string,
+	label: PropTypes.string
 };
 
 SimpleFormItem.propTypes = {
 	name: PropTypes.string,
 	rules: PropTypes.arrayOf(PropTypes.object),
 	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
-		.isRequired
+		.isRequired,
+	label: PropTypes.string
 };
 
 export {

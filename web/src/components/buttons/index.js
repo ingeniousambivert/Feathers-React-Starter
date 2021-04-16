@@ -1,13 +1,12 @@
 import React from "react";
 import { Button, Typography } from "antd";
 import { white } from "@utils";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const { Text } = Typography;
 
 const SubmitButton = (props) => (
-	<Button type="primary" block htmlType="submit">
+	<Button type="primary" {...props} htmlType="submit" style={props.style && props.style}>
 		<Text style={{ color: white }} strong>
 			{props.buttonText}
 		</Text>
@@ -15,48 +14,63 @@ const SubmitButton = (props) => (
 );
 
 const PrimaryButton = (props) => (
-	<Button type="primary" onClick={props.onClick}>
-		<Text style={props.style ? props.style : { color: white }} strong>
-			{props.buttonText}
-		</Text>
+	<Button type="primary" onClick={props.onClick} style={props.style && props.style}>
+		{props.children ? (
+			props.children
+		) : (
+			<Text style={props.textStyle ? props.textStyle : { color: white }} strong>
+				{props.buttonText}
+			</Text>
+		)}
 	</Button>
 );
 
 const SecondaryButton = (props) => (
-	<Button onClick={props.onClick}>
-		<Text style={props.style ? props.style : { color: white }} strong>
+	<Button {...props} onClick={props.onClick} style={props.style && props.style}>
+		{props.children ? (
+			props.children
+		) : (
+			<Text style={props.textStyle && props.textStyle} strong>
+				{props.buttonText}
+			</Text>
+		)}
+	</Button>
+);
+
+const LinkButton = (props) => (
+	<Button onClick={props.onClick} type="link" style={props.style && props.style}>
+		<Text style={props.textStyle && props.textStyle} strong>
 			{props.buttonText}
 		</Text>
 	</Button>
 );
 
-const LinkButton = (props) => (
-	<Button type="primary">
-		<Link to={props.linkTo}>
-			<b> {props.buttonText}</b>
-		</Link>
-	</Button>
-);
-
 SubmitButton.propTypes = {
-	buttonText: PropTypes.string.isRequired
+	buttonText: PropTypes.string.isRequired,
+	style: PropTypes.object
 };
 
 PrimaryButton.propTypes = {
 	buttonText: PropTypes.string.isRequired,
 	style: PropTypes.object,
-	onClick: PropTypes.func
+	textStyle: PropTypes.object,
+	onClick: PropTypes.func,
+	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
 };
 
 SecondaryButton.propTypes = {
 	buttonText: PropTypes.string.isRequired,
 	style: PropTypes.object,
-	onClick: PropTypes.func
+	textStyle: PropTypes.object,
+	onClick: PropTypes.func,
+	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
 };
 
 LinkButton.propTypes = {
 	buttonText: PropTypes.string.isRequired,
-	linkTo: PropTypes.string.isRequired
+	style: PropTypes.object,
+	textStyle: PropTypes.object,
+	onClick: PropTypes.func
 };
 
 export { SubmitButton, PrimaryButton, SecondaryButton, LinkButton };

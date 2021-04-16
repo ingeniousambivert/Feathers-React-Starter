@@ -23,10 +23,8 @@ Wrapper.propTypes = {
 	margin: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	aligncontent: PropTypes.string,
 	justify: PropTypes.string,
-	children: PropTypes.oneOfType([
-		PropTypes.arrayOf(PropTypes.element), //as you can render an array of elements
-		PropTypes.element //for a single component/element
-	]).isRequired
+	children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
+		.isRequired
 };
 
 export default Wrapper;

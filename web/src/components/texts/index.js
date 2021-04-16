@@ -12,19 +12,13 @@ const SimpleHeadingText = ({ children }) => (
 	</h1>
 );
 
-const StrongText = ({ children }) => (
-	<Text strong style={{ textAlign: "center" }}>
-		{children}
-	</Text>
-);
-
-const BoldText = ({ children }) => (
+const StrongText = (props) => (
 	<p style={{ textAlign: "center" }}>
-		<b>{children}</b>
+		<b>{props.children}</b>
 	</p>
 );
 
-const SimpleText = ({ children }) => <p style={{ textAlign: "center" }}>{children}</p>;
+const SimpleText = (props) => <p style={{ textAlign: "center" }}>{props.children}</p>;
 
 const LinkText = (props) => (
 	<Link
@@ -57,14 +51,6 @@ StrongText.propTypes = {
 	]).isRequired
 };
 
-BoldText.propTypes = {
-	children: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.arrayOf(PropTypes.element),
-		PropTypes.element
-	]).isRequired
-};
-
 SimpleText.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.string,
@@ -79,4 +65,4 @@ LinkText.propTypes = {
 	linkText: PropTypes.string.isRequired
 };
 
-export { SimpleHeadingText, StrongText, BoldText, LinkText, SimpleText };
+export { SimpleHeadingText, StrongText, LinkText, SimpleText, Text };
