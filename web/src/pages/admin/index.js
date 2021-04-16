@@ -17,7 +17,7 @@ function AdminDashboard() {
 		await dispatch(loadUsersThunk());
 
 		if (error) {
-			ErrorAlert("Failed to load user data", error);
+			ErrorAlert("Failed to load users data", error);
 			dispatch(removeUserAction());
 			dispatch(signOutUserThunk());
 		}

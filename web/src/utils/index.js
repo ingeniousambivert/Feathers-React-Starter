@@ -12,6 +12,8 @@ function transformAdminTable(data) {
 		return data.map((item) => {
 			return {
 				key: item._id,
+				isActive: item.isActive,
+				isVerified: item.isVerified,
 				name: `${item.firstname} ${item.lastname}`,
 				email: item.email,
 				permissions: item.permissions.toString(),
