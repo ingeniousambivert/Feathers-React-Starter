@@ -263,7 +263,8 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] Redux Toolkit for State Management
 - [x] [Authentication/User Management](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) in the server
 - [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the web (Customized)
-- [ ] [Role Management/Permissions](https://github.com/feathersjs-ecosystem/feathers-permissions) in the server
+- [x] [Role Management/Permissions](https://github.com/feathersjs-ecosystem/feathers-permissions) in the server
+- [ ] Admin Dashboard in the web
 - [ ] Data validation in the server
 - [ ] More test cases for server and snapshot testing for web w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for web
