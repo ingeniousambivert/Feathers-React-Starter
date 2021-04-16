@@ -18,23 +18,13 @@ function SignUpPage() {
 				error.includes("conflict") ||
 				error.includes(409)
 			) {
-				return (
-					<ErrorAlert
-						message="Failed to create an account. Email is already in use"
-						timeOut={10}
-					/>
-				);
+				ErrorAlert("Failed to create an account. Email is already in use", 10);
 			} else {
-				return (
-					<ErrorAlert
-						message={`${error}. Failed to create an account. Please try again`}
-						timeOut={10}
-					/>
-				);
+				ErrorAlert(`${error}. Failed to create an account. Please try again`, 10);
 			}
 		} else {
 			dispatch(signInUserThunk({ email, password })).then(
-				<SuccessAlert message="Successfully created a new account." timeOut={5} />
+				SuccessAlert("Successfully created a new account.", 5)
 			);
 		}
 	};

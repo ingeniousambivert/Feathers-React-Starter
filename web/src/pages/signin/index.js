@@ -31,14 +31,9 @@ function SignInPage() {
 				error.includes("Unauthorized") ||
 				error.includes(401)
 			) {
-				return <ErrorAlert message="Failed to sign in. Invalid credentials" timeOut={10} />;
+				ErrorAlert("Failed to sign in. Invalid credentials", 10);
 			} else {
-				return (
-					<ErrorAlert
-						message={`${error}. Failed to sign in. Please try again`}
-						timeOut={10}
-					/>
-				);
+				ErrorAlert(`${error}. Failed to sign in. Please try again`, 10);
 			}
 		}
 	};

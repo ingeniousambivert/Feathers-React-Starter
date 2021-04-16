@@ -29,7 +29,7 @@ function ResetPassword() {
 		const { password, confirmPassword } = credentials;
 
 		if (password !== confirmPassword) {
-			return <ErrorAlert message="Passwords do not match. Please re-enter" timeOut={5} />;
+			ErrorAlert("Passwords do not match. Please re-enter", 10);
 		} else {
 			if (isUserAuthenticated) {
 				dispatch(removeUserAction());
