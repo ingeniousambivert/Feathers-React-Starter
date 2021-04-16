@@ -1,5 +1,11 @@
 {
-	"extends": "eslint:recommended",
+	"extends": [
+		"prettier",
+		"eslint:recommended"
+	],
+	"plugins": [
+		"prettier"
+	],
 	"env": {
 		"es6": true,
 		"node": true,
@@ -9,6 +15,7 @@
 		"ecmaVersion": 2018
 	},
 	"rules": {
+		"prettier/prettier": "error",
 		"linebreak-style": [
 			"error",
 			"unix"
