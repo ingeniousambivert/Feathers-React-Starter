@@ -78,6 +78,17 @@ export const selectUser = createSelector(
 	}
 );
 
+export const selectIsAdmin = createSelector(
+	(state) => state.user.user,
+	(user) => {
+		if (user !== null) {
+			if (user.permissions.includes("admin", "super_admin")) {
+				return true;
+			} else return false;
+		}
+	}
+);
+
 export const { removeUser: removeUserAction, setUser: setUserAction } = userSlice.actions;
 
 export default userSlice.reducer;
