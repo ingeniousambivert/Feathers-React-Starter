@@ -14,6 +14,8 @@ function transformAdminTable(data) {
 				isActive: item.isActive,
 				isVerified: item.isVerified,
 				name: `${item.firstname} ${item.lastname}`,
+				firstname: item.firstname,
+				lastname: item.lastname,
 				email: item.email,
 				permissions: item.permissions.toString(),
 				lastLogIn: moment(item.lastLogIn).toString(),
