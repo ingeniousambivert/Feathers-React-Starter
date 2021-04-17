@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from "react";
+import React, { useEffect, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Table, Button, Space, Tag, Popconfirm } from "antd";
 import {
@@ -25,11 +25,20 @@ import {
 } from "@slices/admin";
 import { loadUserThunk, removeUserAction } from "@slices/user";
 import { signOutUserThunk } from "@slices/auth";
+import UpdateUser from "./update";
 
 function AdminDashboard() {
 	const dispatch = useDispatch();
 	const error = useSelector(selectAdminError);
 	const users = useSelector(selectUsers);
+
+	const [editView, setEditView] = useState(false);
+	const [editUser, setEditUser] = useState(null);
+
+	const editUserData = (user) => {
+		setEditUser(user);
+		setEditView(true);
+	};
 
 	const removeUser = () => {
 		dispatch(removeUserAction());
@@ -88,7 +97,7 @@ function AdminDashboard() {
 
 	const renderActions = (user) => (
 		<Space size="middle">
-			<Button type="link" onClick={() => console.log(user)} icon={<EditOutlined />} />
+			<Button type="link" onClick={() => editUserData(user)} icon={<EditOutlined />} />
 			{user.isActive ? (
 				<Popconfirm
 					placement="leftTop"
@@ -178,28 +187,33 @@ function AdminDashboard() {
 		loadUsers(error);
 		// eslint-disable-next-line
 	}, [error]);
+
 	return (
 		<React.Fragment>
 			<Container header={true} iconcolor="#fff" background="#6669CC" elevate={true}>
 				<Wrapper>
-					<Table
-						bordered
-						title={() => (
-							<Fragment>
-								<h1 style={{ textAlign: "center" }}>
-									Users &nbsp;
-									<Button
-										style={{ float: "right", marginTop: "1%" }}
-										type="link"
-										onClick={() => loadUsers(error)}
-										icon={<SyncOutlined />}
-									/>
-								</h1>
-							</Fragment>
-						)}
-						columns={columns}
-						dataSource={users}
-					/>
+					{!editView ? (
+						<Table
+							bordered
+							title={() => (
+								<Fragment>
+									<h1 style={{ textAlign: "center" }}>
+										Users &nbsp;
+										<Button
+											style={{ float: "right", marginTop: "1%" }}
+											type="link"
+											onClick={() => loadUsers(error)}
+											icon={<SyncOutlined />}
+										/>
+									</h1>
+								</Fragment>
+							)}
+							columns={columns}
+							dataSource={users}
+						/>
+					) : (
+						<UpdateUser user={editUser} setEditView={setEditView} />
+					)}
 				</Wrapper>
 			</Container>
 		</React.Fragment>
