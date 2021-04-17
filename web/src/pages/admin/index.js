@@ -37,7 +37,7 @@ function AdminDashboard() {
 	};
 
 	const loadUser = async (userID, error) => {
-		//await dispatch(loadUserThunk(userID));
+		await dispatch(loadUserThunk(userID));
 
 		if (error) {
 			ErrorAlert("Failed to load user data", error);
@@ -46,7 +46,7 @@ function AdminDashboard() {
 	};
 
 	const loadUsers = async (error) => {
-		//await dispatch(loadUsersThunk());
+		await dispatch(loadUsersThunk());
 
 		if (error) {
 			ErrorAlert("Failed to load users data", error);
