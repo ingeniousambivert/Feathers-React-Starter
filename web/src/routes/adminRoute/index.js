@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { selectIsAdmin } from "@slices/user";
@@ -8,7 +8,7 @@ import Home from "@pages/home";
 
 const AdminRoute = (props) => {
 	const { component: Component, ...rest } = props;
-	let isAdmin = useSelector(selectIsAdmin);
+	const isAdmin = useSelector(selectIsAdmin);
 
 	return (
 		<Route
