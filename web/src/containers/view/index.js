@@ -4,6 +4,7 @@ import { Row, Col } from "antd";
 import {
 	SecondaryButton,
 	LinkButton,
+	ErrorResult,
 	Text,
 	ResponsiveGrid,
 	SimpleDescription,
@@ -32,67 +33,85 @@ const ViewDataContainer = (props) => {
 	} = props;
 	return (
 		<Wrapper>
-			<div className="userInfo">
-				<ResponsiveGrid justify="center" span={22}>
-					<SimpleDescription>
-						<SimpleDescriptionItem label="Name">
-							<Text>
-								<UserOutlined /> &nbsp; {user.firstname} {user.lastname}
-							</Text>
-						</SimpleDescriptionItem>
+			{user.isActive ? (
+				<div className="userInfo">
+					<ResponsiveGrid justify="center" span={22}>
+						<SimpleDescription>
+							<SimpleDescriptionItem label="Name">
+								<Text>
+									<UserOutlined /> &nbsp; {user.firstname} {user.lastname}
+								</Text>
+							</SimpleDescriptionItem>
 
-						<SimpleDescriptionItem label="Account Status">
-							{user.isVerified ? (
+							<SimpleDescriptionItem label="Account Status">
+								{user.isVerified ? (
+									<Text>
+										<CheckCircleTwoTone
+											style={marginRight}
+											twoToneColor={verified}
+										/>
+										&nbsp; Verified
+									</Text>
+								) : (
+									<Text>
+										<ExclamationCircleTwoTone
+											style={marginRight}
+											twoToneColor={unverified}
+										/>
+										&nbsp; Unverified
+									</Text>
+								)}
+							</SimpleDescriptionItem>
+							<SimpleDescriptionItem label="Email">
 								<Text>
-									<CheckCircleTwoTone
-										style={marginRight}
-										twoToneColor={verified}
-									/>
-									&nbsp; Verified
+									<MailOutlined /> &nbsp; {user.email}
 								</Text>
-							) : (
-								<Text>
-									<ExclamationCircleTwoTone
-										style={marginRight}
-										twoToneColor={unverified}
+								{!user.isVerified && (
+									<LinkButton
+										style={floatRight}
+										onClick={() => {
+											resendConfirmation(user);
+										}}
+										buttontext="Resend Confirmation"
 									/>
-									&nbsp; Unverified
-								</Text>
-							)}
-						</SimpleDescriptionItem>
-						<SimpleDescriptionItem label="Email">
-							<Text>
-								<MailOutlined /> &nbsp; {user.email}
-							</Text>
-							{!user.isVerified && (
-								<LinkButton
-									style={floatRight}
-									onClick={() => {
-										resendConfirmation(user);
-									}}
-									buttontext="Resend Confirmation"
-								/>
-							)}
-						</SimpleDescriptionItem>
-					</SimpleDescription>
-				</ResponsiveGrid>
-				<Row justify="center" align="middle" gutter={[16, 16]}>
-					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
-						<SecondaryButton onClick={editDetailsView} buttontext="Update Details" />
-					</Col>
-					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
-						<SecondaryButton onClick={editEmailView} buttontext="Update Email" />
-					</Col>
-					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
-						<SecondaryButton onClick={editPasswordView} buttontext="Update Password" />
-					</Col>
-					<Col xs={10} sm={8} md={6} lg={5} xl={4}>
-						<SecondaryButton onClick={signOutAndRemove} danger>
+								)}
+							</SimpleDescriptionItem>
+						</SimpleDescription>
+					</ResponsiveGrid>
+					<Row justify="center" align="middle" gutter={[16, 16]}>
+						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+							<SecondaryButton
+								onClick={editDetailsView}
+								buttontext="Update Details"
+							/>
+						</Col>
+						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+							<SecondaryButton onClick={editEmailView} buttontext="Update Email" />
+						</Col>
+						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+							<SecondaryButton
+								onClick={editPasswordView}
+								buttontext="Update Password"
+							/>
+						</Col>
+						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+							<SecondaryButton onClick={signOutAndRemove} danger>
+								Sign Out
+							</SecondaryButton>
+						</Col>
+					</Row>
+				</div>
+			) : (
+				<ErrorResult
+					title="Deactivated Account"
+					subTitle="You cannot access your account because it has been deactivated"
+					extra={[
+						<SecondaryButton onClick={signOutAndRemove} key="signnout" danger>
 							Sign Out
 						</SecondaryButton>
-					</Col>
-				</Row>
-			</div>
+					]}
+				/>
+			)}
 		</Wrapper>
 	);
 };

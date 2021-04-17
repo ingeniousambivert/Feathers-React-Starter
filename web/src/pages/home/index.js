@@ -63,7 +63,7 @@ function HomePage() {
 					{user ? (
 						<React.Fragment>
 							{((user) => {
-								!user.isVerified && unverifiedWarning();
+								!user.isVerified && user.isActive && unverifiedWarning();
 							})(user)}
 							<div>
 								<ResponsiveGrid
