@@ -11,13 +11,15 @@ function transformAdminTable(data) {
 	else {
 		return data.map((item) => {
 			return {
+				_id: item._id,
 				key: item._id,
 				isActive: item.isActive,
 				isVerified: item.isVerified,
 				name: `${item.firstname} ${item.lastname}`,
 				email: item.email,
 				permissions: item.permissions.toString(),
-				lastLoggedIn: item.lastLoggedIn
+				lastLogIn: item.lastLogIn,
+				createdAt: item.createdAt
 			};
 		});
 	}
