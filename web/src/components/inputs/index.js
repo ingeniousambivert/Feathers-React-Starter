@@ -75,7 +75,7 @@ SimpleFormInput.propTypes = {
 
 PasswordFormInput.propTypes = {
 	name: PropTypes.string.isRequired,
-	rules: PropTypes.arrayOf(PropTypes.object).isRequired,
+	rules: PropTypes.arrayOf(PropTypes.object),
 	prefix: PropTypes.element,
 	placeholder: PropTypes.string,
 	label: PropTypes.string

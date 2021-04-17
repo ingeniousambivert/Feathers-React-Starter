@@ -38,7 +38,7 @@ const LinkText = (props) => (
 SimpleHeadingText.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.string,
-		PropTypes.arrayOf(PropTypes.element),
+		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.element
 	]).isRequired
 };
@@ -46,7 +46,7 @@ SimpleHeadingText.propTypes = {
 StrongText.propTypes = {
 	children: PropTypes.oneOfType([
 		PropTypes.string,
-		PropTypes.arrayOf(PropTypes.element),
+		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.element
 	]).isRequired
 };

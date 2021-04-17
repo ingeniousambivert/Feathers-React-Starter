@@ -7,9 +7,11 @@ const { Text } = Typography;
 
 const SubmitButton = (props) => (
 	<Button type="primary" {...props} htmlType="submit" style={props.style && props.style}>
-		<Text style={{ color: white }} strong>
-			{props.buttontext}
-		</Text>
+		{props.buttontext && (
+			<Text style={{ color: white }} strong>
+				{props.buttontext}
+			</Text>
+		)}
 	</Button>
 );
 
@@ -27,15 +29,11 @@ const PrimaryButton = (props) => (
 
 const SecondaryButton = (props) => (
 	<Button {...props} onClick={props.onClick} style={props.style && props.style}>
-		{props.children ? (
-			props.children
-		) : props.strongText ? (
-			<Text strong style={props.textStyle && props.textStyle}>
-				{props.buttontext}
-			</Text>
-		) : (
-			<Text style={props.textStyle && props.textStyle}>{props.buttontext}</Text>
-		)}
+		{props.children
+			? props.children
+			: props.buttontext && (
+					<Text style={props.textStyle && props.textStyle}>{props.buttontext}</Text>
+			  )}
 	</Button>
 );
 
@@ -46,12 +44,12 @@ const LinkButton = (props) => (
 );
 
 SubmitButton.propTypes = {
-	buttontext: PropTypes.string.isRequired,
+	buttontext: PropTypes.string,
 	style: PropTypes.object
 };
 
 PrimaryButton.propTypes = {
-	buttontext: PropTypes.string.isRequired,
+	buttontext: PropTypes.string,
 	style: PropTypes.object,
 	textStyle: PropTypes.object,
 	onClick: PropTypes.func,
@@ -62,7 +60,6 @@ SecondaryButton.propTypes = {
 	buttontext: PropTypes.string,
 	style: PropTypes.object,
 	textStyle: PropTypes.object,
-	strongText: PropTypes.bool,
 	onClick: PropTypes.func,
 	children: PropTypes.oneOfType([
 		PropTypes.arrayOf(PropTypes.element),
