@@ -17,12 +17,17 @@ function HomePage() {
 	const user = useSelector(selectUser);
 	const [greet, setGreet] = useState();
 
+	const removeUser = () => {
+		dispatch(removeUserAction());
+		dispatch(signOutUserThunk());
+	};
+
 	const loadUser = async (userID, error) => {
 		await dispatch(loadUserThunk(userID));
 		if (error) {
 			ErrorAlert("Failed to load user data", error);
-			dispatch(removeUserAction());
-			dispatch(signOutUserThunk());
+			console.log(error);
+			removeUser();
 		}
 	};
 
