@@ -4,7 +4,6 @@ import { transformAdminTable } from "@utils";
 
 export const loadUsersThunk = createAsyncThunk("admin/loadUsers", async () => {
 	const users = await feathersClient.service("users").find();
-
 	return users;
 });
 
@@ -12,64 +11,22 @@ const loadUsersReducer = {
 	[loadUsersThunk.pending]: (state) => {
 		state.loading = true;
 		state.error = false;
+		state.data = null;
 		state.users = null;
 		state.user = null;
 	},
 	[loadUsersThunk.rejected]: (state, action) => {
 		state.loading = false;
 		state.error = action.error.message;
+		state.data = null;
 		state.users = null;
 		state.user = null;
 	},
 	[loadUsersThunk.fulfilled]: (state, action) => {
 		state.loading = false;
 		state.error = false;
+		state.data = action.payload;
 		state.users = action.payload.data;
-	}
-};
-
-export const loadUserThunk = createAsyncThunk("admin/loadUser", async (id) => {
-	const user = await feathersClient.service("users").get(id);
-	return { user };
-});
-
-const loadUserReducer = {
-	[loadUserThunk.pending]: (state) => {
-		state.loading = true;
-		state.error = false;
-		state.user = null;
-	},
-	[loadUserThunk.rejected]: (state, action) => {
-		state.loading = false;
-		state.error = action.error.message;
-		state.user = null;
-	},
-	[loadUserThunk.fulfilled]: (state, action) => {
-		state.loading = false;
-		state.error = false;
-		state.user = action.payload.user;
-	}
-};
-
-export const updateUserThunk = createAsyncThunk("admin/updateUser", async (data) => {
-	const { _id, updatedData } = data;
-	const user = await feathersClient.service("users").patch(_id, updatedData);
-	return { user };
-});
-
-const updateUserReducer = {
-	[updateUserThunk.pending]: (state) => {
-		state.loading = true;
-		state.error = false;
-	},
-	[updateUserThunk.rejected]: (state, action) => {
-		state.loading = false;
-		state.error = action.error.message;
-	},
-	[updateUserThunk.fulfilled]: (state, action) => {
-		state.loading = false;
-		state.error = false;
-		state.user = action.payload.user;
 	}
 };
 
@@ -78,6 +35,7 @@ const adminSlice = createSlice({
 	initialState: {
 		loading: null,
 		error: null,
+		data: null,
 		users: null,
 		user: null
 	},
@@ -89,7 +47,7 @@ const adminSlice = createSlice({
 			state.user = action.payload;
 		}
 	},
-	extraReducers: { ...loadUserReducer, ...updateUserReducer, ...loadUsersReducer }
+	extraReducers: { ...loadUsersReducer }
 });
 
 export const selectAdminError = createSelector(

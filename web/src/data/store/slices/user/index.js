@@ -74,18 +74,18 @@ export const selectUserError = createSelector(
 export const selectUser = createSelector(
 	(state) => state.user.user,
 	(user) => {
-		if (user !== null) return user;
+		if (user !== null && user !== undefined) return user;
 	}
 );
 
 export const selectIsAdmin = createSelector(
 	(state) => state.user.user,
 	(user) => {
-		if (user !== null) {
+		if (user !== null && user !== undefined) {
 			if (user.permissions.includes("admin", "super_admin")) {
 				return true;
 			} else return false;
-		}
+		} else return false;
 	}
 );
 
