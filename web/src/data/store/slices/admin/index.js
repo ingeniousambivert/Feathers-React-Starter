@@ -29,6 +29,43 @@ const loadUsersReducer = {
 		state.users = action.payload.data;
 	}
 };
+export const deactivateUserThunk = createAsyncThunk("admin/deactivateUser", async (id) => {
+	await feathersClient.service("users").patch(id, { isActive: false });
+});
+
+const deactivateUserReducer = {
+	[deactivateUserThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[deactivateUserThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[deactivateUserThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
+export const reactivateUserThunk = createAsyncThunk("admin/deactivateUser", async (id) => {
+	await feathersClient.service("users").patch(id, { isActive: true });
+});
+
+const reactivateUserReducer = {
+	[reactivateUserThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[reactivateUserThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[reactivateUserThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
 
 const adminSlice = createSlice({
 	name: "admin",
@@ -47,7 +84,7 @@ const adminSlice = createSlice({
 			state.user = action.payload;
 		}
 	},
-	extraReducers: { ...loadUsersReducer }
+	extraReducers: { ...loadUsersReducer, ...deactivateUserReducer, ...reactivateUserReducer }
 });
 
 export const selectAdminError = createSelector(
