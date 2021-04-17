@@ -122,8 +122,6 @@ module.exports = {
 			protect(
 				"password",
 				"verifyToken",
-				"updatedAt",
-				"createdAt",
 				"verifyShortToken",
 				"verifyExpires",
 				"resetToken",
