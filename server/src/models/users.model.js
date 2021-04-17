@@ -21,7 +21,7 @@ module.exports = function (app) {
 			permissions: { type: Array, default: ["user"] },
 			passwordReset: { type: String },
 			passwordResetToken: { type: String },
-			lastLoggedIn: { type: Date },
+			lastLogIn: { type: Date },
 			isVerified: { type: Boolean },
 			verifyToken: { type: String },
 			verifyShortToken: { type: String },
