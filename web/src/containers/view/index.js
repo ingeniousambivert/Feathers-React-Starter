@@ -79,22 +79,22 @@ const ViewDataContainer = (props) => {
 						</SimpleDescription>
 					</ResponsiveGrid>
 					<Row justify="center" align="middle" gutter={[16, 16]}>
-						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+						<Col>
 							<SecondaryButton
 								onClick={editDetailsView}
 								buttontext="Update Details"
 							/>
 						</Col>
-						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+						<Col>
 							<SecondaryButton onClick={editEmailView} buttontext="Update Email" />
 						</Col>
-						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+						<Col>
 							<SecondaryButton
 								onClick={editPasswordView}
 								buttontext="Update Password"
 							/>
 						</Col>
-						<Col xs={10} sm={8} md={6} lg={5} xl={4}>
+						<Col>
 							<SecondaryButton onClick={signOutAndRemove} danger>
 								Sign Out
 							</SecondaryButton>
