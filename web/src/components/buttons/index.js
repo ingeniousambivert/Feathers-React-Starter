@@ -41,9 +41,7 @@ const SecondaryButton = (props) => (
 
 const LinkButton = (props) => (
 	<Button onClick={props.onClick} type="link" style={props.style && props.style}>
-		<Text style={props.textStyle && props.textStyle} strong>
-			{props.buttontext}
-		</Text>
+		{props.buttontext}
 	</Button>
 );
 
