@@ -70,9 +70,8 @@ const ViewDataContainer = (props) => {
 									onClick={() => {
 										resendConfirmation(user);
 									}}
-									type="link">
-									Resend Confirmation
-								</LinkButton>
+									buttontext="Resend Confirmation"
+								/>
 							)}
 						</SimpleDescriptionItem>
 					</SimpleDescription>
