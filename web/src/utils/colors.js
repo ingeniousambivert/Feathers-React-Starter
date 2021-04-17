@@ -7,6 +7,7 @@ const white = "#fff";
 const offWhite = "#f9f9f9";
 const verified = "#52c41a";
 const unverified = "#F5AD42";
+const danger = "#F93154";
 
 module.exports = {
 	primaryColor,
@@ -17,5 +18,6 @@ module.exports = {
 	primaryColorDark,
 	primaryColorSlight,
 	verified,
-	unverified
+	unverified,
+	danger
 };
