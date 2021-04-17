@@ -1,11 +1,28 @@
 import React, { useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Table, Button, Space } from "antd";
-import { EditOutlined, PoweroffOutlined } from "@ant-design/icons";
+import { Table, Button, Space, Tag, Popconfirm } from "antd";
+import {
+	CheckCircleTwoTone,
+	ExclamationCircleTwoTone,
+	ClockCircleOutlined,
+	MailOutlined,
+	UserOutlined,
+	ReloadOutlined,
+	EditOutlined,
+	SyncOutlined,
+	PoweroffOutlined
+} from "@ant-design/icons";
+import { verified, unverified } from "@utils";
 import Container from "@containers";
-import { Wrapper, ErrorAlert } from "@components";
+import { Wrapper, ErrorAlert, InfoAlert } from "@components";
 import { useSelector, useDispatch } from "react-redux";
-import { loadUsersThunk, selectUsers, selectAdminError } from "@slices/admin";
+import {
+	loadUsersThunk,
+	deactivateUserThunk,
+	reactivateUserThunk,
+	selectUsers,
+	selectAdminError
+} from "@slices/admin";
 import { loadUserThunk, removeUserAction } from "@slices/user";
 import { signOutUserThunk } from "@slices/auth";
 
@@ -20,17 +37,16 @@ function AdminDashboard() {
 	};
 
 	const loadUser = async (userID, error) => {
-		await dispatch(loadUserThunk(userID));
+		//await dispatch(loadUserThunk(userID));
 
 		if (error) {
 			ErrorAlert("Failed to load user data", error);
-			console.log(error);
 			removeUser();
 		}
 	};
 
 	const loadUsers = async (error) => {
-		await dispatch(loadUsersThunk());
+		//await dispatch(loadUsersThunk());
 
 		if (error) {
 			ErrorAlert("Failed to load users data", error);
@@ -38,60 +54,123 @@ function AdminDashboard() {
 		}
 	};
 
+	const renderName = (user) => (
+		<Fragment>
+			<UserOutlined /> &nbsp;
+			<Link to="/home" onClick={() => loadUser(user._id, error)}>
+				{user.name} &nbsp;
+				{user.permissions.includes("admin", "super_admin") ? (
+					user.isActive ? (
+						<Tag color="geekblue">admin</Tag>
+					) : (
+						<Tag color="red">deactivated</Tag>
+					)
+				) : user.isActive ? (
+					<Tag color="cyan">user</Tag>
+				) : (
+					<Tag color="red">deactivated</Tag>
+				)}
+				&nbsp;
+			</Link>
+		</Fragment>
+	);
+
+	const renderEmail = (user) => (
+		<Fragment>
+			<MailOutlined /> &nbsp; {user.email} &nbsp;
+			{user.isVerified ? (
+				<CheckCircleTwoTone twoToneColor={verified} />
+			) : (
+				<ExclamationCircleTwoTone twoToneColor={unverified} />
+			)}
+		</Fragment>
+	);
+
+	const renderActions = (user) => (
+		<Space size="middle">
+			<Button type="link" onClick={() => console.log(user)} icon={<EditOutlined />} />
+			{user.isActive ? (
+				<Popconfirm
+					placement="leftTop"
+					title="Are you sure to de-activate this user?"
+					onConfirm={async () => {
+						const { _id } = user;
+						await dispatch(deactivateUserThunk(_id));
+						InfoAlert("De-activated the user successfully");
+						loadUsers(error);
+					}}
+					onCancel={() => console.log("Cancel")}
+					okText="Yes"
+					cancelText="No">
+					<Button danger type="link" icon={<PoweroffOutlined />} />
+				</Popconfirm>
+			) : (
+				<Popconfirm
+					placement="leftTop"
+					title="Are you sure to re-activate this user?"
+					onConfirm={async () => {
+						const { _id } = user;
+						await dispatch(reactivateUserThunk(_id));
+						InfoAlert("Re-activated the user successfully");
+						loadUsers(error);
+					}}
+					onCancel={() => console.log("Cancel")}
+					okText="Yes"
+					cancelText="No">
+					<Button type="link" icon={<ReloadOutlined style={{ color: verified }} />} />
+				</Popconfirm>
+			)}
+		</Space>
+	);
+
 	const columns = [
 		{
 			title: "Name",
-			align: "center",
-			// eslint-disable-next-line
-			render: (record) => {
-				return (
-					<Fragment>
-						<Link to="/home" onClick={() => loadUser(record._id, error)}>
-							{record.name}
-						</Link>
-					</Fragment>
-				);
-			}
+			align: "left",
+			// eslint-disable-next-line react/display-name
+			render: (record) => renderName(record),
+			responsive: ["xs", "sm", "md", "lg", "xl"]
 		},
 		{
 			title: "Email",
-			dataIndex: "email",
-			align: "center"
-		},
-		{
-			title: "Permissions",
-			dataIndex: "permissions",
-			align: "center"
+			align: "left",
+			// eslint-disable-next-line react/display-name
+			render: (record) => renderEmail(record),
+			responsive: ["xs", "sm", "md", "lg", "xl"]
 		},
 		{
 			title: "Last Login",
 			dataIndex: "lastLogIn",
-			align: "center"
+			align: "left",
+			// eslint-disable-next-line react/display-name
+			render: (text) => (
+				<span>
+					<ClockCircleOutlined /> &nbsp;
+					{text}
+				</span>
+			),
+			responsive: ["xs", "sm", "md", "lg", "xl"]
 		},
 		{
 			title: "Created At",
 			dataIndex: "createdAt",
-			align: "center"
+			align: "left",
+			// eslint-disable-next-line react/display-name
+			render: (text) => (
+				<span>
+					<ClockCircleOutlined /> &nbsp;
+					{text}
+				</span>
+			),
+			responsive: ["xs", "sm", "md", "lg", "xl"]
 		},
 		{
-			title: "Action",
-			key: "action",
-			align: "center",
+			title: "Actions",
+			key: "actions",
+			align: "left",
 			// eslint-disable-next-line
-			render: (record) => (<Space size="middle">
-					<Button
-						type="link"
-						onClick={() => console.log(record)}
-						icon={<EditOutlined />}
-					/>
-					<Button
-						danger
-						type="link"
-						onClick={() => console.log(record)}
-						icon={<PoweroffOutlined />}
-					/>
-				</Space>
-			)
+			render: (record) => renderActions(record),
+			responsive: ["xs", "sm", "md", "lg", "xl"]
 		}
 	];
 
@@ -105,7 +184,19 @@ function AdminDashboard() {
 				<Wrapper>
 					<Table
 						bordered
-						title={() => <h1 style={{ textAlign: "center" }}>Users</h1>}
+						title={() => (
+							<Fragment>
+								<h1 style={{ textAlign: "center" }}>
+									Users &nbsp;
+									<Button
+										style={{ float: "right", marginTop: "1%" }}
+										type="link"
+										onClick={() => loadUsers(error)}
+										icon={<SyncOutlined />}
+									/>
+								</h1>
+							</Fragment>
+						)}
 						columns={columns}
 						dataSource={users}
 					/>
