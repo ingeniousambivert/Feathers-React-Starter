@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Fragment } from "react";
+import { Link } from "react-router-dom";
 import { Table, Button, Space } from "antd";
 import { EditOutlined, PoweroffOutlined } from "@ant-design/icons";
 import Container from "@containers";
 import { Wrapper, ErrorAlert } from "@components";
 import { useSelector, useDispatch } from "react-redux";
 import { loadUsersThunk, selectUsers, selectAdminError } from "@slices/admin";
-import { removeUserAction } from "@slices/user";
+import { loadUserThunk, removeUserAction } from "@slices/user";
 import { signOutUserThunk } from "@slices/auth";
 
 function AdminDashboard() {
@@ -13,23 +14,44 @@ function AdminDashboard() {
 	const error = useSelector(selectAdminError);
 	const users = useSelector(selectUsers);
 
+	const removeUser = () => {
+		dispatch(removeUserAction());
+		dispatch(signOutUserThunk());
+	};
+
+	const loadUser = async (userID, error) => {
+		await dispatch(loadUserThunk(userID));
+
+		if (error) {
+			ErrorAlert("Failed to load user data", error);
+			console.log(error);
+			removeUser();
+		}
+	};
+
 	const loadUsers = async (error) => {
 		await dispatch(loadUsersThunk());
 
 		if (error) {
 			ErrorAlert("Failed to load users data", error);
-			dispatch(removeUserAction());
-			dispatch(signOutUserThunk());
+			removeUser();
 		}
 	};
 
 	const columns = [
 		{
 			title: "Name",
-			dataIndex: "name",
 			align: "center",
 			// eslint-disable-next-line
-			render: (text) => <a>{text}</a>
+			render: (record) => {
+				return (
+					<Fragment>
+						<Link to="/home" onClick={() => loadUser(record._id, error)}>
+							{record.name}
+						</Link>
+					</Fragment>
+				);
+			}
 		},
 		{
 			title: "Email",
@@ -43,7 +65,12 @@ function AdminDashboard() {
 		},
 		{
 			title: "Last Login",
-			dataIndex: "lastLoggedIn",
+			dataIndex: "lastLogIn",
+			align: "center"
+		},
+		{
+			title: "Created At",
+			dataIndex: "createdAt",
 			align: "center"
 		},
 		{
@@ -68,14 +95,6 @@ function AdminDashboard() {
 		}
 	];
 
-	const rowSelection = {
-		onChange: (selectedRowKeys, selectedRows) => {
-			console.log(`selectedRowKeys: ${selectedRowKeys}`, "selectedRows: ", selectedRows);
-		},
-		getCheckboxProps: (record) => ({
-			name: record.name
-		})
-	};
 	useEffect(() => {
 		loadUsers(error);
 		// eslint-disable-next-line
@@ -87,10 +106,6 @@ function AdminDashboard() {
 					<Table
 						bordered
 						title={() => <h1 style={{ textAlign: "center" }}>Users</h1>}
-						rowSelection={{
-							type: "checkbox",
-							...rowSelection
-						}}
 						columns={columns}
 						dataSource={users}
 					/>
