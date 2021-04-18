@@ -12,14 +12,17 @@ The Web App consists of three primary routes for users :
 
 - `/signup` - to create a user
   <img margin="auto" src="https://i.ibb.co/w7PD40M/signup.png"/>
+
 - `/signin` - to log a user in
   <img margin="auto" src="https://i.ibb.co/GsY8pvJ/signin.png"/>
+
 - `/home` - to view user's data
-  <img margin="auto" src="https://i.ibb.co/0QzxW3P/home.png"/>
+<img margin="auto" src="https://i.ibb.co/0QzxW3P/home.png"/>
 
 The Web App consists of one primary route for admin :
 
 - `/admin` - to view all the user's data and perform various actions on it.
+
   <img margin="auto" src="https://i.ibb.co/vkNQ5ND/admin.png"/>
   
 The admin can edit any user's data, de/re-activate, de/re-verify a user and reset the password of a user.
