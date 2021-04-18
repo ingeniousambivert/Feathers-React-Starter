@@ -48,7 +48,7 @@ const deactivateUserReducer = {
 	}
 };
 
-export const reactivateUserThunk = createAsyncThunk("admin/deactivateUser", async (id) => {
+export const reactivateUserThunk = createAsyncThunk("admin/reactivateUser", async (id) => {
 	await feathersClient.service("users").patch(id, { isActive: true });
 });
 
@@ -62,6 +62,64 @@ const reactivateUserReducer = {
 		state.error = action.error.message;
 	},
 	[reactivateUserThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
+export const deverifyUserThunk = createAsyncThunk("admin/deverifyUser", async (id) => {
+	await feathersClient.service("users").patch(id, { isVerified: false });
+});
+
+const deverifyUserReducer = {
+	[deverifyUserThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[deverifyUserThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[deverifyUserThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
+export const reverifyUserThunk = createAsyncThunk("admin/reverifyUser", async (id) => {
+	await feathersClient.service("users").patch(id, { isVerified: true });
+});
+
+const reverifyUserReducer = {
+	[reverifyUserThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[reverifyUserThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[reverifyUserThunk.fulfilled]: (state) => {
+		state.loading = false;
+		state.error = false;
+	}
+};
+
+export const resetUserPasswordThunk = createAsyncThunk("admin/reverifyUser", async (data) => {
+	const { _id, password } = data;
+	await feathersClient.service("users").patch(_id, { password });
+});
+
+const resetUserPasswordReducer = {
+	[resetUserPasswordThunk.pending]: (state) => {
+		state.loading = true;
+		state.error = false;
+	},
+	[resetUserPasswordThunk.rejected]: (state, action) => {
+		state.loading = false;
+		state.error = action.error.message;
+	},
+	[resetUserPasswordThunk.fulfilled]: (state) => {
 		state.loading = false;
 		state.error = false;
 	}
@@ -84,7 +142,14 @@ const adminSlice = createSlice({
 			state.user = action.payload;
 		}
 	},
-	extraReducers: { ...loadUsersReducer, ...deactivateUserReducer, ...reactivateUserReducer }
+	extraReducers: {
+		...loadUsersReducer,
+		...deactivateUserReducer,
+		...reactivateUserReducer,
+		...deverifyUserReducer,
+		...reverifyUserReducer,
+		...resetUserPasswordReducer
+	}
 });
 
 export const selectAdminError = createSelector(
