@@ -38,7 +38,7 @@ To work in development mode. Add a `development.json` to `config/`. And add your
 
 To configure the local mongodb add `"mongodb": "mongodb://localhost:27017/feathers-react"` to the `development.json`.
 
-To configure the *mailer* module. Add the following object in the `${ENVIRONMENT}.json`.
+To configure the *mailer* module. Add the following object in the `${ENVIRONMENT}.json` or `NODE_ENV variables`.
 
 ```js
  {
@@ -50,8 +50,6 @@ To configure the *mailer* module. Add the following object in the `${ENVIRONMENT
 ```
 
 By default the *mailer* works with the [SMTP Transport](https://www.npmjs.com/package/nodemailer-smtp-transport) configured with Gmail. But you can use any supported [transports](https://nodemailer.com/transports/).
-
-Replace all the development credentials with production credentials in the `production.json` before deploying.
 
 ## Testing
 
