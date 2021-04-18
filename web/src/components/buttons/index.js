@@ -16,14 +16,12 @@ const SubmitButton = (props) => (
 );
 
 const PrimaryButton = (props) => (
-	<Button type="primary" onClick={props.onClick} style={props.style && props.style}>
-		{props.children ? (
-			props.children
-		) : (
-			<Text style={props.textStyle ? props.textStyle : { color: white }} strong>
-				{props.buttontext}
-			</Text>
-		)}
+	<Button {...props} type="primary" onClick={props.onClick} style={props.style && props.style}>
+		{props.children
+			? props.children
+			: props.buttontext && (
+					<Text style={props.textStyle && props.textStyle}>{props.buttontext}</Text>
+			  )}
 	</Button>
 );
 
@@ -38,7 +36,7 @@ const SecondaryButton = (props) => (
 );
 
 const LinkButton = (props) => (
-	<Button onClick={props.onClick} type="link" style={props.style && props.style}>
+	<Button onClick={props.onClick} {...props} type="link" style={props.style && props.style}>
 		{props.buttontext}
 	</Button>
 );
