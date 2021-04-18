@@ -4,18 +4,45 @@
 
 ## About
 
-This project was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and it uses [Ant Design](https://ant.design) UI Library.
+This is the Web App for the Feathers-React Starter kit. It provides a minimal and sleek UI built and customized with Ant Design. It was bootstapped with [Create React App](https://facebook.github.io/create-react-app/) and it uses [Ant Design](https://ant.design) UI Library.
+
+## Overview
+
+The Web App consists of three primary routes for users :
+
+- `/signup` - to create a user
+  <img margin="auto" src="https://i.ibb.co/w7PD40M/signup.png"/>
+- `/signin` - to log a user in
+  <img margin="auto" src="https://i.ibb.co/GsY8pvJ/signin.png"/>
+- `/home` - to view user's data
+  <img margin="auto" src="https://i.ibb.co/0QzxW3P/home.png"/>
+
+The Web App consists of one primary route for admin :
+
+- `/admin` - to view all the user's data and perform various actions on it.
+  <img margin="auto" src="https://i.ibb.co/vkNQ5ND/admin.png"/>
+  
+The admin can edit any user's data, de/re-activate, de/re-verify a user and reset the password of a user.
 
 ## Design Info
 
-Color Pallete :
-`#5AB893`,
-`#6669CC`,
-`#3C406A`,
-`#202020`,
-`#ECEDED`
+**Color Pallete** :
 
-Typography : IBM Plex Sans Condensed (Headings), Roboto (Paragraphs)
+- primaryColor : `#6669CC`
+- primaryColorLight : `#8e91db`
+- primaryColorSlight : `#bfc1f2`
+- primaryColorDark : `#4e51a0`
+- black : `#202020`
+- white : `#fff`
+- offWhite : `#f9f9f9`
+- verified : `#52c41a`
+- unverified : `#F5AD42`
+- danger : `#F93154`
+
+**Typography** :
+
+- Headings: IBM Plex Sans Condensed
+- Paragraphs: Roboto
 
 ## Step by Step Documentation
 
