@@ -34,7 +34,6 @@ function AdminDashboard() {
 
 	const [editView, setEditView] = useState(false);
 	const [editUser, setEditUser] = useState(null);
-
 	const editUserData = (user) => {
 		setEditUser(user);
 		setEditView(true);
@@ -192,32 +191,35 @@ function AdminDashboard() {
 
 	useEffect(() => {
 		loadUsers(error);
+
 		// eslint-disable-next-line
 	}, [error]);
 
 	return (
-		<React.Fragment>
+		<Fragment>
 			<Container header={true} iconcolor="#fff" background="#6669CC" elevate={true}>
 				<Wrapper>
 					{!editView ? (
-						<Table
-							bordered
-							title={() => (
-								<Fragment>
-									<h1 style={{ textAlign: "center" }}>
-										Users &nbsp;
-										<Button
-											style={{ float: "right", marginTop: "1%" }}
-											type="link"
-											onClick={() => loadUsers(error)}
-											icon={<SyncOutlined />}
-										/>
-									</h1>
-								</Fragment>
-							)}
-							columns={columns}
-							dataSource={users}
-						/>
+						<Fragment>
+							<Table
+								bordered
+								title={() => (
+									<Fragment>
+										<h1 style={{ textAlign: "center" }}>
+											Users &nbsp;
+											<Button
+												style={{ float: "right", marginTop: "1%" }}
+												type="link"
+												onClick={() => loadUsers(error)}
+												icon={<SyncOutlined />}
+											/>
+										</h1>
+									</Fragment>
+								)}
+								columns={columns}
+								dataSource={users}
+							/>
+						</Fragment>
 					) : (
 						<UpdateUser
 							user={editUser}
@@ -227,7 +229,7 @@ function AdminDashboard() {
 					)}
 				</Wrapper>
 			</Container>
-		</React.Fragment>
+		</Fragment>
 	);
 }
 
