@@ -27,7 +27,7 @@ function UpdateEmailContainer(props) {
 				<Fragment>
 					<ResponsiveGrid xl={10}>
 						<FixedGrid>
-							<StrongText center={true}>Update your Email Address</StrongText>
+							<StrongText center={true}>Update your e-mail address</StrongText>
 						</FixedGrid>
 						<Form
 							hideRequiredMark

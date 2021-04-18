@@ -25,7 +25,7 @@ function UpdatePasswordContainer(props) {
 				<Fragment>
 					<ResponsiveGrid xl={10}>
 						<FixedGrid>
-							<StrongText>Update your Email Address</StrongText>
+							<StrongText>Update your password</StrongText>
 						</FixedGrid>
 						<Form
 							hideRequiredMark
