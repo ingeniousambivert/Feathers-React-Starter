@@ -23,7 +23,7 @@ import {
 	selectUsers,
 	selectAdminError
 } from "@slices/admin";
-import { loadUserThunk, removeUserAction } from "@slices/user";
+import { loadUserThunk, setUserAction, removeUserAction } from "@slices/user";
 import { signOutUserThunk } from "@slices/auth";
 import UpdateUser from "./update";
 
@@ -46,12 +46,14 @@ function AdminDashboard() {
 	};
 
 	const loadUser = async (userID, error) => {
-		await dispatch(loadUserThunk(userID));
+		const actionResult = await dispatch(loadUserThunk(userID));
 
 		if (error) {
 			ErrorAlert("Failed to load user data", error);
 			removeUser();
 		}
+
+		return actionResult;
 	};
 
 	const loadUsers = async (error) => {
@@ -66,7 +68,12 @@ function AdminDashboard() {
 	const renderName = (user) => (
 		<Fragment>
 			<UserOutlined /> &nbsp;
-			<Link to="/home" onClick={() => loadUser(user._id, error)}>
+			<Link
+				to="/home"
+				onClick={() => {
+					const actionResult = loadUser(user._id, error);
+					dispatch(setUserAction(actionResult.payload));
+				}}>
 				{user.name} &nbsp;
 				{user.permissions.includes("admin", "super_admin") ? (
 					user.isActive ? (
@@ -75,7 +82,7 @@ function AdminDashboard() {
 						<Tag color="red">deactivated</Tag>
 					)
 				) : user.isActive ? (
-					<Tag color="cyan">user</Tag>
+					<Tag color="blue">user</Tag>
 				) : (
 					<Tag color="red">deactivated</Tag>
 				)}
@@ -212,7 +219,11 @@ function AdminDashboard() {
 							dataSource={users}
 						/>
 					) : (
-						<UpdateUser user={editUser} setEditView={setEditView} />
+						<UpdateUser
+							user={editUser}
+							setEditView={setEditView}
+							loadUsers={loadUsers}
+						/>
 					)}
 				</Wrapper>
 			</Container>
