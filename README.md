@@ -3,14 +3,8 @@
  **MERN Stack** starter template with *Feathers*.
 
 ## About
+This is starter kit for B2B apps. It constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). It contains a pre-configured **REST API** with [**local authentication**](https://docs.feathersjs.com/api/authentication/local.html) and [**authentication management**](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) and [**permissions/role management**](https://github.com/feathersjs-ecosystem/feathers-permissions) in the *server* and **state management** in the *web app*.
 
-This starter constitutes of [**Feathers**](https://docs.feathersjs.com), [**MongoDB**](https://www.mongodb.com), [**React**](https://www.reactjs.org) and [**Redux Toolkit**](https://redux-toolkit.js.org/). It was bootstrapped with [Create React App](https://facebook.github.io/create-react-app/) and [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). The purpose of this project is to provide a starter template for *Feathers-React* Applications. It contains a pre-configured **REST API** with **local authentication** and **authentication management** in the *server* and **state management** in the *web app*.
-
-#### Why Redux (Toolkit)
-
-- [**Redux**](https://redux.js.org/) is a predictable state container for JavaScript applications. It helps you write applications that behave consistently and are easy to test. [Read More](https://blog.logrocket.com/why-use-redux-reasons-with-clear-examples-d21bffd5835/)
-
-- [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient *Redux* development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
 
 ## Requirements
 
