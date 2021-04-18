@@ -32,12 +32,13 @@ npm run dev
 
 ## Configuration
 
-The default configuration is generated automatically using the *Feathers Generator*.
+The default configuration is generated automatically using the *Feathers Generator*.It consists of the default host, port, pagination options, authentication options.
 
-To work in development mode. Add a `development.json` to `config/`. And add your development variables, credentials there. It consists of the default host, port, pagination options, authentication options.
-After configuring the database you will have to manually add the database URI to it.
+After configuring the databases with the services you will have to manually add the database URIs to the `${ENVIRONMENT}.json`.
 
-To configure the *mailer* module. Add the following object in the `${ENVIRONMENT}.json`
+To work in development mode. Add a `development.json` to `config/`. And add your development variables, credentials there.
+
+To configure the *mailer* module. Add the following object in the `${ENVIRONMENT}.json`.
 
 ```js
  {
