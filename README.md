@@ -10,10 +10,6 @@
   
 - [**Redux Toolkit**](https://redux-toolkit.js.org/)  is the official, opinionated, batteries-included toolset for efficient *Redux* development. [Read More](https://medium.com/the-andela-way/why-you-should-use-redux-toolkit-2b73a8e2f75a)
 
-<!-- - [**Feathers**](https://docs.feathersjs.com) is a lightweight web-framework for creating real-time applications and REST APIs. [Read More](https://blog.feathersjs.com/why-we-built-the-best-web-framework-you-ve-probably-never-heard-of-until-now-176afc5c6aac#uniform-interfaces)
-  
-- [**MongoDB**](https://www.mongodb.com/) is a document database with the scalability and flexibility that you want with the querying and indexing that you need. [Read More](https://www.mongodb.com/why-use-mongodb#:~:text=Companies%20and%20development%20teams%20of,of%20both%20data%20and%20traffic.) -->
-
 ## Requirements
 
 - [NodeJS](https://nodejs.org)
@@ -49,189 +45,48 @@ yarn start
 
 Open <http://localhost:3000>
 
-## Overview
-
-> It is presumed that if you are using this starter you are familiar with **Javascript** and atleast the basics of **Feathers**, **Express**, **NodeJS**, **MongoDB**, **Mongoose** and **React**.
-
 ### Web
 
-- The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/config-overrides.js) in the **client** consists of the module aliases : *@client*, *@components*, *@layouts*, *@slices*, *@utils*, *@pages*, *@images*. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme/overrides.js) for the Ant Design theme override.
+- The [*config-overrides.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/antd-dev/web/config-overrides.js) consists of the module aliases or various components and files. And an [*override*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/antd-dev/web/config-overrides.js) for the Ant Design theme override.
 
-- The [*.env*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/.env) in the **client** consists of the *NODE_ENV* configurations (API_URL, PORT, etc).
+- The [*.env*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/.env) of the *NODE_ENV* configurations (API_URL, PORT, etc).
 
-- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src) in the **client** consists the main code for the React App. Check out the project tree below for details.
-  - [*assets*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/assets) - All static assets : SCSS, LESS, Media.
-  - [*client*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/client) - The Feathers Client configured with [Axios](https://github.com/axios/axios) to communicate to the *API*.
-  - [*components*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/components) - All isolated UI components.
-  - [*layouts*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/layouts) - Page layouts (Header, Footer).
-  - [*pages*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/pages) - Individual pages composed of the UI components and wrapped with page layouts.
-  - [*routes*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/routes) - All the page routes passed through the customized public and private routes.
-  - [*store*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/store) - The Redux Store configured with *slices*, *reducers* and *state persistance*.
-    - *auth slice* : Consists of the *Signup*, *Signin* and *Signout* - thunks, reducers and actions. It also has three *selectors* - *Error*, *UserID* and *IsAuthenticated*.
-    - *user slice* : Consists of *Load* and *Update* - thunks, reducers and actions. It also has two *selectors* - *Error* and *User*.
-  - [*theme*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/theme) - Custom theme (few options overridden) for Ant Design.
+- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src) the main code for the React App.
+  - [*assets*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/assets) - All static assets : SCSS, LESS, Media.
+  - [*client*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/client) - The Feathers Client configured with [Axios](https://github.com/axios/axios) to communicate to the *API*.
+  - [*components*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/components) - All isolated UI components.
+  - [*containers*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/containers) - Containers to hold the UI of individual pages.
+  - [*layouts*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/layouts) - Page layouts (Header, Footer).
+  - [*pages*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/pages) - Individual pages composed of containers and wrapped with page layouts. All the side-effects happen here.
+  - [*routes*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/routes) - All the page routes passed through the customized public, private and admin routes.
+  - [*store*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/store) - The Redux Store configured with *slices*, *reducers* and *state persistance*.
+    - *auth slice* : Consists of the authentication (signUp, signIn, etc) related thunks, reducers and actions.
+    - *user slice* : Consists of the user (loadUser, updateUser, etc) related thunks, reducers and actions.
+    - *admin slice* : Consists of the admin (loadAllUsers, resetUserPassword, etc) related thunks, reducers and actions.
+  - [*theme*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/theme) - Custom theme (few options overridden) for Ant Design.
 
-  - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/client/src/utils) - Extra utility methods and components.
+  - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/web/src/utils) - Useful but generic methods and components.
 
 ### Server
 
-- The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/config) in the **server** consists of *default*, *production*, *test* configurations.
+- The [*config*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/config) in the **server** consists of *default*, *production*, *test* configurations.
   - *default.json* - All the default configurations for Feathers, Node and MongoDB. It also consists of the authentication config (*Local Auth*).
   
-- The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/package.json) in the **server** consists of the module aliases : *@app*, *@services*, *@hooks*, *@errors*.
+- The [*package.json*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/package.json) in the **server** consists of the scripts and module aliases of different modules and services.
 
-- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src) in the **server** consists the main code for the Feathers Server. Check out the project tree below for details.
-  - [*auth*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/auth) - Authentication Service implementation, comes configured with JWT Strategy.
-  - [*errors*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/errors) - Feathers Errors and Global Error Handler.
-  - [*hooks*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/hooks) - Hooks (pluggable middleware functions) for Feathers App
-  - [*middleware*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/middleware) - Express middleware. To configure extra Express Modules. Also allows customizing services.
-  - [*models*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/models) - Mongoose Models for individual services.
-  - [*services*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/services) - The core of feathers - services. Basically instance of a class that contains your business logic.
-  - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/src/utils) - Extra utility methods
+- The [*src*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src) in the **server** consists the main code for the Feathers Server.
+  - [*auth*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/auth) - Authentication Service implementation, comes configured with JWT Strategy.
+  - [*errors*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/errors) - Feathers Errors and Global Error Handler.
+  - [*hooks*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/hooks) - Hooks (pluggable middleware functions) for Feathers App
+  - [*middleware*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/middleware) - Express middleware. To configure extra Express Modules. Also allows customizing services.
+  - [*models*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/models) - Mongoose Models for individual services. (Users)
+  - [*services*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/services) - The core of feathers - services. Basically instance of a class that contains your business logic.
+    - *authmanagement* : Consists of the implementation of the authentication-management module, a notifier that utilises the *mailer* service to send emails on appropriate cases and hooks to verify the JWT on appropriate cases.
+    - *user* : Consists of the user class with a method to create a user model and hooks that carry various functions and also set permissions .
+    - *mailer* : Consists of a simple mailer module that wraps around the *node-mailer* package and implements a GMAIL based SMTP Transport.
+  - [*utils*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/src/utils) - Extra utility methods
   
-- The [*mongoose.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/blob/main/server/mongoose.js) in the **server** is the instantiation of the Mongoose Module. It configures some connection options and exports the mongoose client.
-
-To get the best out of this starter know the project structure of both *client* and *server*. Given below is the complete directory tree for both the projects.
-
-### Project Trees
-
-#### Client
-
-```bash
-├── README.md
-├── config-overrides.js
-├── package.json
-├── public
-│   ├── index.html
-│   ├── manifest.json
-│   └── robots.txt
-├── src
-│   ├── App.js
-│   ├── assets
-│   │   ├── images
-│   │   │   ├── logo.png
-│   │   │   └── logo.svg
-│   │   ├── less
-│   │   │   └── App.less
-│   │   └── scss
-│   │       └── style.scss
-│   ├── client
-│   │   └── index.js
-│   ├── components
-│   │   ├── home
-│   │   │   ├── index.js
-│   │   │   └── sections
-│   │   │       └── user
-│   │   │           ├── index.js
-│   │   │           └── partials
-│   │   │               ├── data.js
-│   │   │               └── update.js
-│   │   ├── landing
-│   │   │   ├── index.js
-│   │   │   └── utils
-│   │   │       └── LandingRoute.js
-│   │   ├── signin
-│   │   │   ├── index.js
-│   │   │   └── redirect
-│   │   │       └── index.js
-│   │   ├── signup
-│   │   │   └── index.js
-│   │   └── wrapper
-│   │       └── index.js
-│   ├── index.js
-│   ├── layouts
-│   │   ├── index.js
-│   │   ├── pages
-│   │   │   ├── NotFound.js
-│   │   │   ├── PageFooter.js
-│   │   │   └── PageHeader.js
-│   │   └── partials
-│   │       ├── Logo.js
-│   │       └── NotfoundImage.js
-│   ├── pages
-│   │   ├── container
-│   │   │   └── index.js
-│   │   ├── home
-│   │   │   └── index.js
-│   │   ├── landing
-│   │   │   └── index.js
-│   │   ├── signin
-│   │   │   ├── index.js
-│   │   │   └── redirect
-│   │   │       └── index.js
-│   │   └── signup
-│   │       └── index.js
-│   ├── routes
-│   │   ├── index.js
-│   │   ├── protectedRoute
-│   │   │   └── index.js
-│   │   └── publicRoute
-│   │       └── index.js
-│   ├── serviceWorker.js
-│   ├── store
-│   │   ├── index.js
-│   │   └── slices
-│   │       ├── auth
-│   │       │   └── index.js
-│   │       └── user
-│   │           └── index.js
-│   ├── tests
-│   │   ├── App.test.js
-│   │   └── setupTests.js
-│   ├── theme
-│   │   └── overrides.js
-├── └── utils
-       ├── colors.js
-       ├── greet.js
-       ├── index.js
-       └── spinner.js
-
-```
-
-#### Server
-
-```bash
-├── README.md
-├── config
-│   ├── default.json
-│   ├── production.json
-│   └── test.json
-├── package.json
-├── public
-│   ├── favicon.ico
-│   └── index.html
-├── src
-│   ├── app.js
-│   ├── auth
-│   │   ├── authentication.hooks.js
-│   │   └── authentication.js
-│   ├── channels
-│   │   └── channels.js
-│   ├── errors
-│   │   └── index.js
-│   ├── hooks
-│   │   └── app
-│   │       └── app.hooks.js
-│   ├── middleware
-│   │   └── index.js
-│   ├── models
-│   │   └── users.model.js
-│   ├── mongoose.js
-│   ├── server.js
-│   ├── services
-│   │   ├── index.js
-│   │   └── users
-│   │       ├── users.class.js
-│   │       ├── users.hooks.js
-│   │       └── users.service.js
-│   └── utils
-│       └── logger.js
-├── test
-    ├── app.test.js
-    ├── authentication.test.js
-    └── services
-     └── users.test.js
-```
+- The [*mongoose.js*](https://github.com/ingeniousambivert/Feathers-React-Starter/tree/antd-dev/server/mongoose.js) in the **server** is the instantiation of the Mongoose Module. It configures some connection options and exports the mongoose client.
 
 ### Read More
 
@@ -264,8 +119,8 @@ To get the best out of this starter know the project structure of both *client* 
 - [x] [Authentication/User Management](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) in the server
 - [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the web (Customized)
 - [x] [Role Management/Permissions](https://github.com/feathersjs-ecosystem/feathers-permissions) in the server
-- [ ] Admin Dashboard in the web
-- [ ] Data validation in the server
+- [x] Admin Dashboard in the web
+- [ ] Data validation in the server with [joi](https://joi.dev/api/)
 - [ ] More test cases for server and snapshot testing for web w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for web
 
