@@ -27,6 +27,5 @@
 			"usernameField": "email",
 			"passwordField": "password"
 		}
-	},
-	"mongodb": "mongodb://localhost:27017/feathers-react"
+	}
 }
