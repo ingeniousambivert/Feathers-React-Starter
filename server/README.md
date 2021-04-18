@@ -30,6 +30,26 @@ npm start
 npm run dev
 ```
 
+## Configuration
+
+The default configuration is generated automatically using the *Feathers Generator*.
+
+To work in development mode. Add a `development.json` to `config/`. And add your development variables, credentials there. It consists of the default host, port, pagination options, authentication options.
+After configuring the database you will have to manually add the database URI to it.
+
+To configure the *mailer* module. Add the following object in the `${ENVIRONMENT}.json`
+
+```js
+ {
+ "mailerUsername": "yourUsername",
+ "mailerPassword": "yourPassword",
+ "clientURL": "http://your-client-app.com",
+ "fromEmail": "no-reply@your-compnay-name.com"
+ }
+```
+
+Replace all the development credentials with production credentials in the `production.json` in production mode.
+
 ## Testing
 
 Simply run `npm test` and all your tests in the `test/` directory will be run.
