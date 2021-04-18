@@ -48,7 +48,7 @@ To configure the *mailer* module. Add the following object in the `${ENVIRONMENT
  }
 ```
 
-Replace all the development credentials with production credentials in the `production.json` in production mode.
+Replace all the development credentials with production credentials in the `production.json` before deploying.
 
 ## Testing
 
