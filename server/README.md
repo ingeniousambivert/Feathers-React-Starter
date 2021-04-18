@@ -4,7 +4,7 @@
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications and REST APIs.
+This is the [Feathers](http://feathersjs.com) App/Server for the Feathers-React Starter kit. It was bootstapped with [Feathers Generator](https://docs.feathersjs.com/guides/basics/generator.html). It constitutes of a pre-configured **REST API** with [**local authentication**](https://docs.feathersjs.com/api/authentication/local.html), [**authentication management**](https://github.com/feathersjs-ecosystem/feathers-authentication-management/blob/master/docs.md) and [**permissions/role management**](https://github.com/feathersjs-ecosystem/feathers-permissions).
 
 ## Getting Started
 
