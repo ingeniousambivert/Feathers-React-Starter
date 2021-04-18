@@ -1,5 +1,7 @@
 # Feathers-React-Starter
 
+<img margin="auto" src="https://i.ibb.co/rG3FTQF/hero.png"/>
+
 #### Why Ant Design
 
  [**Ant Design**](https://ant.design) is a React UI library that has a plethora of easy-to-use components that are useful for building elegant user interfaces. [Read More](https://hackernoon.com/interesting-javascript-libraries-born-in-china-d50d1bb81355)
