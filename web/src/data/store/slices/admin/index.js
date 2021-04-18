@@ -11,21 +11,23 @@ const loadUsersReducer = {
 	[loadUsersThunk.pending]: (state) => {
 		state.loading = true;
 		state.error = false;
-		state.data = null;
+		state.userData = null;
 		state.users = null;
-		state.user = null;
 	},
 	[loadUsersThunk.rejected]: (state, action) => {
 		state.loading = false;
 		state.error = action.error.message;
-		state.data = null;
+		state.userData = null;
 		state.users = null;
-		state.user = null;
 	},
 	[loadUsersThunk.fulfilled]: (state, action) => {
 		state.loading = false;
 		state.error = false;
-		state.data = action.payload;
+		state.userData = {
+			total: action.payload.total,
+			limit: action.payload.limit,
+			skip: action.payload.skip
+		};
 		state.users = action.payload.data;
 	}
 };
@@ -130,18 +132,10 @@ const adminSlice = createSlice({
 	initialState: {
 		loading: null,
 		error: null,
-		data: null,
-		users: null,
-		user: null
+		userData: null,
+		users: null
 	},
-	reducers: {
-		removeUser: (state) => {
-			state.user = null;
-		},
-		setUser: (state, action) => {
-			state.user = action.payload;
-		}
-	},
+	reducers: {},
 	extraReducers: {
 		...loadUsersReducer,
 		...deactivateUserReducer,
@@ -159,13 +153,6 @@ export const selectAdminError = createSelector(
 	}
 );
 
-export const selectUser = createSelector(
-	(state) => state.admin.user,
-	(user) => {
-		if (user !== null) return user;
-	}
-);
-
 export const selectUsers = createSelector(
 	(state) => state.admin.users,
 	(users) => {
@@ -175,6 +162,13 @@ export const selectUsers = createSelector(
 	}
 );
 
-export const { removeUser: removeUserAction, setUser: setUserAction } = adminSlice.actions;
+export const selectUserData = createSelector(
+	(state) => state.admin.userData,
+	(userData) => {
+		if (userData !== null) {
+			return userData;
+		}
+	}
+);
 
 export default adminSlice.reducer;
