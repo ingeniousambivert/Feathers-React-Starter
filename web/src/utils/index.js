@@ -1,7 +1,7 @@
 import moment from "moment";
 
 function removeWhiteSpaces(string) {
-	return string.replace(/\s/g, " ");
+	return string.replace(/\s/g, "");
 }
 
 function transformAdminTable(data) {
