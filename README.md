@@ -122,7 +122,7 @@ Open <http://localhost:3000>
 - [x] Move to [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) in the web (Customized)
 - [x] [Role Management/Permissions](https://github.com/feathersjs-ecosystem/feathers-permissions) in the server
 - [x] Admin Dashboard in the web
-- [ ] Data validation in the server with [joi](https://joi.dev/api/)
+- [ ] Data validation in the server with [joi](https://joi.dev/api/) or [JSON Schema](https://simonplend.com/how-to-handle-request-validation-in-your-express-api/)
 - [ ] More test cases for server and snapshot testing for web w/ [Jest](https://jestjs.io/)
 - [ ] [Storybook](https://storybook.js.org/) for web
 
