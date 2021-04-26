@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 
 import "./assets/less/App.less";
-import "./assets/scss/style.scss";
+import "./assets/css/style.css";
 
 import AppRoutes from "./routes";
 
