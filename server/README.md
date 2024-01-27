@@ -1,49 +1,38 @@
 # Server
 
-> Feathers Server for the Starter Kit
+> Feathers Server
 
 ## About
 
-This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications and REST APIs.
+This project uses [Feathers](http://feathersjs.com). An open source framework for building APIs and real-time applications.
 
 ## Getting Started
 
-Getting up and running is simple.
+1. Make sure you have [NodeJS](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+2. Install your dependencies
 
-1. Make sure you have [NodeJS](https://nodejs.org/), [npm](https://www.npmjs.com/) and [MongoDB](https://www.mongodb.com/) installed.
-2. Install your dependencies.
+    ```
+    cd path/to/terver
+    npm install
+    ```
 
-```bash
-cd path/to/server
-npm install
-```
+3. Start your app
 
-3.1 Start your server.
-
-```bash
-npm start
-```
-
-3.2 Start your server in development mode.
-
-```bash
-npm run dev
-```
+    ```
+    npm start
+    ```
 
 ## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
+Run `npm test` and all your tests in the `test/` directory will be run.
 
 ## Scaffolding
 
-Feathers has a powerful command line interface. Here are a few things it can do:
+This app comes with a powerful command line interface for Feathers. Here are a few things it can do:
 
-```bash
-npm install -g @feathersjs/cli          # Install Feathers CLI
-
-feathers generate service               # Generate a new Service
-feathers generate hook                  # Generate a new Hook
-feathers help                           # Show all commands
+```
+$ npx feathers help                           # Show all commands
+$ npx feathers generate service               # Generate a new Service
 ```
 
 ## Help

@@ -1,3 +1,17 @@
-const { Service } = require("feathers-mongoose");
+import { MongoDBService } from "@feathersjs/mongodb";
 
-exports.Users = class Users extends Service {};
+// By default calls the standard MongoDB adapter service methods but can be customized with your own functionality.
+export class UserService extends MongoDBService {}
+
+export const getOptions = (app) => {
+  return {
+    paginate: app.get("paginate"),
+    Model: app
+      .get("mongodbClient")
+      .then((db) => db.collection("users"))
+      .then((collection) => {
+        collection.createIndex({ email: 1 }, { unique: true });
+        return collection;
+      })
+  };
+};

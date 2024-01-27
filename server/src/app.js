@@ -1,63 +1,93 @@
-require("module-alias/register");
-require("localenv");
+import { feathers } from "@feathersjs/feathers";
+import configuration from "@feathersjs/configuration";
+import { koa, rest, bodyParser, errorHandler, parseAuthentication, cors } from "@feathersjs/koa";
+import socketio from "@feathersjs/socketio";
+import morgan from "koa-morgan";
+import { configurationValidator } from "./configuration.js";
+import { logCritical } from "./hooks/app.hooks.js";
+import { mongodb } from "./mongodb.js";
+import { authentication } from "./authentication/index.js";
+import { services } from "./services/index.js";
+import { channels } from "./channels/index.js";
+import integrations from "./integrations/index.js";
+import helpers from "./helpers/index.js";
+import automations from "./automations/index.js";
+import { logger } from "./utils/logger.js";
+import { notify } from "./utils/notifier.js";
 
-const dotenv = require("dotenv");
-dotenv.config();
+const app = koa(feathers());
+app.use(morgan("dev"));
 
-const path = require("path");
-const favicon = require("serve-favicon");
-const compress = require("compression");
-const helmet = require("helmet");
-const cors = require("cors");
-const logger = require("./utils/logger");
+// Attach logger
+app.logger = logger;
 
+// Attach webhook trigger
+app.notify = notify;
 
+// Load our app configuration (see config/ folder)
+app.configure(configuration(configurationValidator));
 
-const feathers = require("@feathersjs/feathers");
-const configuration = require("@feathersjs/configuration");
-const express = require("@feathersjs/express");
-const socketio = require("@feathersjs/socketio");
-
-const middleware = require("./middleware");
-const services = require("./services");
-const appHooks = require("./hooks/app/app.hooks");
-const channels = require("./channels/channels");
-
-const authentication = require("./auth/authentication");
-const mongoose = require("./mongoose");
-
-const app = express(feathers());
-
-// Load app configuration
-app.configure(configuration());
-// Enable security, CORS, compression, favicon and body parsing
-app.use(helmet());
+// Set up Koa middleware
 app.use(cors());
-app.use(compress());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(favicon(path.join(app.get("public"), "favicon.ico")));
-// Host the public folder
-app.use("/", express.static(app.get("public")));
+app.use(errorHandler());
+app.use(parseAuthentication());
+app.use(
+  bodyParser({
+    jsonLimit: "50mb"
+  })
+);
 
-// Set up Plugins and providers
-app.configure(express.rest());
-app.configure(socketio());
+// Custom Service/Middleware
+app.use(async (ctx, next) => {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  ctx.set("X-Response-Time", `${ms}ms`);
+});
 
-app.configure(mongoose);
+// Configure services and transports
+app.configure(rest());
+app.configure(
+  socketio({
+    cors: {
+      origin: app.get("origins")
+    }
+  })
+);
 
-// Configure other middleware (see `middleware/index.js`)
-app.configure(middleware);
+app.configure(mongodb);
+
+// Set up our service authentication (see `authentication/index.js`)
 app.configure(authentication);
+
+// Set up our helpers (see `helpers/index.js`)
+app.configure(helpers);
+
+// Set up our integrations (see `integrations/index.js`)
+app.configure(integrations);
+
 // Set up our services (see `services/index.js`)
 app.configure(services);
-// Set up event channels (see channels.js)
+
+// Set up event channels (see `channels/index.js`)
 app.configure(channels);
 
-// Configure a middleware for 404s and the error handler
-app.use(express.notFound({ verbose: true }));
-app.use(express.errorHandler({ logger }));
+// Set up event automations (see` automations/index.js`)
+app.configure(automations);
 
-app.hooks(appHooks);
+// Register hooks that run on all service methods
+app.hooks({
+  around: {
+    all: [logCritical]
+  },
+  before: {},
+  after: {},
+  error: {}
+});
+// Register application setup and teardown hooks here
+app.hooks({
+  setup: [],
+  teardown: []
+});
 
-module.exports = app;
+export { app };

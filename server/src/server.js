@@ -1,18 +1,24 @@
-/* eslint-disable no-console */
-const logger = require("./utils/logger");
-const timeStamp = require("./utils");
-const app = require("./app");
+import util from "util";
+import { app } from "./app.js";
+
 const port = app.get("port");
-const server = app.listen(port);
+const host = app.get("host");
 
+process.on("unhandledRejection", (reason, promise) => {
+  app.logger.error(
+    `server: unhandled rejection at: ${util.inspect(promise)} reason: ${util.inspect(reason)}`
+  );
+  app.notify.error(
+    `server: unhandled rejection at: ${util.inspect(promise)} reason: ${util.inspect(reason)}`
+  );
+});
 
+process.on("uncaughtException", (error) => {
+  app.logger.error(`server: uncaught exception: ${util.inspect(error)}`);
+  app.notify.error(`server: uncaught exception: ${util.inspect(error)}`);
+});
 
-process.on("unhandledRejection", (reason, p) =>
-  logger.error("Unhandled Rejection at: Promise ", p, reason)
-);
-
-server.on("listening", () =>
-  logger.info(`${timeStamp}: server running on http://%s:%d`,
-		app.get("host"), port
-  )
-);
+app.listen(port).then(() => {
+  app.logger.info(`Started server: ${String(process.env.NODE_ENV).toUpperCase()}`);
+  app.logger.info(`${String(process.env.NODE_ENV).toUpperCase()} server listening on ${host}:${port}`);
+});

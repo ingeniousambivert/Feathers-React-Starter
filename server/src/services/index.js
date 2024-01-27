@@ -1,10 +1,10 @@
-const users = require("./users/users.service.js");
-const mailer = require("./mailer/mailer.service.js");
-const authmanagement = require("./authmanagement/authmanagement.service.js");
+import { storage } from "./storage/storage.js";
+import { userManagement } from "./user-management/user-management.js";
+import { user } from "./users/users.js";
 
-module.exports = function (app) {
-  app.configure(users);
-
-  app.configure(mailer);
-  app.configure(authmanagement);
+export const services = (app) => {
+  // All services will be registered here
+  app.configure(storage);
+  app.configure(userManagement);
+  app.configure(user);
 };
